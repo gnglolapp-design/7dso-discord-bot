@@ -1,175 +1,75 @@
-from __future__ import annotations
-
-import json
+﻿import json
 from pathlib import Path
-from typing import Any
 
+ROOT = Path(__file__).resolve().parents[1]
 
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    if not path.exists():
+# Le workflow écrit dans --out scrape-data
+SCRAPE_OUT = ROOT / "scrape-data"
+OUT = ROOT / "data"
+OUT.mkdir(exist_ok=True)
+
+def read_json(p: Path):
+    if not p.exists():
         return []
-    rows: list[dict[str, Any]] = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        rows.append(json.loads(line))
-    return rows
+    return json.loads(p.read_text(encoding="utf-8"))
 
+def find_input(filename: str) -> Path | None:
+    # Cherche n'importe où dans scrape-data (canonical / merged / export etc.)
+    hits = list(SCRAPE_OUT.rglob(filename))
+    if hits:
+        return hits[0]
+    # fallback: cherche "contains"
+    hits = list(SCRAPE_OUT.rglob(f"*{filename}*"))
+    return hits[0] if hits else None
 
-def write_json(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+def fallback_name(e: dict) -> str | None:
+    # Plusieurs formats: e.name, e.data.name, e.sources[0].name
+    if isinstance(e.get("name"), str) and e["name"].strip():
+        return e["name"].strip()
+    data = e.get("data") or e.get("attributes") or {}
+    if isinstance(data.get("name"), str) and data["name"].strip():
+        return data["name"].strip()
+    sources = e.get("sources") or []
+    for s in sources:
+        n = s.get("name")
+        if isinstance(n, str) and n.strip():
+            return n.strip()
+    return None
 
+def normalize_entity(e: dict) -> dict:
+    data = e.get("data") or e.get("attributes") or {}
+    out = {}
+    # garde tout ce qui est déjà structuré
+    if isinstance(data, dict):
+        out.update(data)
+    # champs top-level
+    out["id"] = e.get("id") or out.get("id")
+    out["name"] = fallback_name(e) or out.get("name")
+    # fallback image/description
+    if not out.get("description"):
+        out["description"] = e.get("description") or out.get("description")
+    if not out.get("image"):
+        out["image"] = e.get("image") or out.get("image")
+    # sources toujours conservées
+    out["sources"] = e.get("sources") or out.get("sources") or []
+    return out
 
-def lower(s: Any) -> str:
-    return str(s or "").strip().lower()
+def build(in_name: str, out_name: str):
+    inp = find_input(in_name)
+    if not inp:
+        print(f"[WARN] input introuvable: {in_name}")
+        (OUT / out_name).write_text("[]", encoding="utf-8")
+        return
+    raw = read_json(inp)
+    cleaned = [normalize_entity(e) for e in raw]
+    (OUT / out_name).write_text(json.dumps(cleaned, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"Built {out_name}: {len(cleaned)} (from {inp})")
 
-
-def group_resources(resources: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
-    buckets = {
-        "familiers": [],
-        "peche": [],
-        "objet": [],
-        "nourriture": [],
-    }
-    for item in resources:
-        kind = lower(item.get("subtype") or item.get("name") or item.get("category"))
-        source_type = lower(item.get("type"))
-        if "pet" in kind or "fam" in kind or "pet" in source_type:
-            buckets["familiers"].append(item)
-        elif "fish" in kind or "pêch" in kind or "pech" in kind or "fishing" in source_type:
-            buckets["peche"].append(item)
-        elif "food" in kind or "plat" in kind or "nour" in kind:
-            buckets["nourriture"].append(item)
-        else:
-            buckets["objet"].append(item)
-    return buckets
-
-
-def build_characters(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    out = []
-    for row in records:
-        if row.get("entity_type") != "character":
-            continue
-        attrs = row.get("attributes", {})
-        profiles = attrs.get("weapon_profiles", [])
-        out.append({
-            "id": row.get("canonical_id") or row.get("id"),
-            "name": attrs.get("name") or row.get("title") or row.get("canonical_name"),
-            "description": attrs.get("description"),
-            "image": attrs.get("image"),
-            "element": attrs.get("element"),
-            "element_icon": attrs.get("element_icon"),
-            "weapon_types": attrs.get("weapon_types", []),
-            "base_stats": attrs.get("base_stats", {}),
-            "aliases": attrs.get("aliases", []),
-            "sources": row.get("sources", []),
-            "weapon_profiles": profiles,
-        })
-    return sorted(out, key=lambda x: lower(x.get("name")))
-
-
-def safe_id(value: Any) -> str:
-    s = str(value or "").strip()
-    if not s:
-        return "unknown"
-    return "".join(ch for ch in s if ch.isalnum() or ch in "-_ ").strip().replace(" ", "-")
-
-
-def split_entities(
-    *,
-    out_dir: Path,
-    entity_name: str,
-    items: list[dict[str, Any]],
-    index_fields: list[str],
-) -> None:
-    """Write index + per-id json to reduce bot CPU."""
-
-    by_id_dir = out_dir / entity_name / "by-id"
-    index_path = out_dir / entity_name / "index.json"
-
-    index_rows: list[dict[str, Any]] = []
-    for it in items:
-        _id = safe_id(it.get("id") or it.get("name"))
-        it = dict(it)
-        it["id"] = _id
-
-        write_json(by_id_dir / f"{_id}.json", it)
-
-        row = {"id": _id}
-        for f in index_fields:
-            row[f] = it.get(f)
-        index_rows.append(row)
-
-    write_json(index_path, sorted(index_rows, key=lambda x: lower(x.get("name"))))
-
-
-def build_simple(records: list[dict[str, Any]], entity_type: str, output_name: str) -> list[dict[str, Any]]:
-    out = []
-    for row in records:
-        if row.get("entity_type") != entity_type:
-            continue
-        attrs = row.get("attributes", {})
-        payload = {
-            "id": row.get("canonical_id") or row.get("id"),
-            "name": attrs.get("name") or row.get("title") or row.get("canonical_name"),
-            "description": attrs.get("description"),
-            "image": attrs.get("image"),
-            "sources": row.get("sources", []),
-        }
-        payload.update(attrs)
-        out.append(payload)
-    return sorted(out, key=lambda x: lower(x.get("name")))
-
-
-def main() -> int:
-    canonical_dir = Path("scrape-data/canonical")
-    docs_data = Path("docs/data")
-
-    all_records = read_jsonl(canonical_dir / "all.jsonl")
-    resources = build_simple(all_records, "resource_collection", "resources")
-    resource_buckets = group_resources(resources)
-
-    characters = build_characters(all_records)
-    weapons = build_simple(all_records, "weapon", "weapons")
-
-    write_json(docs_data / "characters.json", characters)
-    write_json(docs_data / "weapons.json", weapons)
-    write_json(docs_data / "banners.json", build_simple(all_records, "banner", "banners"))
-    write_json(docs_data / "bosses.json", build_simple(all_records, "boss", "bosses"))
-    write_json(docs_data / "guides.json", build_simple(all_records, "guide", "guides"))
-    write_json(docs_data / "team_comps.json", build_simple(all_records, "team_comp", "team_comps"))
-    write_json(docs_data / "resources.json", resources)
-    write_json(docs_data / "familiers.json", resource_buckets["familiers"])
-    write_json(docs_data / "peche.json", resource_buckets["peche"])
-    write_json(docs_data / "objets.json", resource_buckets["objet"])
-    write_json(docs_data / "nourriture.json", resource_buckets["nourriture"])
-
-    coverage_src = canonical_dir / "coverage_report.json"
-    if coverage_src.exists():
-        write_json(docs_data / "coverage_report.json", json.loads(coverage_src.read_text(encoding="utf-8")))
-    else:
-        write_json(docs_data / "coverage_report.json", {"warning": "coverage_report.json absent"})
-
-    # Split large datasets into index + per-id files for the Discord bot.
-    split_entities(
-        out_dir=docs_data,
-        entity_name="characters",
-        items=characters,
-        index_fields=["name", "element", "image", "weapon_types"],
-    )
-    split_entities(
-        out_dir=docs_data,
-        entity_name="weapons",
-        items=weapons,
-        index_fields=["name", "type", "rarity", "image"],
-    )
-
-    return 0
-
-
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+# Noms attendus côté bot / GitHub pages
+build("characters.json", "characters.json")
+build("weapons.json", "weapons.json")
+build("banners.json", "banners.json")
+build("bosses.json", "bosses.json")
+build("guides.json", "guides.json")
+build("team_comps.json", "team_comps.json")
+build("resources.json", "resources.json")
