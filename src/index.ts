@@ -1,25 +1,31 @@
-﻿function uniqueOptions<T extends { value: string }>(options: T[]): T[] {
-  const seen = new Set<string>();
-  return options.filter((o) => {
-    if (!o.value) return false;
-    if (seen.has(o.value)) return false;
-    seen.add(o.value);
-    return true;
-  });
-}
-import nacl from "tweetnacl";
-
-interface Env {
-  DISCORD_PUBLIC_KEY: string;
-  DISCORD_APPLICATION_ID?: string;
-  DISCORD_TOKEN?: string;
-  DATA_BASE_URL: string;
-  BOT_BRAND: string;
-  MAP_URL: string;
-}
-
 type JsonRecord = Record<string, any>;
 
+
+
+function uniqueOptionValue(raw: unknown, index: number): string {
+  const base = String(raw ?? "value").slice(0, 80);
+  const suffix = String(index).slice(0, 18);
+  return `${base}:${suffix}`.slice(0, 100);
+}
+
+function uniqueOptions(options: any[]): any[] {
+  const seen = new Set<string>();
+  const out: any[] = [];
+  for (let i = 0; i < (options || []).length; i += 1) {
+    const opt = options[i];
+    const v0 = opt?.value;
+    let v = String(v0 ?? "");
+    if (!v || seen.has(v)) {
+      v = uniqueOptionValue(opt?.label ?? opt?.name ?? "option", i);
+    }
+    if (seen.has(v)) {
+      v = uniqueOptionValue(v, i);
+    }
+    seen.add(v);
+    out.push({ ...opt, value: v });
+  }
+  return out;
+}
 const cacheStore = new Map<string, { expiresAt: number; data: any }>();
 const TTL_MS = 10 * 60 * 1000;
 
@@ -100,7 +106,7 @@ function selectMenu(custom_id: string, placeholder: string, options: { label: st
     placeholder,
     min_values: 1,
     max_values: 1,
-    options: options.slice(0, 25),
+    options: uniqueOptions(options).slice(0, 25),
   };
 }
 
@@ -286,8 +292,8 @@ async function payloadPersoMenu(env: Env, page = 0): Promise<JsonRecord> {
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:perso:${safePage}`, "SÃ©lectionner un personnage", options)]),
     actionRow([
-      button(`selpage:perso:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
-      button(`selpage:perso:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button(`selpage:perso:prev:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
+      button(`selpage:perso:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
 
@@ -375,8 +381,8 @@ async function payloadWeaponsFlatMenu(env: Env, page = 0): Promise<JsonRecord> {
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:weaponflat:${safePage}`, "Choisir une arme", options)]),
     actionRow([
-      button(`selpage:weaponflat:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
-      button(`selpage:weaponflat:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button(`selpage:weaponflat:prev:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
+      button(`selpage:weaponflat:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
 
@@ -399,8 +405,8 @@ async function payloadWeaponsOfType(env: Env, type: string, page = 0): Promise<J
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:weapon:${type}:${safePage}`, "Choisir une arme", options)]),
     actionRow([
-      button(`selpage:weapon:${type}:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
-      button(`selpage:weapon:${type}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button(`selpage:weapon:${type}:prev:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
+      button(`selpage:weapon:${type}:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
       button("armes:backtypes", "Retour types", false, 2),
     ]),
   ];
@@ -455,8 +461,8 @@ async function payloadBanners(env: Env, page = 0): Promise<JsonRecord> {
 
   const components: JsonRecord[] = [
     actionRow([
-      button(`page:banners:${Math.max(safe - 1, 0)}`, "PrÃ©cÃ©dent", safe <= 0),
-      button(`page:banners:${Math.min(safe + 1, totalPages - 1)}`, "Suivant", safe >= totalPages - 1),
+      button(`page:banners:prev:${Math.max(safe - 1, 0)}`, "PrÃ©cÃ©dent", safe <= 0),
+      button(`page:banners:next:${Math.min(safe + 1, totalPages - 1)}`, "Suivant", safe >= totalPages - 1),
     ]),
   ];
 
@@ -480,8 +486,8 @@ async function payloadBossMenu(env: Env, page = 0): Promise<JsonRecord> {
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:boss:${safePage}`, "SÃ©lectionner un boss", options)]),
     actionRow([
-      button(`selpage:boss:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
-      button(`selpage:boss:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button(`selpage:boss:prev:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
+      button(`selpage:boss:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
 
@@ -540,8 +546,8 @@ async function payloadGuidesInCategory(env: Env, category: string, page = 0): Pr
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:guide:${category}:${safePage}`, "Choisir un guide", options)]),
     actionRow([
-      button(`selpage:guide:${category}:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
-      button(`selpage:guide:${category}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button(`selpage:guide:${category}:prev:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
+      button(`selpage:guide:${category}:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
       button("guides:backcat", "Retour catÃ©gories", false, 2),
     ]),
   ];
@@ -723,7 +729,9 @@ async function processComponent(env: Env, interaction: JsonRecord): Promise<void
 
     // banners pager
     if (!payload && cid.startsWith("page:")) {
-      const [, kind, pageStr] = cid.split(":");
+      const parts = cid.split(":");
+      const kind = parts[1];
+      const pageStr = parts[3] || parts[2] || "0";
       if (kind === "banners") payload = await payloadBanners(env, Number(pageStr || "0"));
     }
 
@@ -770,6 +778,7 @@ export default {
     return json({ type: 4, data: { content: "Type interaction non gÃ©rÃ©.", flags: 64 } });
   },
 };
+
 
 
 
