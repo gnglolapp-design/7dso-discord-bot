@@ -1,14 +1,46 @@
 from __future__ import annotations
 
-import json
+"""
+Build Discord-bot friendly JSON in docs/data/ from the scraper canonical export.
+
+Why:
+- The scraper emits canonical entities in JSONL. Some canonical fields may be missing (name/id/image/etc.).
+- Discord menus require stable unique option values; we generate a stable `id` and ensure `name` is filled.
+- We fail HARD if canonical input is missing/empty so CI won't silently publish empty [].
+
+Output files (docs/data):
+- characters.json, weapons.json, banners.json, bosses.json, guides.json, team_comps.json
+- resources.json, familiers.json, peche.json, objets.json, nourriture.json
+- coverage_report.json (copied if present)
+"""
+
+import os
 from pathlib import Path
-from typing import Any
+from urllib.parse import urlparse
+import json
+import re
+from typing import Any, Iterable
+
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT_DIR = ROOT / "docs" / "data"
+
+# Candidate locations for canonical export.
+CANON_DIR_CANDIDATES = [
+    ROOT / "scrape-data" / "canonical",
+    ROOT / "scraper" / "scrape-data" / "canonical",
+    ROOT / ".cache" / "scrape-data" / "canonical",
+]
+
+
+def ensure_dir(p: Path) -> None:
+    p.mkdir(parents=True, exist_ok=True)
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    if not path.exists():
-        return []
     rows: list[dict[str, Any]] = []
+    if not path.exists():
+        return rows
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if not line:
@@ -17,220 +49,309 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def find_canon_dir() -> Path:
+    # Optional override
+    override = (os.environ.get("SCRAPE_CANON_DIR") or "").strip()
+    if override:
+        p = Path(override).expanduser().resolve()
+        if p.exists():
+            return p
+
+    for cand in CANON_DIR_CANDIDATES:
+        if (cand / "all.jsonl").exists():
+            return cand
+    # As a last resort, accept any existing canonical dir
+    for cand in CANON_DIR_CANDIDATES:
+        if cand.exists():
+            return cand
+    raise SystemExit(
+        "Canonical export not found. Expected one of:\n"
+        + "\n".join(str(c) for c in CANON_DIR_CANDIDATES)
+        + "\nCI should run the scraper before build_bot_data.py."
+    )
+
+
 def write_json(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    ensure_dir(path.parent)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def lower(s: Any) -> str:
-    return str(s or "").strip().lower()
+def lower(x: Any) -> str:
+    return str(x or "").strip().lower()
+
+
+def pick(d: dict[str, Any], *keys: str) -> Any:
+    for k in keys:
+        v = d.get(k)
+        if v is not None and v != "" and v != [] and v != {}:
+            return v
+    return None
 
 
 def first_source(row: dict[str, Any]) -> dict[str, Any]:
     sources = row.get("sources") or []
-    return sources[0] if sources else {}
+    return sources[0] if isinstance(sources, list) and sources else {}
+
 
 def slug_from_url(url: Any) -> str | None:
     s = str(url or "").strip()
     if not s:
         return None
-    s = s.split("?", 1)[0].split("#", 1)[0].rstrip("/")
-    if "/" in s:
-        return s.rsplit("/", 1)[-1] or None
-    return s or None
+    try:
+        p = urlparse(s)
+        path = p.path.strip("/")
+        if not path:
+            return None
+        return path.split("/")[-1]
+    except Exception:
+        return None
 
-def pick(attrs: dict[str, Any], *keys: str) -> Any:
-    for k in keys:
-        if k in attrs and attrs.get(k) not in (None, "", [], {}):
-            return attrs.get(k)
+
+def entity_type(row: dict[str, Any]) -> str:
+    return (
+        str(row.get("entity_type") or row.get("type") or row.get("kind") or row.get("entityType") or "")
+        .strip()
+    )
+
+
+def attrs_of(row: dict[str, Any]) -> dict[str, Any]:
+    a = row.get("attributes")
+    if isinstance(a, dict):
+        return a
+    a = row.get("attrs")
+    if isinstance(a, dict):
+        return a
+    a = row.get("data")
+    if isinstance(a, dict):
+        return a
+    return {}
+
+
+def stable_name_id(row: dict[str, Any]) -> tuple[str, str]:
+    attrs = attrs_of(row)
+    src0 = first_source(row)
+
+    name = (
+        pick(attrs, "name", "title", "display_name", "displayName")
+        or row.get("canonical_name")
+        or row.get("name")
+        or src0.get("name")
+        or "Unknown"
+    )
+    name = str(name).strip() or "Unknown"
+
+    _id = (
+        row.get("canonical_id")
+        or row.get("id")
+        or pick(attrs, "id", "slug", "key")
+        or slug_from_url(src0.get("source_url"))
+        or re.sub(r"[^a-z0-9]+", "-", lower(name)).strip("-")
+    )
+    _id = str(_id).strip() or re.sub(r"[^a-z0-9]+", "-", lower(name)).strip("-") or "unknown"
+    return name, _id
+
+
+def build_simple(all_records: list[dict[str, Any]], typ: str) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for row in all_records:
+        if entity_type(row) != typ:
+            continue
+        attrs = attrs_of(row)
+        name, _id = stable_name_id(row)
+        src0 = first_source(row)
+        payload: dict[str, Any] = {
+            "id": _id,
+            "name": name,
+            "description": pick(attrs, "description", "summary", "text", "content") or row.get("description"),
+            "image": pick(attrs, "image", "image_url", "imageUrl", "portrait", "icon", "thumbnail", "cover"),
+            "sources": row.get("sources", []),
+        }
+        # Keep everything we have for forward-compat (stats, type, rarity, etc.)
+        if isinstance(attrs, dict):
+            for k, v in attrs.items():
+                if k not in payload:
+                    payload[k] = v
+        # Extra: store a usable "url" (non-mandatory)
+        payload["url"] = pick(attrs, "url", "source_url") or src0.get("source_url")
+        out.append(payload)
+    return out
+
+
+def extract_character_slug_from_sources(row: dict[str, Any]) -> str | None:
+    for src in row.get("sources") or []:
+        u = str(src.get("source_url") or "")
+        m = re.search(r"/characters/([^/?#]+)", u)
+        if m:
+            return m.group(1)
     return None
 
 
-def group_resources(resources: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
-    buckets = {
-        "familiers": [],
-        "peche": [],
-        "objet": [],
-        "nourriture": [],
-    }
-    for item in resources:
-        kind = lower(item.get("subtype") or item.get("name") or item.get("category"))
-        source_type = lower(item.get("type"))
-        if "pet" in kind or "fam" in kind or "pet" in source_type:
-            buckets["familiers"].append(item)
-        elif "fish" in kind or "pêch" in kind or "pech" in kind or "fishing" in source_type:
-            buckets["peche"].append(item)
-        elif "food" in kind or "plat" in kind or "nour" in kind:
-            buckets["nourriture"].append(item)
-        else:
-            buckets["objet"].append(item)
-    return buckets
+def build_characters(all_records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    # Index profiles and costumes by character slug/id
+    profiles_by_char: dict[str, list[dict[str, Any]]] = {}
+    costumes_by_char: dict[str, list[dict[str, Any]]] = {}
 
+    for row in all_records:
+        t = entity_type(row)
+        if t == "character_weapon_profile":
+            attrs = attrs_of(row)
+            src0 = first_source(row)
+            char_key = (
+                row.get("character_id")
+                or row.get("parent_id")
+                or pick(attrs, "character_id", "characterId", "character", "character_slug", "characterSlug")
+                or extract_character_slug_from_sources(row)
+            )
+            if not char_key:
+                # Try parse from url like .../characters/<slug>...
+                u = str(src0.get("source_url") or "")
+                m = re.search(r"/characters/([^/?#]+)", u)
+                char_key = m.group(1) if m else None
+            if not char_key:
+                continue
+            name, _id = stable_name_id(row)
+            payload = {
+                "id": row.get("canonical_id") or row.get("id") or _id,
+                "weapon_type": pick(attrs, "weapon_type", "weaponType", "weapon") or None,
+                "weapon_type_icon": pick(attrs, "weapon_type_icon", "weaponTypeIcon", "weapon_icon", "weaponIcon"),
+                "skills": attrs.get("skills") if isinstance(attrs.get("skills"), list) else [],
+                "potentials": attrs.get("potentials") if isinstance(attrs.get("potentials"), list) else [],
+                "sources": row.get("sources", []),
+            }
+            profiles_by_char.setdefault(str(char_key), []).append(payload)
 
-def build_characters(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        elif t == "costume":
+            attrs = attrs_of(row)
+            src0 = first_source(row)
+            char_key = (
+                row.get("character_id")
+                or row.get("parent_id")
+                or pick(attrs, "character_id", "characterId", "character", "character_slug", "characterSlug")
+                or extract_character_slug_from_sources(row)
+            )
+            if not char_key:
+                u = str(src0.get("source_url") or "")
+                m = re.search(r"/characters/([^/?#]+)", u)
+                char_key = m.group(1) if m else None
+            if not char_key:
+                continue
+            name, _id = stable_name_id(row)
+            payload = {
+                "id": row.get("canonical_id") or row.get("id") or _id,
+                "name": name,
+                "image": pick(attrs, "image", "image_url", "imageUrl", "thumbnail", "icon"),
+                "description": pick(attrs, "description", "summary"),
+                "sources": row.get("sources", []),
+            }
+            costumes_by_char.setdefault(str(char_key), []).append(payload)
+
+    # Build characters
     out: list[dict[str, Any]] = []
-    for row in records:
-        if row.get("entity_type") != "character":
+    for row in all_records:
+        if entity_type(row) != "character":
             continue
-        attrs = row.get("attributes", {}) or {}
-        src0 = first_source(row)
-        profiles = attrs.get("weapon_profiles", []) or []
-
-        name = (
-            pick(attrs, "name", "character_name", "display_name")
-            or row.get("title")
-            or row.get("canonical_name")
-            or src0.get("name")
-        )
-        _id = row.get("canonical_id") or row.get("id") or slug_from_url(src0.get("source_url")) or name
-
-        image = pick(attrs, "image", "image_url", "portrait", "icon", "thumbnail", "cover")
-        description = pick(attrs, "description", "summary", "lore")
-        element = pick(attrs, "element", "attribute", "type")
-        element_icon = pick(attrs, "element_icon", "elementIcon", "element_image", "element_image_url", "element_url")
-        weapon_types = pick(attrs, "weapon_types", "weaponTypes", "weapons") or []
-        base_stats = pick(attrs, "base_stats", "baseStats", "stats", "base") or {}
-        aliases = pick(attrs, "aliases", "alias") or []
-
-        out.append({
-            "id": _id,
-            "name": name,
-            "description": description,
-            "image": image,
-            "element": element,
-            "element_icon": element_icon,
-            "weapon_types": weapon_types,
-            "base_stats": base_stats,
-            "aliases": aliases,
-            "sources": row.get("sources", []),
-            "weapon_profiles": profiles,
-        })
-    return sorted(out, key=lambda x: lower(x.get("name")))
-
-
-def safe_id(value: Any) -> str:
-    s = str(value or "").strip()
-    if not s:
-        return "unknown"
-    return "".join(ch for ch in s if ch.isalnum() or ch in "-_ ").strip().replace(" ", "-")
-
-
-def split_entities(
-    *,
-    out_dir: Path,
-    entity_name: str,
-    items: list[dict[str, Any]],
-    index_fields: list[str],
-) -> None:
-    """Write index + per-id json to reduce bot CPU."""
-
-    by_id_dir = out_dir / entity_name / "by-id"
-    index_path = out_dir / entity_name / "index.json"
-
-    index_rows: list[dict[str, Any]] = []
-    for it in items:
-        _id = safe_id(it.get("id") or it.get("name"))
-        it = dict(it)
-        it["id"] = _id
-
-        write_json(by_id_dir / f"{_id}.json", it)
-
-        row = {"id": _id}
-        for f in index_fields:
-            row[f] = it.get(f)
-        index_rows.append(row)
-
-    write_json(index_path, sorted(index_rows, key=lambda x: lower(x.get("name"))))
-
-
-def build_simple(records: list[dict[str, Any]], entity_type: str, output_name: str) -> list[dict[str, Any]]:
-    out: list[dict[str, Any]] = []
-    for row in records:
-        if row.get("entity_type") != entity_type:
-            continue
-        attrs = row.get("attributes", {}) or {}
+        attrs = attrs_of(row)
+        name, _id = stable_name_id(row)
         src0 = first_source(row)
 
-        name = (
-            pick(attrs, "name", "display_name", "title")
-            or row.get("title")
-            or row.get("canonical_name")
-            or src0.get("name")
+        slug = (
+            pick(attrs, "slug", "key")
+            or extract_character_slug_from_sources(row)
+            or slug_from_url(src0.get("source_url"))
+            or _id
         )
-        _id = row.get("canonical_id") or row.get("id") or slug_from_url(src0.get("source_url")) or name
+        slug = str(slug)
 
         payload: dict[str, Any] = {
             "id": _id,
             "name": name,
             "description": pick(attrs, "description", "summary", "text"),
-            "image": pick(attrs, "image", "image_url", "icon", "thumbnail", "cover"),
+            "image": pick(attrs, "image", "image_url", "imageUrl", "portrait", "thumbnail"),
+            "element": pick(attrs, "element", "element_type", "elementType"),
+            "element_icon": pick(attrs, "element_icon", "elementIcon"),
+            "weapon_types": attrs.get("weapon_types") if isinstance(attrs.get("weapon_types"), list) else [],
+            "base_stats": attrs.get("base_stats") if isinstance(attrs.get("base_stats"), dict) else {},
+            "aliases": attrs.get("aliases") if isinstance(attrs.get("aliases"), list) else [],
             "sources": row.get("sources", []),
+            "weapon_profiles": profiles_by_char.get(slug, []) or profiles_by_char.get(_id, []),
+            "costumes": costumes_by_char.get(slug, []) or costumes_by_char.get(_id, []),
         }
-        # keep all attrs for forward-compat (stats, type, rarity, etc.)
-        payload.update(attrs)
 
-        # ensure minimal fields exist even if attrs overwrote with None
-        if not payload.get("id"):
-            payload["id"] = _id
-        if not payload.get("name"):
-            payload["name"] = name
-        if payload.get("description") in ("", []):
-            payload["description"] = None
-        if payload.get("image") in ("", []):
-            payload["image"] = None
+        # forward-compat
+        if isinstance(attrs, dict):
+            for k, v in attrs.items():
+                if k not in payload:
+                    payload[k] = v
 
+        payload["url"] = pick(attrs, "url", "source_url") or src0.get("source_url")
         out.append(payload)
 
-    return sorted(out, key=lambda x: lower(x.get("name")))
+    return out
 
 
-def main() -> int:
-    canonical_dir = Path("scrape-data/canonical")
-    docs_data = Path("docs/data")
+def group_resources(resources: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    buckets = {"familiers": [], "peche": [], "objets": [], "nourriture": []}
+    for item in resources:
+        # Try to normalize to those buckets
+        kind = lower(item.get("subtype") or item.get("category") or item.get("name"))
+        if "companion" in kind or "pet" in kind or "familier" in kind:
+            buckets["familiers"].append(item)
+        elif "fish" in kind or "fishing" in kind or "peche" in kind:
+            buckets["peche"].append(item)
+        elif "food" in kind or "nourrit" in kind:
+            buckets["nourriture"].append(item)
+        elif "item" in kind or "objet" in kind:
+            buckets["objets"].append(item)
+    return buckets
 
-    all_records = read_jsonl(canonical_dir / "all.jsonl")
-    resources = build_simple(all_records, "resource_collection", "resources")
+
+def main() -> None:
+    ensure_dir(OUT_DIR)
+
+    canon_dir = find_canon_dir()
+    all_path = canon_dir / "all.jsonl"
+    all_records = read_jsonl(all_path)
+
+    if not all_records:
+        raise SystemExit(f"Canonical input is empty: {all_path} (did the scraper run?)")
+
+    # Build datasets
+    resources = build_simple(all_records, "resource_collection")
     resource_buckets = group_resources(resources)
 
     characters = build_characters(all_records)
-    weapons = build_simple(all_records, "weapon", "weapons")
+    weapons = build_simple(all_records, "weapon")
+    banners = build_simple(all_records, "banner")
+    bosses = build_simple(all_records, "boss")
+    guides = build_simple(all_records, "guide")
+    team_comps = build_simple(all_records, "team_comp")
 
-    write_json(docs_data / "characters.json", characters)
-    write_json(docs_data / "weapons.json", weapons)
-    write_json(docs_data / "banners.json", build_simple(all_records, "banner", "banners"))
-    write_json(docs_data / "bosses.json", build_simple(all_records, "boss", "bosses"))
-    write_json(docs_data / "guides.json", build_simple(all_records, "guide", "guides"))
-    write_json(docs_data / "team_comps.json", build_simple(all_records, "team_comp", "team_comps"))
-    write_json(docs_data / "resources.json", resources)
-    write_json(docs_data / "familiers.json", resource_buckets["familiers"])
-    write_json(docs_data / "peche.json", resource_buckets["peche"])
-    write_json(docs_data / "objets.json", resource_buckets["objet"])
-    write_json(docs_data / "nourriture.json", resource_buckets["nourriture"])
+    # Write outputs
+    write_json(OUT_DIR / "characters.json", characters)
+    write_json(OUT_DIR / "weapons.json", weapons)
+    write_json(OUT_DIR / "banners.json", banners)
+    write_json(OUT_DIR / "bosses.json", bosses)
+    write_json(OUT_DIR / "guides.json", guides)
+    write_json(OUT_DIR / "team_comps.json", team_comps)
+    write_json(OUT_DIR / "resources.json", resources)
+    write_json(OUT_DIR / "familiers.json", resource_buckets["familiers"])
+    write_json(OUT_DIR / "peche.json", resource_buckets["peche"])
+    write_json(OUT_DIR / "objets.json", resource_buckets["objets"])
+    write_json(OUT_DIR / "nourriture.json", resource_buckets["nourriture"])
 
-    coverage_src = canonical_dir / "coverage_report.json"
+    coverage_src = canon_dir / "coverage_report.json"
     if coverage_src.exists():
-        write_json(docs_data / "coverage_report.json", json.loads(coverage_src.read_text(encoding="utf-8")))
-    else:
-        write_json(docs_data / "coverage_report.json", {"warning": "coverage_report.json absent"})
+        try:
+            write_json(OUT_DIR / "coverage_report.json", json.loads(coverage_src.read_text(encoding="utf-8")))
+        except Exception:
+            # Don't fail build for coverage parse, but write a minimal marker
+            write_json(OUT_DIR / "coverage_report.json", {"error": "failed to parse coverage_report.json"})
 
-    # Split large datasets into index + per-id files for the Discord bot.
-    split_entities(
-        out_dir=docs_data,
-        entity_name="characters",
-        items=characters,
-        index_fields=["name", "element", "image", "weapon_types"],
-    )
-    split_entities(
-        out_dir=docs_data,
-        entity_name="weapons",
-        items=weapons,
-        index_fields=["name", "type", "rarity", "image"],
-    )
-
-    return 0
-
-
+    # Minimal console summary (useful in Actions logs)
+    print(f"[build_bot_data] canon_dir={canon_dir}")
+    print(f"[build_bot_data] characters={len(characters)} weapons={len(weapons)} guides={len(guides)} team_comps={len(team_comps)} resources={len(resources)}")
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    import os
+    main()
