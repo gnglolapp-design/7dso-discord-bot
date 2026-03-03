@@ -70,6 +70,41 @@ def build_characters(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return sorted(out, key=lambda x: lower(x.get("name")))
 
 
+def safe_id(value: Any) -> str:
+    s = str(value or "").strip()
+    if not s:
+        return "unknown"
+    return "".join(ch for ch in s if ch.isalnum() or ch in "-_ ").strip().replace(" ", "-")
+
+
+def split_entities(
+    *,
+    out_dir: Path,
+    entity_name: str,
+    items: list[dict[str, Any]],
+    index_fields: list[str],
+) -> None:
+    """Write index + per-id json to reduce bot CPU."""
+
+    by_id_dir = out_dir / entity_name / "by-id"
+    index_path = out_dir / entity_name / "index.json"
+
+    index_rows: list[dict[str, Any]] = []
+    for it in items:
+        _id = safe_id(it.get("id") or it.get("name"))
+        it = dict(it)
+        it["id"] = _id
+
+        write_json(by_id_dir / f"{_id}.json", it)
+
+        row = {"id": _id}
+        for f in index_fields:
+            row[f] = it.get(f)
+        index_rows.append(row)
+
+    write_json(index_path, sorted(index_rows, key=lambda x: lower(x.get("name"))))
+
+
 def build_simple(records: list[dict[str, Any]], entity_type: str, output_name: str) -> list[dict[str, Any]]:
     out = []
     for row in records:
@@ -96,8 +131,11 @@ def main() -> int:
     resources = build_simple(all_records, "resource_collection", "resources")
     resource_buckets = group_resources(resources)
 
-    write_json(docs_data / "characters.json", build_characters(all_records))
-    write_json(docs_data / "weapons.json", build_simple(all_records, "weapon", "weapons"))
+    characters = build_characters(all_records)
+    weapons = build_simple(all_records, "weapon", "weapons")
+
+    write_json(docs_data / "characters.json", characters)
+    write_json(docs_data / "weapons.json", weapons)
     write_json(docs_data / "banners.json", build_simple(all_records, "banner", "banners"))
     write_json(docs_data / "bosses.json", build_simple(all_records, "boss", "bosses"))
     write_json(docs_data / "guides.json", build_simple(all_records, "guide", "guides"))
@@ -114,7 +152,23 @@ def main() -> int:
     else:
         write_json(docs_data / "coverage_report.json", {"warning": "coverage_report.json absent"})
 
+    # Split large datasets into index + per-id files for the Discord bot.
+    split_entities(
+        out_dir=docs_data,
+        entity_name="characters",
+        items=characters,
+        index_fields=["name", "element", "image", "weapon_types"],
+    )
+    split_entities(
+        out_dir=docs_data,
+        entity_name="weapons",
+        items=weapons,
+        index_fields=["name", "type", "rarity", "image"],
+    )
+
     return 0
+
+
 
 
 if __name__ == "__main__":
