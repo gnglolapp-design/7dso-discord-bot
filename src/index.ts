@@ -1,3 +1,12 @@
+﻿function uniqueOptions(options: uniqueOptions(any)[]) {
+  const seen = new Set<string>();
+  return options.filter(o => {
+    if (!o.value) return false;
+    if (seen.has(o.value)) return false;
+    seen.add(o.value);
+    return true;
+  });
+}
 import nacl from "tweetnacl";
 
 interface Env {
@@ -91,7 +100,7 @@ function selectMenu(custom_id: string, placeholder: string, options: { label: st
     placeholder,
     min_values: 1,
     max_values: 1,
-    options: options.slice(0, 25),
+    options: uniqueOptions(options.slice)(0, 25),
   };
 }
 
@@ -105,7 +114,7 @@ function listEmbed(title: string, items: JsonRecord[], page: number, formatter: 
   const sliced = items.slice(start, start + LIST_PAGE_SIZE);
   return {
     title,
-    description: items.length ? `Page ${page + 1}/${totalPages} - ${items.length} résultat(s)` : "Aucun résultat.",
+    description: items.length ? `Page ${page + 1}/${totalPages} - ${items.length} rÃ©sultat(s)` : "Aucun rÃ©sultat.",
     fields: sliced.map(formatter).slice(0, 25),
   };
 }
@@ -186,12 +195,12 @@ function flattenSkills(profiles: any[]): string {
     const skills = profile.skills || [];
     lines.push(`**${weaponType}**`);
     if (!skills.length) {
-      lines.push("- (aucune compétence)");
+      lines.push("- (aucune compÃ©tence)");
       continue;
     }
     for (const s of skills.slice(0, 12)) {
       const kind = s.skill_type || s.kind || "type";
-      lines.push(`- ${s.name || "Compétence"} (${kind})`);
+      lines.push(`- ${s.name || "CompÃ©tence"} (${kind})`);
     }
   }
   return lines.join("\n");
@@ -225,7 +234,7 @@ function buildPersoEmbed(match: JsonRecord, tab: string): JsonRecord {
       ...base,
       description: "Statistiques",
       fields: [
-        { name: "Élément", value: text(match.element), inline: true },
+        { name: "Ã‰lÃ©ment", value: text(match.element), inline: true },
         { name: "Types d'armes", value: truncate(text(match.weapon_types)), inline: true },
         { name: "Stats de base", value: truncate(text(match.base_stats), 1024), inline: false },
       ],
@@ -250,7 +259,7 @@ function buildPersoEmbed(match: JsonRecord, tab: string): JsonRecord {
     ...base,
     description: truncate(match.description || "Aucune description.", 4096),
     fields: [
-      { name: "Élément", value: text(match.element), inline: true },
+      { name: "Ã‰lÃ©ment", value: text(match.element), inline: true },
       { name: "Types d'armes", value: truncate(text(match.weapon_types)), inline: true },
     ],
   };
@@ -270,14 +279,14 @@ async function payloadPersoMenu(env: Env, page = 0): Promise<JsonRecord> {
     return {
       label: (c.name || "Perso").slice(0, 100),
       value: makeIdxValue("p", idx),
-      description: c.element ? `Élément: ${c.element}` : undefined,
+      description: c.element ? `Ã‰lÃ©ment: ${c.element}` : undefined,
     };
   });
 
   const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:perso:${safePage}`, "Sélectionner un personnage", options)]),
+    actionRow([selectMenu(`sel:perso:${safePage}`, "SÃ©lectionner un personnage", options)]),
     actionRow([
-      button(`selpage:perso:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:perso:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
       button(`selpage:perso:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
@@ -366,7 +375,7 @@ async function payloadWeaponsFlatMenu(env: Env, page = 0): Promise<JsonRecord> {
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:weaponflat:${safePage}`, "Choisir une arme", options)]),
     actionRow([
-      button(`selpage:weaponflat:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:weaponflat:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
       button(`selpage:weaponflat:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
@@ -390,7 +399,7 @@ async function payloadWeaponsOfType(env: Env, type: string, page = 0): Promise<J
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:weapon:${type}:${safePage}`, "Choisir une arme", options)]),
     actionRow([
-      button(`selpage:weapon:${type}:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:weapon:${type}:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
       button(`selpage:weapon:${type}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
       button("armes:backtypes", "Retour types", false, 2),
     ]),
@@ -420,7 +429,7 @@ async function payloadWeaponCardFromSorted(env: Env, sorted: any[], idx: number)
     thumbnail: w.image ? { url: w.image } : undefined,
     fields: [
       { name: "Type", value: weaponTypeOf(w) || "Non disponible.", inline: true },
-      { name: "Rareté", value: text(w.rarity || w.star || w.rank || "Non disponible."), inline: true },
+      { name: "RaretÃ©", value: text(w.rarity || w.star || w.rank || "Non disponible."), inline: true },
       { name: "Stats", value: weaponStatsBlock(w), inline: false },
       { name: "Effets", value: weaponEffectsBlock(w), inline: false },
     ],
@@ -434,19 +443,19 @@ async function payloadWeaponCardFromSorted(env: Env, sorted: any[], idx: number)
 
 async function payloadBanners(env: Env, page = 0): Promise<JsonRecord> {
   const banners = await fetchJson(env, "banners.json");
-  if (!banners.length) return msgPayload(embed("Bannières", "Pas d'informations pour l'instant."), [], undefined, true);
+  if (!banners.length) return msgPayload(embed("BanniÃ¨res", "Pas d'informations pour l'instant."), [], undefined, true);
 
   const totalPages = Math.max(1, Math.ceil(banners.length / LIST_PAGE_SIZE));
   const safe = Math.max(0, Math.min(page, totalPages - 1));
 
-  const emb = listEmbed("Bannières", banners, safe, (b) => ({
-    name: b.name || "Bannière",
+  const emb = listEmbed("BanniÃ¨res", banners, safe, (b) => ({
+    name: b.name || "BanniÃ¨re",
     value: truncate(`Statut: ${text(b.status)}\nDates: ${text(b.date_range || b.dates)}\n${text(b.description || "")}`),
   }));
 
   const components: JsonRecord[] = [
     actionRow([
-      button(`page:banners:${Math.max(safe - 1, 0)}`, "Précédent", safe <= 0),
+      button(`page:banners:${Math.max(safe - 1, 0)}`, "PrÃ©cÃ©dent", safe <= 0),
       button(`page:banners:${Math.min(safe + 1, totalPages - 1)}`, "Suivant", safe >= totalPages - 1),
     ]),
   ];
@@ -469,9 +478,9 @@ async function payloadBossMenu(env: Env, page = 0): Promise<JsonRecord> {
   const options = slice.map((b: any, i: number) => ({ label: (b.name || "Boss").slice(0, 100), value: makeIdxValue("b", start + i) }));
 
   const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:boss:${safePage}`, "Sélectionner un boss", options)]),
+    actionRow([selectMenu(`sel:boss:${safePage}`, "SÃ©lectionner un boss", options)]),
     actionRow([
-      button(`selpage:boss:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:boss:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
       button(`selpage:boss:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
@@ -505,10 +514,10 @@ async function payloadGuideCategories(env: Env): Promise<JsonRecord> {
   if (!guides.length) return msgPayload(embed("Guides", "Pas d'informations pour l'instant."), [], undefined, true);
 
   const cats = Array.from(new Set(guides.map((g: any) => g.category).filter(Boolean))).sort((a, b) => normalize(a).localeCompare(normalize(b)));
-  if (!cats.length) return msgPayload(embed("Guides", "Pas de catégories."), [], undefined, true);
+  if (!cats.length) return msgPayload(embed("Guides", "Pas de catÃ©gories."), [], undefined, true);
 
   const options = cats.slice(0, 25).map((c: any) => ({ label: String(c).slice(0, 100), value: String(c) }));
-  return msgPayload(embed("Guides", "Choisir une catégorie"), [actionRow([selectMenu("sel:guidecat", "Catégorie", options)])]);
+  return msgPayload(embed("Guides", "Choisir une catÃ©gorie"), [actionRow([selectMenu("sel:guidecat", "CatÃ©gorie", options)])]);
 }
 
 async function getGuidesInCategory(env: Env, category: string): Promise<any[]> {
@@ -519,7 +528,7 @@ async function getGuidesInCategory(env: Env, category: string): Promise<any[]> {
 
 async function payloadGuidesInCategory(env: Env, category: string, page = 0): Promise<JsonRecord> {
   const sorted = await getGuidesInCategory(env, category);
-  if (!sorted.length) return msgPayload(embed("Guides", "Aucun guide dans cette catégorie."), [], undefined, true);
+  if (!sorted.length) return msgPayload(embed("Guides", "Aucun guide dans cette catÃ©gorie."), [], undefined, true);
 
   const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
   const options = slice.map((g: any, i: number) => ({
@@ -531,9 +540,9 @@ async function payloadGuidesInCategory(env: Env, category: string, page = 0): Pr
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:guide:${category}:${safePage}`, "Choisir un guide", options)]),
     actionRow([
-      button(`selpage:guide:${category}:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:guide:${category}:${Math.max(safePage - 1, 0)}`, "PrÃ©cÃ©dent", safePage <= 0),
       button(`selpage:guide:${category}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-      button("guides:backcat", "Retour catégories", false, 2),
+      button("guides:backcat", "Retour catÃ©gories", false, 2),
     ]),
   ];
 
@@ -548,10 +557,10 @@ async function payloadGuideCardByIdx(env: Env, category: string, idx: number): P
   const emb: JsonRecord = {
     title: match.name || "Guide",
     description: truncate(text(match.content || match.description || match.summary || "N/A"), 4096),
-    fields: [{ name: "Catégorie", value: text(match.category || "N/A"), inline: true }],
+    fields: [{ name: "CatÃ©gorie", value: text(match.category || "N/A"), inline: true }],
   };
 
-  return msgPayload(emb, [actionRow([button("guides:backcat", "Retour catégories", false, 2)])]);
+  return msgPayload(emb, [actionRow([button("guides:backcat", "Retour catÃ©gories", false, 2)])]);
 }
 
 /* -------------------- RESOURCES -------------------- */
@@ -570,10 +579,10 @@ async function payloadResourceCategory(env: Env, categoryKey: string): Promise<J
   const sorted = [...items].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
   const { start, slice } = chunkForSelect(sorted, 0);
 
-  const options = slice.map((it: any, i: number) => ({ label: (it.name || "Entrée").slice(0, 100), value: makeIdxValue("r", start + i) }));
+  const options = slice.map((it: any, i: number) => ({ label: (it.name || "EntrÃ©e").slice(0, 100), value: makeIdxValue("r", start + i) }));
   const components = [actionRow([selectMenu(`sel:res:${categoryKey}:0`, "Choisir", options)])];
 
-  return msgPayload(embed(`Liste - ${categoryKey}`, "Sélectionne un élément."), components);
+  return msgPayload(embed(`Liste - ${categoryKey}`, "SÃ©lectionne un Ã©lÃ©ment."), components);
 }
 
 async function payloadResourceCard(env: Env, categoryKey: string, idx: number): Promise<JsonRecord> {
@@ -623,7 +632,7 @@ async function processCommand(env: Env, interaction: JsonRecord): Promise<void> 
     else if (cmd === "objet") payload = await payloadResourceCategory(env, "objets");
     else if (cmd === "nourriture") payload = await payloadResourceCategory(env, "nourriture");
     else if (cmd === "map") payload = payloadMap(env);
-    else payload = msgPayload(embed("Commande inconnue", `Non gérée: ${cmd}`), [], undefined, true);
+    else payload = msgPayload(embed("Commande inconnue", `Non gÃ©rÃ©e: ${cmd}`), [], undefined, true);
 
     await editOriginal(env, interaction, payload);
   } catch (e: any) {
@@ -658,11 +667,11 @@ async function processComponent(env: Env, interaction: JsonRecord): Promise<void
 
       if (kind === "perso") {
         const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "p") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        if (!p || p.prefix !== "p") payload = msgPayload(embed("Erreur", "SÃ©lection invalide."), [], undefined, true);
         else payload = await payloadPersoCardByIdx(env, p.idx, "home");
       } else if (kind === "weaponflat") {
         const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "w") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        if (!p || p.prefix !== "w") payload = msgPayload(embed("Erreur", "SÃ©lection invalide."), [], undefined, true);
         else {
           const sorted = await getSortedWeapons(env);
           payload = await payloadWeaponCardFromSorted(env, sorted, p.idx);
@@ -671,7 +680,7 @@ async function processComponent(env: Env, interaction: JsonRecord): Promise<void
         payload = await payloadWeaponsOfType(env, selected, 0);
       } else if (kind === "weapon") {
         const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "wt") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        if (!p || p.prefix !== "wt") payload = msgPayload(embed("Erreur", "SÃ©lection invalide."), [], undefined, true);
         else {
           // We'll reconstruct sorted weapons of this type again
           const weapons = await fetchJson(env, "weapons.json");
@@ -682,19 +691,19 @@ async function processComponent(env: Env, interaction: JsonRecord): Promise<void
         }
       } else if (kind === "boss") {
         const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "b") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        if (!p || p.prefix !== "b") payload = msgPayload(embed("Erreur", "SÃ©lection invalide."), [], undefined, true);
         else payload = await payloadBossCardByIdx(env, p.idx);
       } else if (kind === "guidecat") {
         payload = await payloadGuidesInCategory(env, selected, 0);
       } else if (kind === "guide") {
         const category = parts[2];
         const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "g") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        if (!p || p.prefix !== "g") payload = msgPayload(embed("Erreur", "SÃ©lection invalide."), [], undefined, true);
         else payload = await payloadGuideCardByIdx(env, category, p.idx);
       } else if (kind === "res") {
         const category = parts[2];
         const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "r") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        if (!p || p.prefix !== "r") payload = msgPayload(embed("Erreur", "SÃ©lection invalide."), [], undefined, true);
         else payload = await payloadResourceCard(env, category, p.idx);
       }
     }
@@ -718,7 +727,7 @@ async function processComponent(env: Env, interaction: JsonRecord): Promise<void
       if (kind === "banners") payload = await payloadBanners(env, Number(pageStr || "0"));
     }
 
-    if (!payload) payload = msgPayload(embed("Action non gérée", cid), [], undefined, true);
+    if (!payload) payload = msgPayload(embed("Action non gÃ©rÃ©e", cid), [], undefined, true);
 
     await editOriginal(env, interaction, payload);
   } catch (e: any) {
@@ -758,6 +767,7 @@ export default {
 
     if (interaction.type === 4) return json({ type: 8, data: { choices: [] } });
 
-    return json({ type: 4, data: { content: "Type interaction non géré.", flags: 64 } });
+    return json({ type: 4, data: { content: "Type interaction non gÃ©rÃ©.", flags: 64 } });
   },
 };
+
