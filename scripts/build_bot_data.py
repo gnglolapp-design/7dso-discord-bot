@@ -5,7 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Le workflow écrit dans --out scrape-data
 SCRAPE_OUT = ROOT / "scrape-data"
-OUT = ROOT / "data"
+OUT = ROOT / "docs" / "data"
 OUT.mkdir(exist_ok=True)
 
 def read_json(p: Path):
@@ -73,3 +73,4 @@ build("bosses.json", "bosses.json")
 build("guides.json", "guides.json")
 build("team_comps.json", "team_comps.json")
 build("resources.json", "resources.json")
+
