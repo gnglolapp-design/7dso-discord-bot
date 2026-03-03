@@ -14,7 +14,7 @@ type JsonRecord = Record<string, any>;
 const cacheStore = new Map<string, { expiresAt: number; data: any }>();
 const TTL_MS = 10 * 60 * 1000;
 
-const SELECT_PAGE_SIZE = 25; // Discord limit
+const SELECT_PAGE_SIZE = 25;
 const LIST_PAGE_SIZE = 5;
 
 function hexToBytes(hex: string): Uint8Array {
@@ -59,22 +59,15 @@ function truncate(v: string, max = 1024): string {
   return v.length <= max ? v : `${v.slice(0, max - 3)}...`;
 }
 
-async function fetchJson(env: Env, fileName: string): Promise<any> {
+async function fetchJson(env: Env, fileName: string): Promise<any[]> {
   const cached = cacheStore.get(fileName);
   const now = Date.now();
   if (cached && cached.expiresAt > now) return cached.data;
 
   const base = (env.DATA_BASE_URL || "").replace(/\/$/, "");
-  const url = `${base}/${fileName}`;
-
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12_000);
-  const res = await fetch(url, { signal: controller.signal, cf: { cacheTtl: 300, cacheEverything: true } as any }).finally(() =>
-    clearTimeout(timeout)
-  );
-
+  const res = await fetch(`${base}/${fileName}`, { cf: { cacheTtl: 300, cacheEverything: true } as any });
   if (!res.ok) throw new Error(`Impossible de charger ${fileName}: ${res.status}`);
-  const data = await res.json();
+  const data = (await res.json()) as any[];
   cacheStore.set(fileName, { expiresAt: now + TTL_MS, data });
   return data;
 }
@@ -117,27 +110,37 @@ function listEmbed(title: string, items: JsonRecord[], page: number, formatter: 
   };
 }
 
-function chunkForSelect<T>(items: T[], page: number): { totalPages: number; page: number; slice: T[] } {
+function chunkForSelect<T>(items: T[], page: number): { totalPages: number; page: number; start: number; slice: T[] } {
   const totalPages = Math.max(1, Math.ceil(items.length / SELECT_PAGE_SIZE));
   const safePage = Math.max(0, Math.min(page, totalPages - 1));
   const start = safePage * SELECT_PAGE_SIZE;
-  return { totalPages, page: safePage, slice: items.slice(start, start + SELECT_PAGE_SIZE) };
+  return { totalPages, page: safePage, start, slice: items.slice(start, start + SELECT_PAGE_SIZE) };
 }
 
+function makeIdxValue(prefix: string, idx: number): string {
+  // must be unique per menu; keep short
+  return `${prefix}:${idx}`;
+}
+
+function parseIdxValue(value: string): { prefix: string; idx: number } | null {
+  const m = /^([a-z]+):(\d+)$/.exec(value);
+  if (!m) return null;
+  return { prefix: m[1], idx: Number(m[2]) };
+}
+
+/** Edit original deferred response */
 async function editOriginal(env: Env, interaction: JsonRecord, data: JsonRecord): Promise<void> {
   const appId = env.DISCORD_APPLICATION_ID || interaction.application_id || interaction?.application?.id;
   if (!appId) {
     console.log("editOriginal: missing application id");
     return;
   }
-
   const url = `https://discord.com/api/v10/webhooks/${appId}/${interaction.token}/messages/@original`;
   const res = await fetch(url, {
     method: "PATCH",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(data),
   });
-
   if (!res.ok) {
     const t = await res.text().catch(() => "");
     console.log("editOriginal failed", res.status, t);
@@ -145,12 +148,10 @@ async function editOriginal(env: Env, interaction: JsonRecord, data: JsonRecord)
 }
 
 function deferredAckCommand(ephemeral = false): JsonRecord {
-  // 5 = DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE
   return { type: 5, data: { flags: ephemeral ? 64 : 0 } };
 }
 
 function deferredAckComponent(): JsonRecord {
-  // 6 = DEFERRED_UPDATE_MESSAGE
   return { type: 6 };
 }
 
@@ -163,41 +164,34 @@ function msgPayload(embedObj?: JsonRecord, components: JsonRecord[] = [], conten
   };
 }
 
-function parseCustomId(customId: string): string[] {
-  // Backward/typo compatibility: "selpage.weaponflat:1" => "selpage:weaponflat:1"
-  let cid = customId;
-  if (cid.startsWith("selpage.")) cid = cid.replace("selpage.", "selpage:");
-  return cid.split(":");
-}
+/* -------------------- PERSO -------------------- */
 
-/* -------------------- Personnages -------------------- */
-
-function buildPersoTabs(charId: string, tab: string): JsonRecord[] {
+function buildPersoTabs(charIdx: number, tab: string): JsonRecord[] {
   return [
     actionRow([
-      button(`perso:tab:${charId}:home`, "Accueil", tab === "home"),
-      button(`perso:tab:${charId}:stats`, "Stats", tab === "stats"),
-      button(`perso:tab:${charId}:skills`, "Armes/Compétences", tab === "skills"),
-      button(`perso:tab:${charId}:pots`, "Potentiels", tab === "pots"),
-      button(`perso:tab:${charId}:costumes`, "Costumes", tab === "costumes"),
+      button(`perso:tab:${charIdx}:home`, "Accueil", tab === "home", 2),
+      button(`perso:tab:${charIdx}:stats`, "Stats", tab === "stats", 2),
+      button(`perso:tab:${charIdx}:skills`, "Armes & Skills", tab === "skills", 2),
+      button(`perso:tab:${charIdx}:pots`, "Potentiels", tab === "pots", 2),
+      button(`perso:tab:${charIdx}:costumes`, "Costumes", tab === "costumes", 2),
     ]),
-    actionRow([button("perso:back", "Retour", false)]),
+    actionRow([button(`perso:back`, "Retour au menu", false, 2)]),
   ];
 }
 
 function flattenSkills(profiles: any[]): string {
   const lines: string[] = [];
   for (const profile of profiles || []) {
-    const weaponType = profile.weapon_type || profile.weaponType || profile.type || "Arme";
-    lines.push(`**${weaponType}**`);
+    const weaponType = profile.weapon_type || profile.weaponType || profile.type || "Arme inconnue";
     const skills = profile.skills || [];
+    lines.push(`**${weaponType}**`);
     if (!skills.length) {
-      lines.push("- Non disponible.");
+      lines.push("- (aucune compétence)");
       continue;
     }
     for (const s of skills.slice(0, 12)) {
-      const kind = s.skill_type || s.kind || "";
-      lines.push(`- ${s.name || "Compétence"}${kind ? ` (${kind})` : ""}`);
+      const kind = s.skill_type || s.kind || "type";
+      lines.push(`- ${s.name || "Compétence"} (${kind})`);
     }
   }
   return lines.join("\n");
@@ -206,11 +200,11 @@ function flattenSkills(profiles: any[]): string {
 function flattenPotentials(profiles: any[]): string {
   const lines: string[] = [];
   for (const profile of profiles || []) {
-    const weaponType = profile.weapon_type || profile.weaponType || profile.type || "Arme";
-    lines.push(`**${weaponType}**`);
+    const weaponType = profile.weapon_type || profile.weaponType || profile.type || "Arme inconnue";
     const pots = profile.potentials || [];
+    lines.push(`**${weaponType}**`);
     if (!pots.length) {
-      lines.push("- Non disponible.");
+      lines.push("- (aucun potentiel)");
       continue;
     }
     for (const p of pots.slice(0, 10)) {
@@ -220,62 +214,65 @@ function flattenPotentials(profiles: any[]): string {
   return lines.join("\n");
 }
 
-function buildCostumesEmbed(char: any): JsonRecord {
-  const costumes: any[] = char.costumes || char.skins || [];
-  if (!costumes.length) return embed(char.name || "Costumes", "Non disponible.");
-
-  const first = costumes.find((c) => c?.image) || costumes[0];
-  const lines = costumes
-    .slice(0, 20)
-    .map((c) => `- ${c.name || c.title || "Costume"}`)
-    .join("\n");
-
-  const emb: JsonRecord = {
-    title: `${char.name || "Personnage"} — Costumes`,
-    description: truncate(lines, 4096),
+function buildPersoEmbed(match: JsonRecord, tab: string): JsonRecord {
+  const base: JsonRecord = {
+    title: match.name || "Personnage",
+    thumbnail: match.image ? { url: match.image } : undefined,
   };
 
-  if (first?.image) emb.image = { url: first.image };
-  return emb;
-}
-
-async function getCharacterIndex(env: Env): Promise<any[]> {
-  // new small file generated by build_bot_data.py
-  try {
-    const idx = await fetchJson(env, "characters/index.json");
-    if (Array.isArray(idx)) return idx;
-  } catch {}
-  // fallback
-  const all = await fetchJson(env, "characters.json");
-  return Array.isArray(all) ? all : [];
-}
-
-async function getCharacterDetail(env: Env, id: string): Promise<any | null> {
-  try {
-    return await fetchJson(env, `characters/by-id/${id}.json`);
-  } catch {
-    const all = await fetchJson(env, "characters.json");
-    const arr = Array.isArray(all) ? all : [];
-    return (
-      arr.find((c: any) => String(c.id) === id) ||
-      arr.find((c: any) => normalize(c.name) === normalize(id)) ||
-      null
-    );
+  if (tab === "stats") {
+    return {
+      ...base,
+      description: "Statistiques",
+      fields: [
+        { name: "Élément", value: text(match.element), inline: true },
+        { name: "Types d'armes", value: truncate(text(match.weapon_types)), inline: true },
+        { name: "Stats de base", value: truncate(text(match.base_stats), 1024), inline: false },
+      ],
+    };
   }
+
+  if (tab === "skills") {
+    return { ...base, description: truncate(flattenSkills(match.weapon_profiles || []) || "Non disponible.", 4096) };
+  }
+
+  if (tab === "pots") {
+    return { ...base, description: truncate(flattenPotentials(match.weapon_profiles || []) || "Non disponible.", 4096) };
+  }
+
+  if (tab === "costumes") {
+    const costumes = match.costumes || match.skins || [];
+    const lines = (costumes || []).slice(0, 30).map((c: any) => `- ${c.name || c.title || "Costume"}`);
+    return { ...base, description: lines.length ? truncate(lines.join("\n"), 4096) : "Non disponible." };
+  }
+
+  return {
+    ...base,
+    description: truncate(match.description || "Aucune description.", 4096),
+    fields: [
+      { name: "Élément", value: text(match.element), inline: true },
+      { name: "Types d'armes", value: truncate(text(match.weapon_types)), inline: true },
+    ],
+  };
+}
+
+async function getSortedCharacters(env: Env): Promise<any[]> {
+  const chars = await fetchJson(env, "characters.json");
+  return [...chars].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
 }
 
 async function payloadPersoMenu(env: Env, page = 0): Promise<JsonRecord> {
-  const chars = await getCharacterIndex(env);
-  if (!chars.length) return msgPayload(embed("Personnages", "Pas d'informations pour l'instant."), [], undefined, true);
+  const sorted = await getSortedCharacters(env);
+  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
 
-  const sorted = [...chars].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-  const { totalPages, page: safePage, slice } = chunkForSelect(sorted, page);
-
-  const options = slice.map((c: any) => ({
-    label: (c.name || "Perso").slice(0, 100),
-    value: String(c.id || c.name),
-    description: c.element ? `Élément: ${c.element}` : undefined,
-  }));
+  const options = slice.map((c: any, i: number) => {
+    const idx = start + i;
+    return {
+      label: (c.name || "Perso").slice(0, 100),
+      value: makeIdxValue("p", idx),
+      description: c.element ? `Élément: ${c.element}` : undefined,
+    };
+  });
 
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:perso:${safePage}`, "Sélectionner un personnage", options)]),
@@ -285,169 +282,191 @@ async function payloadPersoMenu(env: Env, page = 0): Promise<JsonRecord> {
     ]),
   ];
 
-  return msgPayload(embed("Personnages", `Page ${safePage + 1}/${totalPages}`), components);
+  return msgPayload(embed("Choisir un personnage", `Page ${safePage + 1}/${totalPages}`), components);
 }
 
-async function payloadPersoTab(env: Env, charId: string, tab: string): Promise<JsonRecord> {
-  const char = await getCharacterDetail(env, charId);
-  if (!char) return msgPayload(embed("Personnage introuvable", "Aucun personnage ne correspond."), [], undefined, true);
+async function payloadPersoCardByIdx(env: Env, idx: number, tab: string): Promise<JsonRecord> {
+  const sorted = await getSortedCharacters(env);
+  const match = sorted[idx];
+  if (!match) return msgPayload(embed("Personnage introuvable", "Index invalide."), [], undefined, true);
+  return msgPayload(buildPersoEmbed(match, tab), buildPersoTabs(idx, tab));
+}
 
-  const base: JsonRecord = {
-    title: char.name || "Personnage",
-    thumbnail: char.image ? { url: char.image } : undefined,
-  };
+/* -------------------- ARMES -------------------- */
 
-  let emb: JsonRecord;
-
-  if (tab === "stats") {
-    emb = {
-      ...base,
-      description: "Statistiques",
-      fields: [
-        { name: "Élément", value: text(char.element), inline: true },
-        { name: "Types d'armes", value: truncate(text(char.weapon_types), 1024), inline: true },
-        { name: "Stats de base", value: truncate(text(char.base_stats), 1024), inline: false },
-      ],
-    };
-  } else if (tab === "skills") {
-    emb = { ...base, description: truncate(flattenSkills(char.weapon_profiles || []), 4096) || "Non disponible." };
-  } else if (tab === "pots") {
-    emb = { ...base, description: truncate(flattenPotentials(char.weapon_profiles || []), 4096) || "Non disponible." };
-  } else if (tab === "costumes") {
-    emb = buildCostumesEmbed(char);
-    emb.thumbnail = base.thumbnail;
-  } else {
-    emb = {
-      ...base,
-      description: truncate(char.description || "Aucune description.", 4096),
-      fields: [
-        { name: "Élément", value: text(char.element), inline: true },
-        { name: "Types d'armes", value: truncate(text(char.weapon_types), 1024), inline: true },
-      ],
-    };
+async function getSortedWeapons(env: Env): Promise<any[]> {
+  const weapons = await fetchJson(env, "weapons.json");
+  function weaponDisplayName(w: any): string {
+    if (w?.name) return String(w.name);
+    const s = Array.isArray(w?.sources) ? w.sources[0] : null;
+    if (s?.name) return String(s.name);
+    if (s?.source_url) return String(s.source_url).split("/").pop() || "Arme";
+    return "Arme";
   }
-
-  return msgPayload(emb, buildPersoTabs(String(char.id || charId), tab));
+  return [...weapons].sort((a, b) => normalize(weaponDisplayName(a)).localeCompare(normalize(weaponDisplayName(b))));
 }
 
-/* -------------------- Armes -------------------- */
-
-async function getWeaponIndex(env: Env): Promise<any[]> {
-  try {
-    const idx = await fetchJson(env, "weapons/index.json");
-    if (Array.isArray(idx)) return idx;
-  } catch {}
-  const all = await fetchJson(env, "weapons.json");
-  return Array.isArray(all) ? all : [];
+function weaponDisplayName(w: any): string {
+  if (w?.name) return String(w.name);
+  const s = Array.isArray(w?.sources) ? w.sources[0] : null;
+  if (s?.name) return String(s.name);
+  if (s?.source_url) return String(s.source_url).split("/").pop() || "Arme";
+  return "Arme";
 }
 
-async function getWeaponDetail(env: Env, id: string): Promise<any | null> {
-  try {
-    return await fetchJson(env, `weapons/by-id/${id}.json`);
-  } catch {
-    const all = await fetchJson(env, "weapons.json");
-    const arr = Array.isArray(all) ? all : [];
-    return arr.find((w: any) => String(w.id) === id) || null;
-  }
+function weaponTypeOf(w: any): string {
+  return (
+    w?.type ??
+    w?.weapon_type ??
+    w?.weaponType ??
+    w?.weapon_class ??
+    w?.weaponClass ??
+    w?.weapon_category ??
+    w?.weaponCategory ??
+    w?.category ??
+    ""
+  );
 }
 
-function weaponTypesFromIndex(items: any[]): string[] {
-  const set = new Set<string>();
-  for (const w of items) {
-    const t = w.type || w.weapon_type || w.weaponType;
-    if (t) set.add(String(t));
-  }
-  return Array.from(set).sort((a, b) => normalize(a).localeCompare(normalize(b)));
-}
+async function payloadWeaponsTypeMenu(env: Env): Promise<JsonRecord> {
+  const weapons = await fetchJson(env, "weapons.json");
+  const types = Array.from(
+    new Set(
+      weapons
+        .map((w: any) => weaponTypeOf(w))
+        .filter((x: any) => typeof x === "string" && x.trim().length)
+        .map((x: string) => x.trim())
+    )
+  ).sort((a, b) => normalize(a).localeCompare(normalize(b)));
 
-async function payloadWeaponTypeMenu(env: Env, page = 0): Promise<JsonRecord> {
-  const weaponsIdx = await getWeaponIndex(env);
-  if (!weaponsIdx.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const types = weaponTypesFromIndex(weaponsIdx);
   if (!types.length) {
-    // Data not ready yet: still show weapon list, but no links.
-    return payloadWeaponList(env, "__all__", 0);
+    // fallback list (data incomplete)
+    return payloadWeaponsFlatMenu(env, 0);
   }
 
-  const { totalPages, page: safePage, slice } = chunkForSelect(types, page);
-  const options = slice.map((t) => ({ label: String(t).slice(0, 100), value: String(t) }));
+  const options = types.slice(0, 25).map((t) => ({ label: t.slice(0, 100), value: t }));
+  return msgPayload(embed("Types d'armes", "Choisir un type"), [actionRow([selectMenu("sel:weapontype", "Type d'arme", options)])]);
+}
+
+async function payloadWeaponsFlatMenu(env: Env, page = 0): Promise<JsonRecord> {
+  const sorted = await getSortedWeapons(env);
+  if (!sorted.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
+
+  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
+
+  const options = slice.map((w: any, i: number) => {
+    const idx = start + i;
+    return {
+      label: weaponDisplayName(w).slice(0, 100),
+      value: makeIdxValue("w", idx),
+      description: w?.sources?.[0]?.site ? `Source: ${w.sources[0].site}` : undefined,
+    };
+  });
 
   const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:weapontype:${safePage}`, "Choisir un type d'arme", options)]),
+    actionRow([selectMenu(`sel:weaponflat:${safePage}`, "Choisir une arme", options)]),
     actionRow([
-      button(`selpage:weapontype:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:weapontype:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button(`selpage:weaponflat:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:weaponflat:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
     ]),
   ];
 
-  return msgPayload(embed("Armes", `Types — Page ${safePage + 1}/${totalPages}`), components);
+  return msgPayload(embed("Armes", `Page ${safePage + 1}/${totalPages}`), components);
 }
 
-async function payloadWeaponList(env: Env, weaponType: string, page = 0): Promise<JsonRecord> {
-  const idx = await getWeaponIndex(env);
-  if (!idx.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
+async function payloadWeaponsOfType(env: Env, type: string, page = 0): Promise<JsonRecord> {
+  const weapons = await fetchJson(env, "weapons.json");
+  const filtered = weapons.filter((w: any) => normalize(weaponTypeOf(w)) === normalize(type));
+  const sorted = [...filtered].sort((a, b) => normalize(weaponDisplayName(a)).localeCompare(normalize(weaponDisplayName(b))));
+  if (!sorted.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
 
-  const filtered =
-    weaponType === "__all__"
-      ? idx
-      : idx.filter((w: any) => normalize(w.type || w.weapon_type || w.weaponType) === normalize(weaponType));
+  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
 
-  if (!filtered.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const sorted = [...filtered].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-  const { totalPages, page: safePage, slice } = chunkForSelect(sorted, page);
-
-  const options = slice.map((w: any) => ({
-    label: (w.name || "Arme").slice(0, 100),
-    value: String(w.id || w.name),
-    description: w.rarity ? `Rareté: ${w.rarity}` : undefined,
-  }));
-
-  const title = weaponType === "__all__" ? "Armes" : `Armes — ${weaponType}`;
+  const options = slice.map((w: any, i: number) => {
+    const idx = start + i;
+    return { label: weaponDisplayName(w).slice(0, 100), value: makeIdxValue("wt", idx) };
+  });
 
   const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:weapon:${weaponType}:${safePage}`, "Choisir une arme", options)]),
+    actionRow([selectMenu(`sel:weapon:${type}:${safePage}`, "Choisir une arme", options)]),
     actionRow([
-      button(`selpage:weapon:${weaponType}:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:weapon:${weaponType}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-      button("armes:backtype", "Retour types", false),
+      button(`selpage:weapon:${type}:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
+      button(`selpage:weapon:${type}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
+      button("armes:backtypes", "Retour types", false, 2),
     ]),
   ];
 
-  return msgPayload(embed(title, `Page ${safePage + 1}/${totalPages}`), components);
+  return msgPayload(embed(`Armes - ${type}`, `Page ${safePage + 1}/${totalPages}`), components);
 }
 
-async function payloadWeaponCard(env: Env, weaponId: string): Promise<JsonRecord> {
-  const w = await getWeaponDetail(env, weaponId);
-  if (!w) return msgPayload(embed("Arme introuvable", "Aucune arme ne correspond."), [], undefined, true);
+function weaponStatsBlock(w: any): string {
+  const stats = w?.stats || w?.base_stats || w?.attributes || null;
+  if (!stats) return "Non disponible.";
+  return truncate(text(stats), 1024);
+}
+
+function weaponEffectsBlock(w: any): string {
+  const eff = w?.effects || w?.passives || w?.passive || w?.effect || null;
+  if (!eff) return "Non disponible.";
+  return truncate(text(eff), 1024);
+}
+
+async function payloadWeaponCardFromSorted(env: Env, sorted: any[], idx: number): Promise<JsonRecord> {
+  const w = sorted[idx];
+  if (!w) return msgPayload(embed("Arme introuvable", "Index invalide."), [], undefined, true);
 
   const emb: JsonRecord = {
-    title: w.name || "Arme",
-    description: truncate(w.description || "Non disponible.", 4096),
+    title: weaponDisplayName(w),
     thumbnail: w.image ? { url: w.image } : undefined,
     fields: [
-      { name: "Type", value: text(w.type || w.weapon_type || w.weaponType || "Non disponible"), inline: true },
-      { name: "Rareté", value: text(w.rarity || "Non disponible"), inline: true },
-      { name: "Stats", value: truncate(text(w.stats || w.base_stats || w.attributes || "Non disponible"), 1024), inline: false },
-      { name: "Effets", value: truncate(text(w.effects || w.passive || w.effect || "Non disponible"), 1024), inline: false },
+      { name: "Type", value: weaponTypeOf(w) || "Non disponible.", inline: true },
+      { name: "Rareté", value: text(w.rarity || w.star || w.rank || "Non disponible."), inline: true },
+      { name: "Stats", value: weaponStatsBlock(w), inline: false },
+      { name: "Effets", value: weaponEffectsBlock(w), inline: false },
     ],
+    description: w.description ? truncate(String(w.description), 4096) : undefined,
   };
 
-  return msgPayload(emb, [actionRow([button("armes:back", "Retour", false)])]);
+  return msgPayload(emb);
 }
 
-/* -------------------- Boss -------------------- */
+/* -------------------- BANNIERES -------------------- */
+
+async function payloadBanners(env: Env, page = 0): Promise<JsonRecord> {
+  const banners = await fetchJson(env, "banners.json");
+  if (!banners.length) return msgPayload(embed("Bannières", "Pas d'informations pour l'instant."), [], undefined, true);
+
+  const totalPages = Math.max(1, Math.ceil(banners.length / LIST_PAGE_SIZE));
+  const safe = Math.max(0, Math.min(page, totalPages - 1));
+
+  const emb = listEmbed("Bannières", banners, safe, (b) => ({
+    name: b.name || "Bannière",
+    value: truncate(`Statut: ${text(b.status)}\nDates: ${text(b.date_range || b.dates)}\n${text(b.description || "")}`),
+  }));
+
+  const components: JsonRecord[] = [
+    actionRow([
+      button(`page:banners:${Math.max(safe - 1, 0)}`, "Précédent", safe <= 0),
+      button(`page:banners:${Math.min(safe + 1, totalPages - 1)}`, "Suivant", safe >= totalPages - 1),
+    ]),
+  ];
+
+  return msgPayload(emb, components);
+}
+
+/* -------------------- BOSS -------------------- */
+
+async function getSortedBosses(env: Env): Promise<any[]> {
+  const bosses = await fetchJson(env, "bosses.json");
+  return [...bosses].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
+}
 
 async function payloadBossMenu(env: Env, page = 0): Promise<JsonRecord> {
-  const bosses = await fetchJson(env, "bosses.json");
-  const arr = Array.isArray(bosses) ? bosses : [];
-  if (!arr.length) return msgPayload(embed("Boss", "Pas d'informations pour l'instant."), [], undefined, true);
+  const sorted = await getSortedBosses(env);
+  if (!sorted.length) return msgPayload(embed("Boss", "Pas d'informations pour l'instant."), [], undefined, true);
 
-  const sorted = [...arr].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-  const { totalPages, page: safePage, slice } = chunkForSelect(sorted, page);
-
-  const options = slice.map((b: any) => ({ label: (b.name || "Boss").slice(0, 100), value: String(b.id || b.name) }));
+  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
+  const options = slice.map((b: any, i: number) => ({ label: (b.name || "Boss").slice(0, 100), value: makeIdxValue("b", start + i) }));
 
   const components: JsonRecord[] = [
     actionRow([selectMenu(`sel:boss:${safePage}`, "Sélectionner un boss", options)]),
@@ -457,55 +476,55 @@ async function payloadBossMenu(env: Env, page = 0): Promise<JsonRecord> {
     ]),
   ];
 
-  return msgPayload(embed("Boss", `Page ${safePage + 1}/${totalPages}`), components);
+  return msgPayload(embed("Choisir un boss", `Page ${safePage + 1}/${totalPages}`), components);
 }
 
-async function payloadBossCard(env: Env, bossId: string): Promise<JsonRecord> {
-  const bosses = await fetchJson(env, "bosses.json");
-  const arr = Array.isArray(bosses) ? bosses : [];
-  const match =
-    arr.find((b: any) => String(b.id) === bossId) ||
-    arr.find((b: any) => normalize(b.name) === normalize(bossId)) ||
-    arr.find((b: any) => normalize(b.name).includes(normalize(bossId)));
-
-  if (!match) return msgPayload(embed("Boss introuvable", "Aucun boss ne correspond."), [], undefined, true);
+async function payloadBossCardByIdx(env: Env, idx: number): Promise<JsonRecord> {
+  const sorted = await getSortedBosses(env);
+  const match = sorted[idx];
+  if (!match) return msgPayload(embed("Boss introuvable", "Index invalide."), [], undefined, true);
 
   const stats = match.stats || match.base_stats || match.attributes || null;
+
   const emb: JsonRecord = {
     title: match.name || "Boss",
-    description: truncate(match.description || "", 4096),
     thumbnail: match.image ? { url: match.image } : undefined,
-    fields: [{ name: "Stats", value: stats ? truncate(text(stats), 1024) : "Non disponible.", inline: false }],
+    fields: [
+      { name: "Description", value: truncate(text(match.description || "N/A"), 1024), inline: false },
+      { name: "Stats", value: stats ? truncate(text(stats), 1024) : "Non disponible.", inline: false },
+    ],
   };
 
-  return msgPayload(emb, [actionRow([button("boss:back", "Retour", false)])]);
+  return msgPayload(emb, [actionRow([button("boss:back", "Retour", false, 2)])]);
 }
 
-/* -------------------- Guides (affichage du contenu) -------------------- */
+/* -------------------- GUIDES -------------------- */
 
 async function payloadGuideCategories(env: Env): Promise<JsonRecord> {
   const guides = await fetchJson(env, "guides.json");
-  const arr = Array.isArray(guides) ? guides : [];
-  if (!arr.length) return msgPayload(embed("Guides", "Pas d'informations pour l'instant."), [], undefined, true);
+  if (!guides.length) return msgPayload(embed("Guides", "Pas d'informations pour l'instant."), [], undefined, true);
 
-  const cats = Array.from(new Set(arr.map((g: any) => g.category).filter(Boolean))).sort((a, b) => normalize(a).localeCompare(normalize(b)));
+  const cats = Array.from(new Set(guides.map((g: any) => g.category).filter(Boolean))).sort((a, b) => normalize(a).localeCompare(normalize(b)));
   if (!cats.length) return msgPayload(embed("Guides", "Pas de catégories."), [], undefined, true);
 
   const options = cats.slice(0, 25).map((c: any) => ({ label: String(c).slice(0, 100), value: String(c) }));
   return msgPayload(embed("Guides", "Choisir une catégorie"), [actionRow([selectMenu("sel:guidecat", "Catégorie", options)])]);
 }
 
-async function payloadGuidesInCategory(env: Env, category: string, page = 0): Promise<JsonRecord> {
+async function getGuidesInCategory(env: Env, category: string): Promise<any[]> {
   const guides = await fetchJson(env, "guides.json");
-  const arr = Array.isArray(guides) ? guides : [];
-  const filtered = arr.filter((g: any) => normalize(g.category) === normalize(category));
-  const sorted = [...filtered].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
+  const filtered = guides.filter((g: any) => normalize(g.category) === normalize(category));
+  return [...filtered].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
+}
+
+async function payloadGuidesInCategory(env: Env, category: string, page = 0): Promise<JsonRecord> {
+  const sorted = await getGuidesInCategory(env, category);
   if (!sorted.length) return msgPayload(embed("Guides", "Aucun guide dans cette catégorie."), [], undefined, true);
 
-  const { totalPages, page: safePage, slice } = chunkForSelect(sorted, page);
-  const options = slice.map((g: any) => ({
+  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
+  const options = slice.map((g: any, i: number) => ({
     label: (g.name || "Guide").slice(0, 100),
-    value: String(g.id || g.name),
+    value: makeIdxValue("g", start + i),
     description: g.summary ? String(g.summary).slice(0, 100) : undefined,
   }));
 
@@ -514,74 +533,79 @@ async function payloadGuidesInCategory(env: Env, category: string, page = 0): Pr
     actionRow([
       button(`selpage:guide:${category}:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
       button(`selpage:guide:${category}:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-      button("guides:backcat", "Retour catégories", false),
+      button("guides:backcat", "Retour catégories", false, 2),
     ]),
   ];
 
-  return msgPayload(embed(`Guides — ${category}`, `Page ${safePage + 1}/${totalPages}`), components);
+  return msgPayload(embed(`Guides - ${category}`, `Page ${safePage + 1}/${totalPages}`), components);
 }
 
-async function payloadGuideCard(env: Env, guideId: string): Promise<JsonRecord> {
-  const guides = await fetchJson(env, "guides.json");
-  const arr = Array.isArray(guides) ? guides : [];
-  const match =
-    arr.find((g: any) => String(g.id) === guideId) ||
-    arr.find((g: any) => normalize(g.name) === normalize(guideId)) ||
-    arr.find((g: any) => normalize(g.name).includes(normalize(guideId)));
+async function payloadGuideCardByIdx(env: Env, category: string, idx: number): Promise<JsonRecord> {
+  const sorted = await getGuidesInCategory(env, category);
+  const match = sorted[idx];
+  if (!match) return msgPayload(embed("Guide introuvable", "Index invalide."), [], undefined, true);
 
-  if (!match) return msgPayload(embed("Guide introuvable", "Aucun guide ne correspond."), [], undefined, true);
-
-  const content = match.content || match.description || match.summary || "Non disponible.";
   const emb: JsonRecord = {
     title: match.name || "Guide",
-    description: truncate(String(content), 4096),
+    description: truncate(text(match.content || match.description || match.summary || "N/A"), 4096),
     fields: [{ name: "Catégorie", value: text(match.category || "N/A"), inline: true }],
   };
 
-  return msgPayload(emb, [actionRow([button("guides:backcat", "Retour catégories", false)])]);
+  return msgPayload(emb, [actionRow([button("guides:backcat", "Retour catégories", false, 2)])]);
 }
 
-/* -------------------- Ressources placeholders -------------------- */
+/* -------------------- RESOURCES -------------------- */
 
 async function payloadResourceCategory(env: Env, categoryKey: string): Promise<JsonRecord> {
-  const resources = await fetchJson(env, `${categoryKey}.json`);
-  const arr = Array.isArray(resources) ? resources : [];
-  if (!arr.length) return msgPayload(embed(categoryKey, "Pas d'informations pour l'instant."), [], undefined, true);
+  const resources = await fetchJson(env, "resources.json");
+  if (!resources || !resources.length) return msgPayload(embed(categoryKey, "Pas d'informations pour l'instant."), [], undefined, true);
 
-  const sorted = [...arr].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-  const { totalPages, page: safePage, slice } = chunkForSelect(sorted, 0);
-  const options = slice.map((it: any) => ({ label: (it.name || "Entrée").slice(0, 100), value: String(it.id || it.name) }));
+  let items: any[] = [];
+  const byContainer = resources.find((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
+  if (byContainer && Array.isArray(byContainer.items)) items = byContainer.items;
+  else items = resources.filter((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
 
-  return msgPayload(embed(`Liste — ${categoryKey}`, `Page ${safePage + 1}/${totalPages}`), [actionRow([selectMenu(`sel:res:${categoryKey}`, "Choisir", options)])]);
+  if (!items.length) return msgPayload(embed(categoryKey, "Pas d'informations pour l'instant."), [], undefined, true);
+
+  const sorted = [...items].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
+  const { start, slice } = chunkForSelect(sorted, 0);
+
+  const options = slice.map((it: any, i: number) => ({ label: (it.name || "Entrée").slice(0, 100), value: makeIdxValue("r", start + i) }));
+  const components = [actionRow([selectMenu(`sel:res:${categoryKey}:0`, "Choisir", options)])];
+
+  return msgPayload(embed(`Liste - ${categoryKey}`, "Sélectionne un élément."), components);
 }
 
-async function payloadResourceCard(env: Env, categoryKey: string, idOrName: string): Promise<JsonRecord> {
-  const resources = await fetchJson(env, `${categoryKey}.json`);
-  const arr = Array.isArray(resources) ? resources : [];
-  const match =
-    arr.find((x: any) => String(x.id) === idOrName) ||
-    arr.find((x: any) => normalize(x.name) === normalize(idOrName)) ||
-    arr.find((x: any) => normalize(x.name).includes(normalize(idOrName)));
+async function payloadResourceCard(env: Env, categoryKey: string, idx: number): Promise<JsonRecord> {
+  const resources = await fetchJson(env, "resources.json");
+  let items: any[] = [];
+  const byContainer = resources.find((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
+  if (byContainer && Array.isArray(byContainer.items)) items = byContainer.items;
+  else items = resources.filter((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
 
-  if (!match) return msgPayload(embed("Introuvable", "Aucune entrée ne correspond."), [], undefined, true);
+  const sorted = [...items].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
+  const match = sorted[idx];
+  if (!match) return msgPayload(embed("Introuvable", "Index invalide."), [], undefined, true);
 
   const emb: JsonRecord = {
     title: match.name || categoryKey,
-    description: truncate(String(match.description || match.content || "Non disponible."), 4096),
+    description: truncate(text(match.description || match.content || "N/A"), 4096),
     thumbnail: match.image ? { url: match.image } : undefined,
   };
 
-  return msgPayload(emb, [actionRow([button(`res:back:${categoryKey}`, "Retour", false)])]);
+  return msgPayload(emb, [actionRow([button(`res:back:${categoryKey}`, "Retour", false, 2)])]);
 }
+
+/* -------------------- MAP -------------------- */
 
 function payloadMap(env: Env): JsonRecord {
   return msgPayload(
-    embed("Carte interactive", "Discord ne peut pas afficher la carte web interactive dans un embed."),
+    { title: "Carte interactive", description: "Discord ne peut pas afficher la carte web interactive dans un embed. Lien direct ci-dessous." },
     [actionRow([linkButton(env.MAP_URL, "Ouvrir la carte")])]
   );
 }
 
-/* -------------------- Async handlers -------------------- */
+/* -------------------- Async processors -------------------- */
 
 async function processCommand(env: Env, interaction: JsonRecord): Promise<void> {
   const cmd = interaction.data?.name;
@@ -590,18 +614,9 @@ async function processCommand(env: Env, interaction: JsonRecord): Promise<void> 
     let payload: JsonRecord;
 
     if (cmd === "perso") payload = await payloadPersoMenu(env, 0);
-    else if (cmd === "armes") payload = await payloadWeaponTypeMenu(env, 0);
+    else if (cmd === "armes") payload = await payloadWeaponsTypeMenu(env);
+    else if (cmd === "banniere") payload = await payloadBanners(env, 0);
     else if (cmd === "boss") payload = await payloadBossMenu(env, 0);
-    else if (cmd === "banniere") {
-      const banners = await fetchJson(env, "banners.json");
-      const arr = Array.isArray(banners) ? banners : [];
-      if (!arr.length) payload = msgPayload(embed("Bannières", "Pas d'informations pour l'instant."), [], undefined, true);
-      else payload = msgPayload(listEmbed("Bannières", arr, 0, (b) => ({ name: b.name || "Bannière", value: truncate(String(b.description || "Non disponible."), 1024) })), [
-        actionRow([
-          button("page:banners:0", "Rafraîchir", false),
-        ]),
-      ]);
-    }
     else if (cmd === "guides") payload = await payloadGuideCategories(env);
     else if (cmd === "familiers") payload = await payloadResourceCategory(env, "familiers");
     else if (cmd === "peche") payload = await payloadResourceCategory(env, "peche");
@@ -617,72 +632,93 @@ async function processCommand(env: Env, interaction: JsonRecord): Promise<void> 
 }
 
 async function processComponent(env: Env, interaction: JsonRecord): Promise<void> {
-  const cidRaw = String(interaction.data?.custom_id || "");
+  const cid = String(interaction.data?.custom_id || "");
   const values: string[] = interaction.data?.values || [];
   const selected = values[0];
 
   try {
     let payload: JsonRecord | null = null;
 
-    // pagination
-    if (cidRaw.startsWith("selpage") || cidRaw.startsWith("page:")) {
-      const parts = parseCustomId(cidRaw);
+    // pagination for select menus
+    if (cid.startsWith("selpage:")) {
+      const parts = cid.split(":");
+      const kind = parts[1];
 
-      if (parts[0] === "selpage") {
-        const kind = parts[1];
-
-        if (kind === "perso") payload = await payloadPersoMenu(env, Number(parts[2] || "0"));
-        else if (kind === "boss") payload = await payloadBossMenu(env, Number(parts[2] || "0"));
-        else if (kind === "weapontype") payload = await payloadWeaponTypeMenu(env, Number(parts[2] || "0"));
-        else if (kind === "weapon") payload = await payloadWeaponList(env, parts[2], Number(parts[3] || "0"));
-        else if (kind === "guide") payload = await payloadGuidesInCategory(env, parts[2], Number(parts[3] || "0"));
-      }
-
-      if (!payload && parts[0] === "page") {
-        const kind = parts[1];
-        if (kind === "banners") {
-          const banners = await fetchJson(env, "banners.json");
-          const arr = Array.isArray(banners) ? banners : [];
-          payload = msgPayload(listEmbed("Bannières", arr, Number(parts[2] || "0"), (b) => ({ name: b.name || "Bannière", value: truncate(String(b.description || "Non disponible."), 1024) })));
-        }
-      }
+      if (kind === "perso") payload = await payloadPersoMenu(env, Number(parts[2] || "0"));
+      else if (kind === "boss") payload = await payloadBossMenu(env, Number(parts[2] || "0"));
+      else if (kind === "weaponflat") payload = await payloadWeaponsFlatMenu(env, Number(parts[2] || "0"));
+      else if (kind === "weapon") payload = await payloadWeaponsOfType(env, parts[2], Number(parts[3] || "0"));
+      else if (kind === "guide") payload = await payloadGuidesInCategory(env, parts[2], Number(parts[3] || "0"));
     }
 
     // select menus
-    if (!payload && cidRaw.startsWith("sel:")) {
-      const parts = parseCustomId(cidRaw);
+    if (!payload && cid.startsWith("sel:")) {
+      const parts = cid.split(":");
       const kind = parts[1];
 
-      if (kind === "perso") payload = await payloadPersoTab(env, selected, "home");
-      else if (kind === "boss") payload = await payloadBossCard(env, selected);
-      else if (kind === "weapontype") payload = await payloadWeaponList(env, selected, 0);
-      else if (kind === "weapon") payload = await payloadWeaponCard(env, selected);
-      else if (kind === "guidecat") payload = await payloadGuidesInCategory(env, selected, 0);
-      else if (kind === "guide") payload = await payloadGuideCard(env, selected);
-      else if (kind === "res") payload = await payloadResourceCard(env, parts[2], selected);
+      if (kind === "perso") {
+        const p = parseIdxValue(selected);
+        if (!p || p.prefix !== "p") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        else payload = await payloadPersoCardByIdx(env, p.idx, "home");
+      } else if (kind === "weaponflat") {
+        const p = parseIdxValue(selected);
+        if (!p || p.prefix !== "w") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        else {
+          const sorted = await getSortedWeapons(env);
+          payload = await payloadWeaponCardFromSorted(env, sorted, p.idx);
+        }
+      } else if (kind === "weapontype") {
+        payload = await payloadWeaponsOfType(env, selected, 0);
+      } else if (kind === "weapon") {
+        const p = parseIdxValue(selected);
+        if (!p || p.prefix !== "wt") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        else {
+          // We'll reconstruct sorted weapons of this type again
+          const weapons = await fetchJson(env, "weapons.json");
+          const type = parts[2];
+          const filtered = weapons.filter((w: any) => normalize(weaponTypeOf(w)) === normalize(type));
+          const s = [...filtered].sort((a, b) => normalize(weaponDisplayName(a)).localeCompare(normalize(weaponDisplayName(b))));
+          payload = await payloadWeaponCardFromSorted(env, s, p.idx);
+        }
+      } else if (kind === "boss") {
+        const p = parseIdxValue(selected);
+        if (!p || p.prefix !== "b") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        else payload = await payloadBossCardByIdx(env, p.idx);
+      } else if (kind === "guidecat") {
+        payload = await payloadGuidesInCategory(env, selected, 0);
+      } else if (kind === "guide") {
+        const category = parts[2];
+        const p = parseIdxValue(selected);
+        if (!p || p.prefix !== "g") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        else payload = await payloadGuideCardByIdx(env, category, p.idx);
+      } else if (kind === "res") {
+        const category = parts[2];
+        const p = parseIdxValue(selected);
+        if (!p || p.prefix !== "r") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
+        else payload = await payloadResourceCard(env, category, p.idx);
+      }
     }
 
-    // perso tabs
-    if (!payload && cidRaw.startsWith("perso:tab:")) {
-      const [, , charId, tab] = parseCustomId(cidRaw);
-      payload = await payloadPersoTab(env, charId, tab || "home");
+    // tabs perso + back
+    if (!payload && cid.startsWith("perso:tab:")) {
+      const [, , idxStr, tab] = cid.split(":");
+      payload = await payloadPersoCardByIdx(env, Number(idxStr), tab || "home");
     }
-    if (!payload && cidRaw === "perso:back") payload = await payloadPersoMenu(env, 0);
+    if (!payload && cid === "perso:back") payload = await payloadPersoMenu(env, 0);
 
-    // armes back
-    if (!payload && cidRaw === "armes:backtype") payload = await payloadWeaponTypeMenu(env, 0);
-    if (!payload && cidRaw === "armes:back") payload = await payloadWeaponTypeMenu(env, 0);
+    // back buttons
+    if (!payload && cid === "boss:back") payload = await payloadBossMenu(env, 0);
+    if (!payload && cid === "guides:backcat") payload = await payloadGuideCategories(env);
+    if (!payload && cid === "armes:backtypes") payload = await payloadWeaponsTypeMenu(env);
+    if (!payload && cid.startsWith("res:back:")) payload = await payloadResourceCategory(env, cid.split(":")[2]);
 
-    // boss back
-    if (!payload && cidRaw === "boss:back") payload = await payloadBossMenu(env, 0);
+    // banners pager
+    if (!payload && cid.startsWith("page:")) {
+      const [, kind, pageStr] = cid.split(":");
+      if (kind === "banners") payload = await payloadBanners(env, Number(pageStr || "0"));
+    }
 
-    // guides back
-    if (!payload && cidRaw === "guides:backcat") payload = await payloadGuideCategories(env);
-
-    // resources back
-    if (!payload && cidRaw.startsWith("res:back:")) payload = await payloadResourceCategory(env, cidRaw.split(":")[2]);
-
-    if (!payload) payload = msgPayload(embed("Action non gérée", cidRaw), [], undefined, true);
+    if (!payload) payload = msgPayload(embed("Action non gérée", cid), [], undefined, true);
 
     await editOriginal(env, interaction, payload);
   } catch (e: any) {
