@@ -9,6 +9,7 @@
     "register": "node ./scripts/register-commands.mjs"
   },
   "dependencies": {
+    "dotenv": "^17.3.1",
     "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
