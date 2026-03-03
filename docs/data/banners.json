@@ -1,0 +1,42 @@
+[
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Hero Draw"
+      },
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Hero Draw"
+      }
+    ]
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/festival-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Weapon Draw"
+      },
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/festival-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Weapon Draw"
+      }
+    ]
+  }
+]

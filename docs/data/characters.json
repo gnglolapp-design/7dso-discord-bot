@@ -1,0 +1,820 @@
+[
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/ban",
+        "entity_type": "character",
+        "name": "Ban"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/ban/",
+        "entity_type": "character",
+        "name": "Ban"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/bug",
+        "entity_type": "character",
+        "name": "Bug"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/bug",
+        "entity_type": "character",
+        "name": "Bug"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/bug/",
+        "entity_type": "character",
+        "name": "Bug"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/daisy",
+        "entity_type": "character",
+        "name": "Daisy"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/daisy",
+        "entity_type": "character",
+        "name": "Daisy"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/daisy/",
+        "entity_type": "character",
+        "name": "Daisy"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/derieri",
+        "entity_type": "character",
+        "name": "Derieri"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/derieri/",
+        "entity_type": "character",
+        "name": "Derieri"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/diane",
+        "entity_type": "character",
+        "name": "Diane"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/diane",
+        "entity_type": "character",
+        "name": "Diane"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/diane/",
+        "entity_type": "character",
+        "name": "Diane"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/drake",
+        "entity_type": "character",
+        "name": "Drake"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/drake",
+        "entity_type": "character",
+        "name": "Drake"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/drake/",
+        "entity_type": "character",
+        "name": "Drake"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/dreydrin",
+        "entity_type": "character",
+        "name": "Dreydrin"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreydrin",
+        "entity_type": "character",
+        "name": "Dreydrin"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/dreydrin/",
+        "entity_type": "character",
+        "name": "Dreydrin"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/dreyfus",
+        "entity_type": "character",
+        "name": "Dreyfus"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreyfus",
+        "entity_type": "character",
+        "name": "Dreyfus"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/dreyfus/",
+        "entity_type": "character",
+        "name": "Dreyfus"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/elaine",
+        "entity_type": "character",
+        "name": "Elaine"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/elaine",
+        "entity_type": "character",
+        "name": "Elaine"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/elaine/",
+        "entity_type": "character",
+        "name": "Elaine"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/elizabeth",
+        "entity_type": "character",
+        "name": "Elizabeth"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/elizabeth/",
+        "entity_type": "character",
+        "name": "Elizabeth"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/escanor",
+        "entity_type": "character",
+        "name": "Escanor"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/escanor/",
+        "entity_type": "character",
+        "name": "Escanor"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/gilthunder/",
+        "entity_type": "character",
+        "name": "Gil Thunder"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/gilthunder",
+        "entity_type": "character",
+        "name": "Gilthunder"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/gil-thunder",
+        "entity_type": "character",
+        "name": "Gilthunder"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/gowther",
+        "entity_type": "character",
+        "name": "Gowther"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/gowther/",
+        "entity_type": "character",
+        "name": "Gowther"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/griamore",
+        "entity_type": "character",
+        "name": "Griamore"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/griamore",
+        "entity_type": "character",
+        "name": "Griamore"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/griamore/",
+        "entity_type": "character",
+        "name": "Griamore"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/guila",
+        "entity_type": "character",
+        "name": "Guila"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/guila",
+        "entity_type": "character",
+        "name": "Guila"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/guila/",
+        "entity_type": "character",
+        "name": "Guila"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/hendrickson",
+        "entity_type": "character",
+        "name": "Hendrickson"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/hendrickson",
+        "entity_type": "character",
+        "name": "Hendrickson"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/hendrickson/",
+        "entity_type": "character",
+        "name": "Hendrickson"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/howzer",
+        "entity_type": "character",
+        "name": "Howzer"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/howzer",
+        "entity_type": "character",
+        "name": "Howzer"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/howzer/",
+        "entity_type": "character",
+        "name": "Howzer"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/jericho",
+        "entity_type": "character",
+        "name": "Jericho"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/jericho",
+        "entity_type": "character",
+        "name": "Jericho"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/jericho/",
+        "entity_type": "character",
+        "name": "Jericho"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/king",
+        "entity_type": "character",
+        "name": "King"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/king",
+        "entity_type": "character",
+        "name": "King"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/king/",
+        "entity_type": "character",
+        "name": "King"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/klotho",
+        "entity_type": "character",
+        "name": "Klotho"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/klotho/",
+        "entity_type": "character",
+        "name": "Klotho"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/manny",
+        "entity_type": "character",
+        "name": "Manny"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/manny",
+        "entity_type": "character",
+        "name": "Manny"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/manny/",
+        "entity_type": "character",
+        "name": "Manny"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/meliodas",
+        "entity_type": "character",
+        "name": "Meliodas"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/meliodas",
+        "entity_type": "character",
+        "name": "Meliodas"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/meliodas/",
+        "entity_type": "character",
+        "name": "Meliodas"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/merlin",
+        "entity_type": "character",
+        "name": "Merlin"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/merlin/",
+        "entity_type": "character",
+        "name": "Merlin"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/slader",
+        "entity_type": "character",
+        "name": "Slader"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/slader/",
+        "entity_type": "character",
+        "name": "Slader"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/slader",
+        "entity_type": "character",
+        "name": "Slater"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/tioreh",
+        "entity_type": "character",
+        "name": "Tioreh"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tioreh",
+        "entity_type": "character",
+        "name": "Tioreh"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/tioreh/",
+        "entity_type": "character",
+        "name": "Tioreh"
+      }
+    ],
+    "weapon_profiles": []
+  },
+  {
+    "id": null,
+    "name": null,
+    "description": null,
+    "image": null,
+    "element": null,
+    "element_icon": null,
+    "weapon_types": [],
+    "base_stats": {},
+    "aliases": [],
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/characters/tristan",
+        "entity_type": "character",
+        "name": "Tristan"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tristan",
+        "entity_type": "character",
+        "name": "Tristan"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/tristan/",
+        "entity_type": "character",
+        "name": "Tristan"
+      }
+    ],
+    "weapon_profiles": []
+  }
+]
