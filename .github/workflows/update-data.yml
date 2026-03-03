@@ -20,13 +20,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Check 72h window
-        run: python scripts/should_run.py --stamp-file .bot-state/last_refresh.txt --hours 72
-
-      - name: Stop early
-        if: env.RUN_SCRAPE != 'true'
-        run: echo "Moins de 72 heures depuis la derniÃ¨re mise Ã  jour."
-
       - name: Install scraper
         if: env.RUN_SCRAPE == 'true'
         run: |
@@ -58,4 +51,5 @@ jobs:
           git add docs/data .bot-state scrape-data || true
           git diff --cached --quiet || git commit -m "chore: refresh 7dso data"
           git push
+
 
