@@ -1,6 +1,6 @@
-﻿function uniqueOptions(options: uniqueOptions(any)[]) {
+﻿function uniqueOptions<T extends { value: string }>(options: T[]): T[] {
   const seen = new Set<string>();
-  return options.filter(o => {
+  return options.filter((o) => {
     if (!o.value) return false;
     if (seen.has(o.value)) return false;
     seen.add(o.value);
@@ -100,7 +100,7 @@ function selectMenu(custom_id: string, placeholder: string, options: { label: st
     placeholder,
     min_values: 1,
     max_values: 1,
-    options: uniqueOptions(options.slice)(0, 25),
+    options: options.slice(0, 25),
   };
 }
 
@@ -770,4 +770,5 @@ export default {
     return json({ type: 4, data: { content: "Type interaction non gÃ©rÃ©.", flags: 64 } });
   },
 };
+
 
