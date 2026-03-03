@@ -1,1 +1,1922 @@
-[]
+[
+  {
+    "id": "black-flame-wings-axe",
+    "name": "Black Flame Wings Axe",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-axe",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-axe"
+  },
+  {
+    "id": "black-flame-wings-dual-swords",
+    "name": "Black Flame Wings Dual Swords",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-dual-swords",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-dual-swords"
+  },
+  {
+    "id": "black-flame-wings-gauntlets",
+    "name": "Black Flame Wings Gauntlets",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-gauntlets",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-gauntlets"
+  },
+  {
+    "id": "black-flame-wings-greatsword",
+    "name": "Black Flame Wings Greatsword",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-greatsword",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-greatsword"
+  },
+  {
+    "id": "black-flame-wings-grimoire",
+    "name": "Black Flame Wings Grimoire",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-grimoire",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-grimoire"
+  },
+  {
+    "id": "black-flame-wings-lance",
+    "name": "Black Flame Wings Lance",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-lance",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-lance"
+  },
+  {
+    "id": "black-flame-wings-longsword",
+    "name": "Black Flame Wings Longsword",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-longsword",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-longsword"
+  },
+  {
+    "id": "black-flame-wings-nunchaku",
+    "name": "Black Flame Wings Nunchaku",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-nunchaku",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-nunchaku"
+  },
+  {
+    "id": "black-flame-wings-rapier",
+    "name": "Black Flame Wings Rapier",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-rapier",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-rapier"
+  },
+  {
+    "id": "black-flame-wings-staff",
+    "name": "Black Flame Wings Staff",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-staff",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-staff"
+  },
+  {
+    "id": "black-flame-wings-sword-and-shield",
+    "name": "Black Flame Wings Sword and Shield",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-sword-and-shield"
+  },
+  {
+    "id": "black-flame-wings-wand",
+    "name": "Black Flame Wings Wand",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% and Crit Chance by 8/10/12/14/16/18/20% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0302.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-flame-wings-wand",
+        "entity_type": "weapon",
+        "name": "Black Flame Wings Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "555",
+    "secondary_stat_name": "6.3",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-flame-wings-wand"
+  },
+  {
+    "id": "black-shadow-greatsword",
+    "name": "Black Shadow Greatsword",
+    "description": "Hitting an Incapacitated enemy decreases All Elemental Burst Resistance by 40/50/60/70/80/90/100% for 20 sec. (Cooldown: 30 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword2h_3013.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/black-shadow-greatsword",
+        "entity_type": "weapon",
+        "name": "Black Shadow Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "315",
+    "secondary_stat_name": "21",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/black-shadow-greatsword"
+  },
+  {
+    "id": "blazing-axe",
+    "name": "Blazing Axe",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-axe",
+        "entity_type": "weapon",
+        "name": "Blazing Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-axe"
+  },
+  {
+    "id": "blazing-dual-swords",
+    "name": "Blazing Dual Swords",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-dual-swords",
+        "entity_type": "weapon",
+        "name": "Blazing Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-dual-swords"
+  },
+  {
+    "id": "blazing-gauntlets",
+    "name": "Blazing Gauntlets",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Gauntlets_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-gauntlets",
+        "entity_type": "weapon",
+        "name": "Blazing Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-gauntlets"
+  },
+  {
+    "id": "blazing-greatsword",
+    "name": "Blazing Greatsword",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword2h_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-greatsword",
+        "entity_type": "weapon",
+        "name": "Blazing Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-greatsword"
+  },
+  {
+    "id": "blazing-grimoire",
+    "name": "Blazing Grimoire",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-grimoire",
+        "entity_type": "weapon",
+        "name": "Blazing Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-grimoire"
+  },
+  {
+    "id": "blazing-lance",
+    "name": "Blazing Lance",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Lance_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-lance",
+        "entity_type": "weapon",
+        "name": "Blazing Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-lance"
+  },
+  {
+    "id": "blazing-longsword",
+    "name": "Blazing Longsword",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword1h_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-longsword",
+        "entity_type": "weapon",
+        "name": "Blazing Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-longsword"
+  },
+  {
+    "id": "blazing-nunchaku",
+    "name": "Blazing Nunchaku",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Cudgel3c_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-nunchaku",
+        "entity_type": "weapon",
+        "name": "Blazing Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-nunchaku"
+  },
+  {
+    "id": "blazing-rapier",
+    "name": "Blazing Rapier",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Rapier_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-rapier",
+        "entity_type": "weapon",
+        "name": "Blazing Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-rapier"
+  },
+  {
+    "id": "blazing-staff",
+    "name": "Blazing Staff",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-staff",
+        "entity_type": "weapon",
+        "name": "Blazing Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-staff"
+  },
+  {
+    "id": "blazing-sword-and-shield",
+    "name": "Blazing Sword and Shield",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Shield_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Blazing Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-sword-and-shield"
+  },
+  {
+    "id": "blazing-wand",
+    "name": "Blazing Wand",
+    "description": "Hitting an enemy whose remaining HP is 100% or above increases their damage taken by 40/50/60/70/80/90/100% for 5 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Wand_4011.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/blazing-wand",
+        "entity_type": "weapon",
+        "name": "Blazing Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "426",
+    "secondary_stat_name": "2.47",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/blazing-wand"
+  },
+  {
+    "id": "chaos-song-rapier",
+    "name": "Chaos Song Rapier",
+    "description": "Hitting an enemy whose Movement Speed is reduced decreases their Defense by 16/20/24/28/32/36/40% for 15 sec. (Cooldown: 25 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Rapier_3016.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/chaos-song-rapier",
+        "entity_type": "weapon",
+        "name": "Chaos Song Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "393",
+    "secondary_stat_name": "4.31",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/chaos-song-rapier"
+  },
+  {
+    "id": "corrupted-conviction-longsword",
+    "name": "Corrupted Conviction Longsword",
+    "description": "Hitting an enemy taking DoT increases damage dealt by 6/7/8/9/10/11/12%.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword1h_3013.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/corrupted-conviction-longsword",
+        "entity_type": "weapon",
+        "name": "Corrupted Conviction Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "358",
+    "secondary_stat_name": "4.42",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/corrupted-conviction-longsword"
+  },
+  {
+    "id": "corrupted-will-gauntlets",
+    "name": "Corrupted Will Gauntlets",
+    "description": "Hitting an enemy increases a random skill's damage by 12/15/18/21/24/27/30% for 15 sec. (Cooldown: 25 sec, up to 5 types)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Gauntlets_3019.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/corrupted-will-gauntlets",
+        "entity_type": "weapon",
+        "name": "Corrupted Will Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "327",
+    "secondary_stat_name": "0.88",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/corrupted-will-gauntlets"
+  },
+  {
+    "id": "crimson-flame-axe",
+    "name": "Crimson Flame Axe",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-axe",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-axe"
+  },
+  {
+    "id": "crimson-flame-dual-swords",
+    "name": "Crimson Flame Dual Swords",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-dual-swords",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-dual-swords"
+  },
+  {
+    "id": "crimson-flame-gauntlets",
+    "name": "Crimson Flame Gauntlets",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-gauntlets",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-gauntlets"
+  },
+  {
+    "id": "crimson-flame-greatsword",
+    "name": "Crimson Flame Greatsword",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-greatsword",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-greatsword"
+  },
+  {
+    "id": "crimson-flame-grimoire",
+    "name": "Crimson Flame Grimoire",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-grimoire",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-grimoire"
+  },
+  {
+    "id": "crimson-flame-lance",
+    "name": "Crimson Flame Lance",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-lance",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-lance"
+  },
+  {
+    "id": "crimson-flame-longsword",
+    "name": "Crimson Flame Longsword",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-longsword",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-longsword"
+  },
+  {
+    "id": "crimson-flame-nunchaku",
+    "name": "Crimson Flame Nunchaku",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-nunchaku",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-nunchaku"
+  },
+  {
+    "id": "crimson-flame-rapier",
+    "name": "Crimson Flame Rapier",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-rapier",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-rapier"
+  },
+  {
+    "id": "crimson-flame-staff",
+    "name": "Crimson Flame Staff",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-staff",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-staff"
+  },
+  {
+    "id": "crimson-flame-sword-and-shield",
+    "name": "Crimson Flame Sword and Shield",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-sword-and-shield"
+  },
+  {
+    "id": "crimson-flame-wand",
+    "name": "Crimson Flame Wand",
+    "description": "Activating a Burst increases Attack by 12/14/16/18/20/22/24% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/crimson-flame-wand",
+        "entity_type": "weapon",
+        "name": "Crimson Flame Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "364",
+    "secondary_stat_name": "4.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/crimson-flame-wand"
+  },
+  {
+    "id": "dark-clouds-enhancement-staff",
+    "name": "Dark Clouds Enhancement Staff",
+    "description": "Critical Hits have 50% chance to increase Crit Damage by 16/20/24/28/32/36/40% or 4/5/6/7/8/9/10% for 15 sec. (Cooldown: 25 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_3013.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/dark-clouds-enhancement-staff",
+        "entity_type": "weapon",
+        "name": "Dark Clouds Enhancement Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "354",
+    "secondary_stat_name": "2.45",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/dark-clouds-enhancement-staff"
+  },
+  {
+    "id": "dead-spirits-breath-nunchaku",
+    "name": "Dead Spirit's Breath Nunchaku",
+    "description": "Hitting an enemy whose Movement Speed is reduced decreases their Defense by 16/20/24/28/32/36/40% for 15 sec. (Cooldown: 25 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Cudgel3c_3025.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/dead-spirits-breath-nunchaku",
+        "entity_type": "weapon",
+        "name": "Dead Spirit's Breath Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "348",
+    "secondary_stat_name": "3.28",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/dead-spirits-breath-nunchaku"
+  },
+  {
+    "id": "eternal-grace-axe",
+    "name": "Eternal Grace Axe",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-axe",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-axe"
+  },
+  {
+    "id": "eternal-grace-dual-swords",
+    "name": "Eternal Grace Dual Swords",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-dual-swords",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-dual-swords"
+  },
+  {
+    "id": "eternal-grace-gauntlets",
+    "name": "Eternal Grace Gauntlets",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-gauntlets",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-gauntlets"
+  },
+  {
+    "id": "eternal-grace-greatsword",
+    "name": "Eternal Grace Greatsword",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-greatsword",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-greatsword"
+  },
+  {
+    "id": "eternal-grace-grimoire",
+    "name": "Eternal Grace Grimoire",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-grimoire",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-grimoire"
+  },
+  {
+    "id": "eternal-grace-lance",
+    "name": "Eternal Grace Lance",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-lance",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-lance"
+  },
+  {
+    "id": "eternal-grace-longsword",
+    "name": "Eternal Grace Longsword",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-longsword",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-longsword"
+  },
+  {
+    "id": "eternal-grace-nunchaku",
+    "name": "Eternal Grace Nunchaku",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-nunchaku",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-nunchaku"
+  },
+  {
+    "id": "eternal-grace-rapier",
+    "name": "Eternal Grace Rapier",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-rapier",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-rapier"
+  },
+  {
+    "id": "eternal-grace-staff",
+    "name": "Eternal Grace Staff",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-staff",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-staff"
+  },
+  {
+    "id": "eternal-grace-sword-and-shield",
+    "name": "Eternal Grace Sword and Shield",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-sword-and-shield"
+  },
+  {
+    "id": "eternal-grace-wand",
+    "name": "Eternal Grace Wand",
+    "description": "Using a skill increases Healing Efficiency by 20/25/30/35/40/45/50% for 10 sec if the remaining HP is 30% or lower. (Cooldown: 20 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0307.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/eternal-grace-wand",
+        "entity_type": "weapon",
+        "name": "Eternal Grace Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "624",
+    "secondary_stat_name": "4.64",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/eternal-grace-wand"
+  },
+  {
+    "id": "indomitable-guard-axe",
+    "name": "Indomitable Guard Axe",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-axe",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-axe"
+  },
+  {
+    "id": "indomitable-guard-dual-swords",
+    "name": "Indomitable Guard Dual Swords",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-dual-swords",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-dual-swords"
+  },
+  {
+    "id": "indomitable-guard-gauntlets",
+    "name": "Indomitable Guard Gauntlets",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-gauntlets",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-gauntlets"
+  },
+  {
+    "id": "indomitable-guard-greatsword",
+    "name": "Indomitable Guard Greatsword",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-greatsword",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-greatsword"
+  },
+  {
+    "id": "indomitable-guard-grimoire",
+    "name": "Indomitable Guard Grimoire",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-grimoire",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-grimoire"
+  },
+  {
+    "id": "indomitable-guard-lance",
+    "name": "Indomitable Guard Lance",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-lance",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-lance"
+  },
+  {
+    "id": "indomitable-guard-longsword",
+    "name": "Indomitable Guard Longsword",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-longsword",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-longsword"
+  },
+  {
+    "id": "indomitable-guard-nunchaku",
+    "name": "Indomitable Guard Nunchaku",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-nunchaku",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-nunchaku"
+  },
+  {
+    "id": "indomitable-guard-rapier",
+    "name": "Indomitable Guard Rapier",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-rapier",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-rapier"
+  },
+  {
+    "id": "indomitable-guard-staff",
+    "name": "Indomitable Guard Staff",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-staff",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-staff"
+  },
+  {
+    "id": "indomitable-guard-sword-and-shield",
+    "name": "Indomitable Guard Sword and Shield",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-sword-and-shield"
+  },
+  {
+    "id": "indomitable-guard-wand",
+    "name": "Indomitable Guard Wand",
+    "description": "Using the Tag Skill increases Block Rate by 8/10/12/14/16/18/20% and Block Defense by 16/20/24/28/32/36/40% for 15 sec if the remaining HP is 30% or lower.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0402.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/indomitable-guard-wand",
+        "entity_type": "weapon",
+        "name": "Indomitable Guard Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "607",
+    "secondary_stat_name": "6.98",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/indomitable-guard-wand"
+  },
+  {
+    "id": "jet-black-axe",
+    "name": "Jet-black Axe",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-axe",
+        "entity_type": "weapon",
+        "name": "Jet-black Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-axe"
+  },
+  {
+    "id": "jet-black-dual-swords",
+    "name": "Jet-black Dual Swords",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-dual-swords",
+        "entity_type": "weapon",
+        "name": "Jet-black Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-dual-swords"
+  },
+  {
+    "id": "jet-black-gauntlets",
+    "name": "Jet-black Gauntlets",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-gauntlets",
+        "entity_type": "weapon",
+        "name": "Jet-black Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-gauntlets"
+  },
+  {
+    "id": "jet-black-greatsword",
+    "name": "Jet-black Greatsword",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0304.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-greatsword",
+        "entity_type": "weapon",
+        "name": "Jet-black Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-greatsword"
+  },
+  {
+    "id": "jet-black-grimoire",
+    "name": "Jet-black Grimoire",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-grimoire",
+        "entity_type": "weapon",
+        "name": "Jet-black Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-grimoire"
+  },
+  {
+    "id": "jet-black-lance",
+    "name": "Jet-black Lance",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-lance",
+        "entity_type": "weapon",
+        "name": "Jet-black Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-lance"
+  },
+  {
+    "id": "jet-black-longsword",
+    "name": "Jet-black Longsword",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-longsword",
+        "entity_type": "weapon",
+        "name": "Jet-black Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-longsword"
+  },
+  {
+    "id": "jet-black-nunchaku",
+    "name": "Jet-black Nunchaku",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-nunchaku",
+        "entity_type": "weapon",
+        "name": "Jet-black Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-nunchaku"
+  },
+  {
+    "id": "jet-black-rapier",
+    "name": "Jet-black Rapier",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-rapier",
+        "entity_type": "weapon",
+        "name": "Jet-black Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-rapier"
+  },
+  {
+    "id": "jet-black-staff",
+    "name": "Jet-black Staff",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-staff",
+        "entity_type": "weapon",
+        "name": "Jet-black Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-staff"
+  },
+  {
+    "id": "jet-black-sword-and-shield",
+    "name": "Jet-black Sword and Shield",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Jet-black Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-sword-and-shield"
+  },
+  {
+    "id": "jet-black-wand",
+    "name": "Jet-black Wand",
+    "description": "20% chance to increase Crit Chance by 18/20/22/24/26/28/30% for 5 sec when using the Ultimate Move.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0306.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/jet-black-wand",
+        "entity_type": "weapon",
+        "name": "Jet-black Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "424",
+    "secondary_stat_name": "4.4",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/jet-black-wand"
+  },
+  {
+    "id": "melody-of-temptation-grimoire",
+    "name": "Melody of Temptation Grimoire",
+    "description": "Increases Barrier Efficiency by 12/15/18/21/24/27/30%.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_3019.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/melody-of-temptation-grimoire",
+        "entity_type": "weapon",
+        "name": "Melody of Temptation Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "328",
+    "secondary_stat_name": "3.41",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/melody-of-temptation-grimoire"
+  },
+  {
+    "id": "razorwind-wand",
+    "name": "Razorwind Wand",
+    "description": "Critical Hits have 50% chance to increase Crit Damage by 16/20/24/28/32/36/40% or 4/5/6/7/8/9/10% for 15 sec. (Cooldown: 25 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Wand_3013.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/razorwind-wand",
+        "entity_type": "weapon",
+        "name": "Razorwind Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "381",
+    "secondary_stat_name": "0.87",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/razorwind-wand"
+  },
+  {
+    "id": "ruler-forest-axe",
+    "name": "Ruler of the Forest Axe",
+    "description": "Hitting an Incapacitated enemy decreases All Elemental Burst Resistance by 40/50/60/70/80/90/100% for 20 sec. (Cooldown: 30 sec)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_3013.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/ruler-forest-axe",
+        "entity_type": "weapon",
+        "name": "Ruler of the Forest Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "328",
+    "secondary_stat_name": "4.82",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/ruler-forest-axe"
+  },
+  {
+    "id": "shadow-rupture-axe",
+    "name": "Shadow of Rupture Axe",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-rupture-axe",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Axe"
+      }
+    ],
+    "weapon_type": "Axe",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-rupture-axe"
+  },
+  {
+    "id": "shadow-of-rupture-dual-swords",
+    "name": "Shadow of Rupture Dual Swords",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-dual-swords",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-dual-swords"
+  },
+  {
+    "id": "shadow-of-rupture-gauntlets",
+    "name": "Shadow of Rupture Gauntlets",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-gauntlets",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Gauntlets"
+      }
+    ],
+    "weapon_type": "Gauntlets",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-gauntlets"
+  },
+  {
+    "id": "shadow-of-rupture-greatsword",
+    "name": "Shadow of Rupture Greatsword",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-greatsword",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Greatsword"
+      }
+    ],
+    "weapon_type": "Greatsword",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-greatsword"
+  },
+  {
+    "id": "shadow-of-rupture-grimoire",
+    "name": "Shadow of Rupture Grimoire",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-grimoire",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Grimoire"
+      }
+    ],
+    "weapon_type": "book",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-grimoire"
+  },
+  {
+    "id": "shadow-of-rupture-lance",
+    "name": "Shadow of Rupture Lance",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-lance",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-lance"
+  },
+  {
+    "id": "shadow-of-rupture-longsword",
+    "name": "Shadow of Rupture Longsword",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-longsword",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Longsword"
+      }
+    ],
+    "weapon_type": "Longsword",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-longsword"
+  },
+  {
+    "id": "shadow-of-rupture-nunchaku",
+    "name": "Shadow of Rupture Nunchaku",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-nunchaku",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Nunchaku"
+      }
+    ],
+    "weapon_type": "cudgel",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-nunchaku"
+  },
+  {
+    "id": "shadow-of-rupture-rapier",
+    "name": "Shadow of Rupture Rapier",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-rapier",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Rapier"
+      }
+    ],
+    "weapon_type": "Rapier",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-rapier"
+  },
+  {
+    "id": "shadow-of-rupture-staff",
+    "name": "Shadow of Rupture Staff",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-staff",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Staff"
+      }
+    ],
+    "weapon_type": "Staff",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-staff"
+  },
+  {
+    "id": "shadow-of-rupture-sword-and-shield",
+    "name": "Shadow of Rupture Sword and Shield",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-sword-and-shield"
+  },
+  {
+    "id": "shadow-of-rupture-wand",
+    "name": "Shadow of Rupture Wand",
+    "description": "Increases Crit Damage by 0.3/0.35/0.4/0.45/0.5/0.55/0.6% for 10 sec when an attack results in a Critical Hit. (Max: 15/17.5/20/22.5/25/27.5/30%)",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0403.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/shadow-of-rupture-wand",
+        "entity_type": "weapon",
+        "name": "Shadow of Rupture Wand"
+      }
+    ],
+    "weapon_type": "Wand",
+    "rarity": "5",
+    "attack": "613",
+    "secondary_stat_name": "3.48",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/shadow-of-rupture-wand"
+  },
+  {
+    "id": "skyborne-gale-dual-swords",
+    "name": "Skyborne Gale Dual Swords",
+    "description": "Back Attacks decrease Crit Resistance by 16/20/24/28/32/36/40% for 20 sec.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2Ficon_Short_WEAPON3_SwordDual_3013.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/skyborne-gale-dual-swords",
+        "entity_type": "weapon",
+        "name": "Skyborne Gale Dual Swords"
+      }
+    ],
+    "weapon_type": "Dual Swords",
+    "rarity": "5",
+    "attack": "321",
+    "secondary_stat_name": "2.49",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/skyborne-gale-dual-swords"
+  },
+  {
+    "id": "thorn-of-greed-lance",
+    "name": "Thorn of Greed Lance",
+    "description": "Hitting an enemy taking DoT increases damage dealt by 6/7/8/9/10/11/12%.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Lance_3016.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/thorn-of-greed-lance",
+        "entity_type": "weapon",
+        "name": "Thorn of Greed Lance"
+      }
+    ],
+    "weapon_type": "Lance",
+    "rarity": "5",
+    "attack": "339",
+    "secondary_stat_name": "4.89",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/thorn-of-greed-lance"
+  },
+  {
+    "id": "unyielding-spirit-sword-and-shield",
+    "name": "Unyielding Spirit Sword and Shield",
+    "description": "Increases Barrier Efficiency by 12/15/18/21/24/27/30%.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Shield_3016.png&w=640",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/weapons/unyielding-spirit-sword-and-shield",
+        "entity_type": "weapon",
+        "name": "Unyielding Spirit Sword and Shield"
+      }
+    ],
+    "weapon_type": "Shield",
+    "rarity": "5",
+    "attack": "348",
+    "secondary_stat_name": "20",
+    "secondary_stat_value": "Attack",
+    "url": "https://7dsorigin.gg/weapons/unyielding-spirit-sword-and-shield"
+  }
+]

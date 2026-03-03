@@ -1,1 +1,207 @@
-[]
+[
+  {
+    "id": "boss-guide",
+    "name": "Boss Guide",
+    "description": "Nightmare bosses — mechanics, interrupt timing, and strategy",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/boss-guide",
+        "entity_type": "guide",
+        "name": "Boss Guide"
+      }
+    ],
+    "guide_type": "boss-guide",
+    "summary": "Nightmare bosses — mechanics, interrupt timing, and strategy",
+    "sections": [
+      "Nightmare Boss Guide – General Information",
+      "Multiplayer Matters More Than Anything",
+      "Boss AI and Combat Design",
+      "The Blue Outline Mechanic — Critical to Learn",
+      "Damage Windows and Burst Strategy",
+      "Dodging and Avoidance",
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/boss-guide"
+  },
+  {
+    "id": "combat-guide",
+    "name": "Combat Guide",
+    "description": "Master the real-time combat system of The Seven Deadly Sins: Origin",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/combat-guide",
+        "entity_type": "guide",
+        "name": "Combat Guide"
+      }
+    ],
+    "guide_type": "combat-guide",
+    "summary": "Master the real-time combat system of The Seven Deadly Sins: Origin",
+    "sections": [
+      "Combat Basics",
+      "Normal Attack",
+      "Special Attack",
+      "Normal Skill (E)",
+      "Ultimate Move",
+      "Burst System",
+      "How to Build Burst Gauge",
+      "Burst Effects",
+      "Tag System",
+      "Tag Gauge",
+      "Tag Points",
+      "Status Effects Reference",
+      "Advanced Tips",
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/combat-guide"
+  },
+  {
+    "id": "general-info",
+    "name": "General Information",
+    "description": "Select a topic to view the guide",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/general-info",
+        "entity_type": "guide",
+        "name": "General Information"
+      }
+    ],
+    "guide_type": "general-info",
+    "summary": "Select a topic to view the guide",
+    "sections": [
+      "Key Game Systems",
+      "Hero System",
+      "Burst System",
+      "Tag System",
+      "Magic System",
+      "Weapon Types",
+      "Open World",
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/general-info"
+  },
+  {
+    "id": "progression-guide",
+    "name": "Progression Guide",
+    "description": "How to progress efficiently through Seven Deadly Sins: Origin",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/progression-guide",
+        "entity_type": "guide",
+        "name": "Progression Guide"
+      }
+    ],
+    "guide_type": "progression-guide",
+    "summary": "How to progress efficiently through Seven Deadly Sins: Origin",
+    "sections": [
+      "Early Game Priorities",
+      "Complete the Main Story First",
+      "Build a Balanced Starting Team",
+      "Experiment With Weapon Types Early",
+      "Upgrade Gear on Your Main DPS First",
+      "Unlock All Available Heroes",
+      "Understanding the Weapon & Skill System",
+      "Skill Unlock Order Matters",
+      "Do Not Spread Resources Too Thin",
+      "Passive Skills Are Game Changers",
+      "Team Synergy Comes From Weapon Choices",
+      "Mid Game Goals",
+      "Reach Max Level on Core Heroes",
+      "Farm Best-in-Slot Gear",
+      "Push World Bosses",
+      "Explore the Full Map",
+      "Build a Second Team",
+      "Understand PvP Basics",
+      "Daily & Weekly Routine",
+      "Daily",
+      "Weekly",
+      "Spending & Summon Priorities",
+      "Pity Summons on S-Tier Characters",
+      "Weapon Unlock Pulls",
+      "Gear Enhancement Materials",
+      "Stamina Refills",
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/progression-guide"
+  },
+  {
+    "id": "team-compositions",
+    "name": "Team Compositions",
+    "description": "Recommended team setups for Seven Deadly Sins: Origin.",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "guide",
+        "name": "Team Compositions"
+      }
+    ],
+    "guide_type": "team-compositions",
+    "summary": "Recommended team setups for Seven Deadly Sins: Origin.",
+    "sections": [
+      "Cold Burst DPS",
+      "Chill Based DPS",
+      "Demonic Power",
+      "Darkness Burst DPS",
+      "Just Bleed",
+      "Wind Burst DPS",
+      "Earth Burst DPS",
+      "Burn",
+      "Wall of Fire",
+      "Electricity",
+      "Punishment",
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tier-list",
+    "name": "Tier List",
+    "description": "Character rankings for Seven Deadly Sins: Origin",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/tier-list",
+        "entity_type": "guide",
+        "name": "Tier List"
+      }
+    ],
+    "guide_type": "tier-list",
+    "summary": "Character rankings for Seven Deadly Sins: Origin",
+    "sections": [
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/tier-list"
+  },
+  {
+    "id": "map-information",
+    "name": "World Map",
+    "description": "Map of the Kingdom of Britannia — field bosses, regions, and points of interest",
+    "image": null,
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/map-information",
+        "entity_type": "guide",
+        "name": "World Map"
+      }
+    ],
+    "guide_type": "map-information",
+    "summary": "Map of the Kingdom of Britannia — field bosses, regions, and points of interest",
+    "sections": [
+      "World Boss Respawn",
+      "Red Demon Ritual",
+      "Games"
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/map-information"
+  }
+]

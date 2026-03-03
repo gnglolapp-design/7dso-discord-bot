@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "id": "meliodas-banner",
+    "name": "CBT Limited Hero Draw",
+    "description": "Draw CBT-limited Heroes! You can obtain powerful and charismatic heroes.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbanners%2Fgacha_banner_2.png&w=1920",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Hero Draw"
+      },
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Hero Draw"
+      }
+    ],
+    "banner_type": "weapons",
+    "status": "",
+    "date_range": "",
+    "featured": [],
+    "url": "https://7dsorigin.gg/banners/meliodas-banner"
+  },
+  {
+    "id": "festival-banner",
+    "name": "CBT Limited Weapon Draw",
+    "description": "Draw CBT-limited Weapons! You can obtain weapons that will further enhance your heroes' abilities.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbanners%2Fgacha_banner_5.png&w=1920",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/festival-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Weapon Draw"
+      },
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/banners/festival-banner",
+        "entity_type": "banner",
+        "name": "CBT Limited Weapon Draw"
+      }
+    ],
+    "banner_type": "weapons",
+    "status": "",
+    "date_range": "",
+    "featured": [],
+    "url": "https://7dsorigin.gg/banners/festival-banner"
+  }
+]

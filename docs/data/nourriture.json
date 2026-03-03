@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": "foods",
+    "name": "Foods",
+    "description": "🔔 Some data may be incomplete. They will be updated at the end of the beta phase, and again upon the official release of the game.",
+    "image": null,
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/foods",
+        "entity_type": "resource_collection",
+        "name": "Foods"
+      },
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/foods",
+        "entity_type": "resource_collection",
+        "name": "Foods"
+      }
+    ],
+    "resource_type": "foods",
+    "summary": "🔔 Some data may be incomplete. They will be updated at the end of the beta phase, and again upon the official release of the game.",
+    "has_data_coming_soon": false,
+    "url": "https://7dsorigin.gg/foods"
+  }
+]
