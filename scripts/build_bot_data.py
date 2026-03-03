@@ -1,357 +1,707 @@
+#!/usr/bin/env python3
 from __future__ import annotations
 
-"""
-Build Discord-bot friendly JSON in docs/data/ from the scraper canonical export.
-
-Why:
-- The scraper emits canonical entities in JSONL. Some canonical fields may be missing (name/id/image/etc.).
-- Discord menus require stable unique option values; we generate a stable `id` and ensure `name` is filled.
-- We fail HARD if canonical input is missing/empty so CI won't silently publish empty [].
-
-Output files (docs/data):
-- characters.json, weapons.json, banners.json, bosses.json, guides.json, team_comps.json
-- resources.json, familiers.json, peche.json, objets.json, nourriture.json
-- coverage_report.json (copied if present)
-"""
-
-import os
-from pathlib import Path
-from urllib.parse import urlparse
 import json
 import re
-from typing import Any, Iterable
-
+import sqlite3
+from collections import defaultdict
+from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+SCRAPE_DIR = ROOT / "scrape-data"
+CANONICAL_DIR = SCRAPE_DIR / "canonical"
+DB_PATH = SCRAPE_DIR / "7dso_scrape.sqlite"
 OUT_DIR = ROOT / "docs" / "data"
+CHAR_INDEX_DIR = OUT_DIR / "characters"
+WEAPON_INDEX_DIR = OUT_DIR / "weapons"
 
-# Candidate locations for canonical export.
-CANON_DIR_CANDIDATES = [
-    ROOT / "scrape-data" / "canonical",
-    ROOT / "scraper" / "scrape-data" / "canonical",
-    ROOT / ".cache" / "scrape-data" / "canonical",
-]
+JSONLike = dict[str, Any]
 
-
-def ensure_dir(p: Path) -> None:
-    p.mkdir(parents=True, exist_ok=True)
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows: list[dict[str, Any]] = []
-    if not path.exists():
-        return rows
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        rows.append(json.loads(line))
-    return rows
+OUTPUT_MAP: dict[str, str] = {
+    "character": "characters",
+    "weapon": "weapons",
+    "guide": "guides",
+    "boss": "bosses",
+    "team_comp": "team_comps",
+    "resource": "resources",
+    "banner": "banners",
+    "familiar": "familiers",
+    "food": "nourriture",
+    "item": "objets",
+    "fishing": "peche",
+}
 
 
-def find_canon_dir() -> Path:
-    # Optional override
-    override = (os.environ.get("SCRAPE_CANON_DIR") or "").strip()
-    if override:
-        p = Path(override).expanduser().resolve()
-        if p.exists():
-            return p
-
-    for cand in CANON_DIR_CANDIDATES:
-        if (cand / "all.jsonl").exists():
-            return cand
-    # As a last resort, accept any existing canonical dir
-    for cand in CANON_DIR_CANDIDATES:
-        if cand.exists():
-            return cand
-    raise SystemExit(
-        "Canonical export not found. Expected one of:\n"
-        + "\n".join(str(c) for c in CANON_DIR_CANDIDATES)
-        + "\nCI should run the scraper before build_bot_data.py."
-    )
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 
 def write_json(path: Path, data: Any) -> None:
     ensure_dir(path.parent)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def lower(x: Any) -> str:
-    return str(x or "").strip().lower()
+def as_list(value: Any) -> list[Any]:
+    if isinstance(value, list):
+        return value
+    if value is None:
+        return []
+    return [value]
 
 
-def pick(d: dict[str, Any], *keys: str) -> Any:
-    for k in keys:
-        v = d.get(k)
-        if v is not None and v != "" and v != [] and v != {}:
-            return v
+def as_dict(value: Any) -> JSONLike:
+    return value if isinstance(value, dict) else {}
+
+
+def as_str(value: Any) -> str:
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def load_jsonish(value: Any) -> Any:
+    if value is None:
+        return None
+    if isinstance(value, (dict, list)):
+        return value
+    if isinstance(value, (bytes, bytearray)):
+        value = value.decode("utf-8", errors="replace")
+    if isinstance(value, str):
+        raw = value.strip()
+        if not raw:
+            return None
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            return value
+    return value
+
+
+def slugify(text: str) -> str:
+    text = text.lower().strip()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return text.strip("-")
+
+
+def unique_by(items: list[JSONLike], key_fn) -> list[JSONLike]:
+    out: list[JSONLike] = []
+    seen: set[str] = set()
+    for item in items:
+        key = key_fn(item)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(item)
+    return out
+
+
+def flatten_text(value: Any) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, list):
+        return "\n".join(filter(None, (flatten_text(x) for x in value))).strip()
+    if isinstance(value, dict):
+        parts: list[str] = []
+        for key in ["text", "description", "summary", "content", "body", "value"]:
+            part = flatten_text(value.get(key))
+            if part:
+                parts.append(part)
+        return "\n".join(parts).strip()
+    return str(value).strip()
+
+
+def first_url(*values: Any) -> str | None:
+    for value in values:
+        if isinstance(value, str) and value.strip().startswith(("http://", "https://")):
+            return value.strip()
+        if isinstance(value, dict):
+            for key in ["url", "src", "image", "icon", "thumbnail", "full"]:
+                got = first_url(value.get(key))
+                if got:
+                    return got
+        if isinstance(value, list):
+            for item in value:
+                got = first_url(item)
+                if got:
+                    return got
     return None
 
 
-def first_source(row: dict[str, Any]) -> dict[str, Any]:
-    sources = row.get("sources") or []
-    return sources[0] if isinstance(sources, list) and sources else {}
+def summarize_text(text: str, limit: int = 260) -> str:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= limit:
+        return text
+    trimmed = text[: limit - 1].rsplit(" ", 1)[0].strip()
+    return f"{trimmed}…" if trimmed else text[:limit]
 
 
-def slug_from_url(url: Any) -> str | None:
-    s = str(url or "").strip()
-    if not s:
+def lines_of(text: str) -> list[str]:
+    return [line.strip() for line in re.split(r"\r?\n", text or "") if line.strip()]
+
+
+def sections_from_text(title: str, text: str) -> list[JSONLike]:
+    lines = lines_of(text)
+    if not lines:
+        return []
+
+    sections: list[JSONLike] = []
+    current_title = "Overview"
+    current_lines: list[str] = []
+
+    def flush() -> None:
+        nonlocal current_title, current_lines
+        body = "\n".join(current_lines).strip()
+        if body:
+            sections.append({"title": current_title, "text": body})
+        current_lines = []
+
+    for line in lines:
+        normalized = re.sub(r"\s+", " ", line)
+        looks_like_heading = False
+        if normalized.endswith(":") and len(normalized) <= 80:
+            looks_like_heading = True
+        elif 0 < len(normalized) <= 60 and normalized == normalized.title() and not normalized.endswith("."):
+            looks_like_heading = True
+        elif normalized.lower().startswith(("tier ", "phase ", "when ", "how to ", "core ", "fight ", "strategy", "summoning", "stats", "potentials", "costumes")):
+            looks_like_heading = True
+
+        if looks_like_heading and normalized.lower() != title.lower():
+            flush()
+            current_title = normalized.rstrip(":")
+            continue
+        current_lines.append(normalized)
+
+    flush()
+    return sections[:12]
+
+
+def normalize_section(section: Any) -> JSONLike | None:
+    obj = as_dict(load_jsonish(section))
+    if not obj:
         return None
+
+    items = [as_dict(x) for x in as_list(obj.get("items")) if isinstance(x, dict)]
+    title = as_str(obj.get("title") or obj.get("name") or obj.get("heading"))
+    text = flatten_text(obj.get("text") or obj.get("description") or obj.get("summary") or obj.get("content"))
+    image = first_url(obj.get("image"), obj.get("icon"), obj.get("thumbnail"))
+
+    normalized: JSONLike = {}
+    if title:
+        normalized["title"] = title
+    if text:
+        normalized["text"] = text
+    if image:
+        normalized["image"] = image
+    if items:
+        norm_items: list[JSONLike] = []
+        for item in items:
+            norm_item: JSONLike = {}
+            for src_key, dst_key in [
+                ("title", "title"),
+                ("name", "name"),
+                ("badge", "badge"),
+                ("type", "type"),
+                ("tier", "tier"),
+                ("rarity", "rarity"),
+            ]:
+                value = as_str(item.get(src_key))
+                if value:
+                    norm_item[dst_key] = value
+            desc = flatten_text(item.get("description") or item.get("text") or item.get("summary"))
+            if desc:
+                norm_item["description"] = desc
+            icon = first_url(item.get("icon"), item.get("image"), item.get("thumbnail"))
+            if icon:
+                norm_item["icon"] = icon
+            if norm_item:
+                norm_items.append(norm_item)
+        if norm_items:
+            normalized["items"] = norm_items
+
+    return normalized or None
+
+
+def normalize_image(image: Any) -> JSONLike | None:
+    obj = as_dict(load_jsonish(image))
+    if not obj:
+        return None
+    url = first_url(obj.get("url"), obj.get("src"), obj.get("image"))
+    if not url:
+        return None
+    out: JSONLike = {"url": url}
+    for src_key, dst_key in [("label", "label"), ("alt", "alt"), ("caption", "caption"), ("title", "title")]:
+        value = as_str(obj.get(src_key))
+        if value:
+            out[dst_key] = value
+    return out
+
+
+def page_payload(page: JSONLike | None) -> JSONLike:
+    if not page:
+        return {}
+
+    sections = [x for x in (normalize_section(s) for s in as_list(page.get("sections"))) if x]
+    images = [x for x in (normalize_image(i) for i in as_list(page.get("images"))) if x]
+    page_text = flatten_text(page.get("page_text") or page.get("raw_text") or page.get("text"))
+
+    if not sections and page_text:
+        sections = sections_from_text(as_str(page.get("title")), page_text)
+
+    summary = as_str(page.get("page_summary") or page.get("summary") or page.get("excerpt"))
+    if not summary and page_text:
+        summary = summarize_text(page_text)
+
+    image = first_url(page.get("image"), page.get("thumbnail"), images)
+
+    out: JSONLike = {
+        "page_title": as_str(page.get("title")),
+        "page_summary": summary,
+        "page_text": page_text,
+        "sections": sections,
+        "images": images,
+        "page_type": as_str(page.get("page_type") or page.get("kind") or page.get("type")),
+        "site": as_str(page.get("site") or page.get("source_site")),
+        "url": as_str(page.get("url")),
+    }
+    if image:
+        out["image"] = image
+    return {k: v for k, v in out.items() if v not in (None, "", [], {})}
+
+
+def classify_page(page: JSONLike) -> str | None:
+    page_type = as_str(page.get("page_type") or page.get("kind") or page.get("type")).lower()
+    url = as_str(page.get("url")).lower()
+    title = as_str(page.get("title")).lower()
+
+    if page_type in {"boss", "boss_guide"}:
+        if "general" in title and "boss" in title:
+            return "guide"
+        return "boss"
+    if page_type == "guide":
+        return "guide"
+
+    if "/boss-guide" in url:
+        if "general" in title:
+            return "guide"
+        return "boss"
+    if "/guide" in url:
+        return "guide"
+    return None
+
+
+def read_jsonl(path: Path) -> list[JSONLike]:
+    rows: list[JSONLike] = []
+    if not path.exists():
+        return rows
+    for line in path.read_text(encoding="utf-8").splitlines():
+        raw = line.strip()
+        if not raw:
+            continue
+        try:
+            row = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(row, dict):
+            rows.append(row)
+    return rows
+
+
+def load_canonical_entities() -> list[JSONLike]:
+    rows: list[JSONLike] = []
+    if CANONICAL_DIR.exists():
+        for path in sorted(CANONICAL_DIR.glob("*.jsonl")):
+            rows.extend(read_jsonl(path))
+    if rows:
+        return rows
+
+    if DB_PATH.exists():
+        try:
+            con = sqlite3.connect(DB_PATH)
+            con.row_factory = sqlite3.Row
+            cur = con.cursor()
+            cur.execute("SELECT * FROM canonical_entities")
+            db_rows = [dict(r) for r in cur.fetchall()]
+            con.close()
+            rows = []
+            for row in db_rows:
+                rows.append(
+                    {
+                        "entity_type": row.get("entity_type"),
+                        "entity_id": row.get("entity_id"),
+                        "slug": row.get("slug"),
+                        "name": row.get("name"),
+                        "data": load_jsonish(row.get("data_json")) or {},
+                        "sources": load_jsonish(row.get("sources_json")) or [],
+                        "aliases": load_jsonish(row.get("aliases_json")) or [],
+                        "tags": load_jsonish(row.get("tags_json")) or [],
+                    }
+                )
+        except Exception:
+            rows = []
+    return rows
+
+
+def load_pages() -> list[JSONLike]:
+    if not DB_PATH.exists():
+        return []
     try:
-        p = urlparse(s)
-        path = p.path.strip("/")
-        if not path:
-            return None
-        return path.split("/")[-1]
+        con = sqlite3.connect(DB_PATH)
+        con.row_factory = sqlite3.Row
+        cur = con.cursor()
+        cur.execute("SELECT * FROM pages")
+        raw_rows = [dict(r) for r in cur.fetchall()]
+        con.close()
     except Exception:
-        return None
+        return []
+
+    rows: list[JSONLike] = []
+    for row in raw_rows:
+        rows.append(
+            {
+                "site": row.get("site"),
+                "page_type": row.get("page_type"),
+                "slug": row.get("slug"),
+                "title": row.get("title"),
+                "url": row.get("url"),
+                "summary": row.get("summary"),
+                "sections": load_jsonish(row.get("sections_json")) or [],
+                "images": load_jsonish(row.get("images_json")) or [],
+                "metadata": load_jsonish(row.get("metadata_json")) or {},
+                "page_text": row.get("raw_text") or "",
+            }
+        )
+    return rows
 
 
-def entity_type(row: dict[str, Any]) -> str:
-    return (
-        str(row.get("entity_type") or row.get("type") or row.get("kind") or row.get("entityType") or "")
-        .strip()
-    )
+def load_coverage_report() -> JSONLike:
+    path = OUT_DIR / "coverage_report.json"
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
 
-
-def attrs_of(row: dict[str, Any]) -> dict[str, Any]:
-    a = row.get("attributes")
-    if isinstance(a, dict):
-        return a
-    a = row.get("attrs")
-    if isinstance(a, dict):
-        return a
-    a = row.get("data")
-    if isinstance(a, dict):
-        return a
+    if DB_PATH.exists():
+        try:
+            con = sqlite3.connect(DB_PATH)
+            con.row_factory = sqlite3.Row
+            cur = con.cursor()
+            cur.execute("SELECT report_json FROM reports ORDER BY rowid DESC LIMIT 1")
+            row = cur.fetchone()
+            con.close()
+            if row and row[0]:
+                loaded = load_jsonish(row[0])
+                if isinstance(loaded, dict):
+                    return loaded
+        except Exception:
+            pass
     return {}
 
 
-def stable_name_id(row: dict[str, Any]) -> tuple[str, str]:
-    attrs = attrs_of(row)
-    src0 = first_source(row)
-
-    name = (
-        pick(attrs, "name", "title", "display_name", "displayName")
-        or row.get("canonical_name")
-        or row.get("name")
-        or src0.get("name")
-        or "Unknown"
-    )
-    name = str(name).strip() or "Unknown"
-
-    _id = (
-        row.get("canonical_id")
-        or row.get("id")
-        or pick(attrs, "id", "slug", "key")
-        or slug_from_url(src0.get("source_url"))
-        or re.sub(r"[^a-z0-9]+", "-", lower(name)).strip("-")
-    )
-    _id = str(_id).strip() or re.sub(r"[^a-z0-9]+", "-", lower(name)).strip("-") or "unknown"
-    return name, _id
-
-
-def build_simple(all_records: list[dict[str, Any]], typ: str) -> list[dict[str, Any]]:
-    out: list[dict[str, Any]] = []
-    for row in all_records:
-        if entity_type(row) != typ:
-            continue
-        attrs = attrs_of(row)
-        name, _id = stable_name_id(row)
-        src0 = first_source(row)
-        payload: dict[str, Any] = {
-            "id": _id,
-            "name": name,
-            "description": pick(attrs, "description", "summary", "text", "content") or row.get("description"),
-            "image": pick(attrs, "image", "image_url", "imageUrl", "portrait", "icon", "thumbnail", "cover"),
-            "sources": row.get("sources", []),
-        }
-        # Keep everything we have for forward-compat (stats, type, rarity, etc.)
-        if isinstance(attrs, dict):
-            for k, v in attrs.items():
-                if k not in payload:
-                    payload[k] = v
-        # Extra: store a usable "url" (non-mandatory)
-        payload["url"] = pick(attrs, "url", "source_url") or src0.get("source_url")
-        out.append(payload)
+def normalize_source(source: Any) -> JSONLike:
+    obj = as_dict(source)
+    if not obj:
+        return {}
+    out: JSONLike = {}
+    for src_key, dst_key in [
+        ("site", "site"),
+        ("source_url", "source_url"),
+        ("entity_type", "entity_type"),
+        ("name", "name"),
+    ]:
+        value = as_str(obj.get(src_key))
+        if value:
+            out[dst_key] = value
     return out
 
 
-def extract_character_slug_from_sources(row: dict[str, Any]) -> str | None:
-    for src in row.get("sources") or []:
-        u = str(src.get("source_url") or "")
-        m = re.search(r"/characters/([^/?#]+)", u)
-        if m:
-            return m.group(1)
-    return None
+def normalize_record(record: JSONLike) -> JSONLike:
+    return {
+        "entity_type": as_str(record.get("entity_type")),
+        "entity_id": as_str(record.get("entity_id")),
+        "slug": as_str(record.get("slug")),
+        "name": as_str(record.get("name")),
+        "data": as_dict(record.get("data")),
+        "sources": [normalize_source(s) for s in as_list(record.get("sources")) if isinstance(s, dict)],
+        "aliases": [as_str(x) for x in as_list(record.get("aliases")) if as_str(x)],
+        "tags": [as_str(x) for x in as_list(record.get("tags")) if as_str(x)],
+    }
 
 
-def build_characters(all_records: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    # Index profiles and costumes by character slug/id
-    profiles_by_char: dict[str, list[dict[str, Any]]] = {}
-    costumes_by_char: dict[str, list[dict[str, Any]]] = {}
+def build_page_maps(pages: list[JSONLike]) -> tuple[dict[str, JSONLike], dict[str, list[JSONLike]]]:
+    by_slug: dict[str, JSONLike] = {}
+    by_kind: dict[str, list[JSONLike]] = defaultdict(list)
 
-    for row in all_records:
-        t = entity_type(row)
-        if t == "character_weapon_profile":
-            attrs = attrs_of(row)
-            src0 = first_source(row)
-            char_key = (
-                row.get("character_id")
-                or row.get("parent_id")
-                or pick(attrs, "character_id", "characterId", "character", "character_slug", "characterSlug")
-                or extract_character_slug_from_sources(row)
-            )
-            if not char_key:
-                # Try parse from url like .../characters/<slug>...
-                u = str(src0.get("source_url") or "")
-                m = re.search(r"/characters/([^/?#]+)", u)
-                char_key = m.group(1) if m else None
-            if not char_key:
-                continue
-            name, _id = stable_name_id(row)
-            payload = {
-                "id": row.get("canonical_id") or row.get("id") or _id,
-                "weapon_type": pick(attrs, "weapon_type", "weaponType", "weapon") or None,
-                "weapon_type_icon": pick(attrs, "weapon_type_icon", "weaponTypeIcon", "weapon_icon", "weaponIcon"),
-                "skills": attrs.get("skills") if isinstance(attrs.get("skills"), list) else [],
-                "potentials": attrs.get("potentials") if isinstance(attrs.get("potentials"), list) else [],
-                "sources": row.get("sources", []),
-            }
-            profiles_by_char.setdefault(str(char_key), []).append(payload)
+    for raw_page in pages:
+        page = page_payload(raw_page)
+        slug = as_str(raw_page.get("slug")) or slugify(as_str(raw_page.get("title")))
+        if slug:
+            by_slug.setdefault(slug, page)
+        kind = classify_page(raw_page)
+        if kind:
+            by_kind[kind].append(page)
 
-        elif t == "costume":
-            attrs = attrs_of(row)
-            src0 = first_source(row)
-            char_key = (
-                row.get("character_id")
-                or row.get("parent_id")
-                or pick(attrs, "character_id", "characterId", "character", "character_slug", "characterSlug")
-                or extract_character_slug_from_sources(row)
-            )
-            if not char_key:
-                u = str(src0.get("source_url") or "")
-                m = re.search(r"/characters/([^/?#]+)", u)
-                char_key = m.group(1) if m else None
-            if not char_key:
-                continue
-            name, _id = stable_name_id(row)
-            payload = {
-                "id": row.get("canonical_id") or row.get("id") or _id,
-                "name": name,
-                "image": pick(attrs, "image", "image_url", "imageUrl", "thumbnail", "icon"),
-                "description": pick(attrs, "description", "summary"),
-                "sources": row.get("sources", []),
-            }
-            costumes_by_char.setdefault(str(char_key), []).append(payload)
+    return by_slug, by_kind
 
-    # Build characters
-    out: list[dict[str, Any]] = []
-    for row in all_records:
-        if entity_type(row) != "character":
-            continue
-        attrs = attrs_of(row)
-        name, _id = stable_name_id(row)
-        src0 = first_source(row)
 
-        slug = (
-            pick(attrs, "slug", "key")
-            or extract_character_slug_from_sources(row)
-            or slug_from_url(src0.get("source_url"))
-            or _id
-        )
-        slug = str(slug)
+def normalize_weapon_profile(record: JSONLike) -> JSONLike:
+    data = as_dict(record.get("data"))
+    out: JSONLike = {
+        "id": as_str(record.get("slug")) or as_str(record.get("entity_id")),
+        "name": as_str(record.get("name")) or as_str(data.get("weapon_type")),
+        "weapon_type": as_str(data.get("weapon_type")),
+        "element": as_str(data.get("element")),
+        "element_icon": first_url(data.get("element_icon")) or as_str(data.get("element_icon")),
+        "description": flatten_text(data.get("description")),
+        "skills": [as_dict(x) for x in as_list(data.get("skills")) if isinstance(x, dict)],
+        "potentials": [as_dict(x) for x in as_list(data.get("potentials")) if isinstance(x, dict)],
+        "images": [x for x in (normalize_image(i) for i in as_list(data.get("images"))) if x],
+        "sections": [x for x in (normalize_section(s) for s in as_list(data.get("sections"))) if x],
+        "sources": [normalize_source(s) for s in as_list(record.get("sources")) if isinstance(s, dict)],
+        "aliases": [as_str(x) for x in as_list(record.get("aliases")) if as_str(x)],
+        "tags": [as_str(x) for x in as_list(record.get("tags")) if as_str(x)],
+    }
+    image = first_url(data.get("image"), data.get("icon"), data.get("thumbnail"), out.get("images"))
+    if image:
+        out["image"] = image
+    return {k: v for k, v in out.items() if v not in (None, "", [], {})}
 
-        payload: dict[str, Any] = {
-            "id": _id,
-            "name": name,
-            "description": pick(attrs, "description", "summary", "text"),
-            "image": pick(attrs, "image", "image_url", "imageUrl", "portrait", "thumbnail"),
-            "element": pick(attrs, "element", "element_type", "elementType"),
-            "element_icon": pick(attrs, "element_icon", "elementIcon"),
-            "weapon_types": attrs.get("weapon_types") if isinstance(attrs.get("weapon_types"), list) else [],
-            "base_stats": attrs.get("base_stats") if isinstance(attrs.get("base_stats"), dict) else {},
-            "aliases": attrs.get("aliases") if isinstance(attrs.get("aliases"), list) else [],
-            "sources": row.get("sources", []),
-            "weapon_profiles": profiles_by_char.get(slug, []) or profiles_by_char.get(_id, []),
-            "costumes": costumes_by_char.get(slug, []) or costumes_by_char.get(_id, []),
+
+def normalize_costume(record: JSONLike) -> JSONLike:
+    data = as_dict(record.get("data"))
+    out: JSONLike = {
+        "id": as_str(record.get("slug")) or as_str(record.get("entity_id")),
+        "name": as_str(record.get("name")),
+        "character_slug": as_str(data.get("character_slug")),
+        "character_name": as_str(data.get("character_name")),
+        "description": flatten_text(data.get("description")),
+        "image": first_url(data.get("image"), data.get("icon"), data.get("thumbnail")),
+        "images": [x for x in (normalize_image(i) for i in as_list(data.get("images"))) if x],
+        "sections": [x for x in (normalize_section(s) for s in as_list(data.get("sections"))) if x],
+        "sources": [normalize_source(s) for s in as_list(record.get("sources")) if isinstance(s, dict)],
+    }
+    return {k: v for k, v in out.items() if v not in (None, "", [], {})}
+
+
+def build_characters(records: list[JSONLike], pages_by_slug: dict[str, JSONLike]) -> list[JSONLike]:
+    chars = [r for r in records if r["entity_type"] == "character"]
+    profile_by_char: dict[str, list[JSONLike]] = defaultdict(list)
+    costume_by_char: dict[str, list[JSONLike]] = defaultdict(list)
+
+    for rec in records:
+        et = rec["entity_type"]
+        data = as_dict(rec.get("data"))
+        if et == "character_weapon_profile":
+            char_slug = as_str(data.get("character_slug"))
+            if char_slug:
+                profile_by_char[char_slug].append(normalize_weapon_profile(rec))
+        elif et == "costume":
+            char_slug = as_str(data.get("character_slug"))
+            if char_slug:
+                costume_by_char[char_slug].append(normalize_costume(rec))
+
+    out: list[JSONLike] = []
+    for rec in chars:
+        data = as_dict(rec.get("data"))
+        slug = as_str(rec.get("slug"))
+        page = pages_by_slug.get(slug)
+        profiles = profile_by_char.get(slug) or [normalize_weapon_profile({"data": x, "name": x.get("weapon_type"), "slug": slugify(as_str(x.get("weapon_type")))}) for x in as_list(data.get("weapon_profiles")) if isinstance(x, dict)]
+        costumes = costume_by_char.get(slug) or [as_dict(x) for x in as_list(data.get("costumes")) if isinstance(x, dict)]
+        images = [x for x in (normalize_image(i) for i in as_list(data.get("images"))) if x]
+        sections = [x for x in (normalize_section(s) for s in as_list(data.get("sections"))) if x]
+
+        entry: JSONLike = {
+            "id": slug,
+            "name": as_str(rec.get("name")),
+            "description": flatten_text(data.get("description")),
+            "image": first_url(data.get("image")),
+            "element": as_str(data.get("element")),
+            "element_icon": first_url(data.get("element_icon")) or as_str(data.get("element_icon")),
+            "weapon_types": [as_str(x) for x in as_list(data.get("weapon_types")) if as_str(x)],
+            "base_stats": data.get("base_stats") or {},
+            "aliases": rec.get("aliases") or [],
+            "sources": rec.get("sources") or [],
+            "weapon_profiles": sorted(profiles, key=lambda x: as_str(x.get("weapon_type") or x.get("name"))),
+            "costumes": costumes,
+            "images": images,
+            "sections": sections,
+            "rarity": as_str(data.get("rarity")),
+            "character_image": first_url(data.get("character_image"), data.get("portrait"), data.get("image"), images),
+            "source_count": len(rec.get("sources") or []),
+            "url": as_str((rec.get("sources") or [{}])[0].get("source_url")),
         }
-
-        # forward-compat
-        if isinstance(attrs, dict):
-            for k, v in attrs.items():
-                if k not in payload:
-                    payload[k] = v
-
-        payload["url"] = pick(attrs, "url", "source_url") or src0.get("source_url")
-        out.append(payload)
-
-    return out
+        entry.update(page_payload(page))
+        out.append({k: v for k, v in entry.items() if v not in (None, "", [], {})})
+    return sorted(out, key=lambda x: x.get("name", ""))
 
 
-def group_resources(resources: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
-    buckets = {"familiers": [], "peche": [], "objets": [], "nourriture": []}
-    for item in resources:
-        # Try to normalize to those buckets
-        kind = lower(item.get("subtype") or item.get("category") or item.get("name"))
-        if "companion" in kind or "pet" in kind or "familier" in kind:
-            buckets["familiers"].append(item)
-        elif "fish" in kind or "fishing" in kind or "peche" in kind:
-            buckets["peche"].append(item)
-        elif "food" in kind or "nourrit" in kind:
-            buckets["nourriture"].append(item)
-        elif "item" in kind or "objet" in kind:
-            buckets["objets"].append(item)
-    return buckets
+def build_generic_entities(records: list[JSONLike], entity_type: str, pages_by_slug: dict[str, JSONLike]) -> list[JSONLike]:
+    out: list[JSONLike] = []
+    for rec in [r for r in records if r["entity_type"] == entity_type]:
+        data = as_dict(rec.get("data"))
+        slug = as_str(rec.get("slug"))
+        page = pages_by_slug.get(slug)
+        entry: JSONLike = {
+            "id": slug,
+            "name": as_str(rec.get("name")),
+            "description": flatten_text(data.get("description")),
+            "image": first_url(data.get("image"), data.get("icon"), data.get("thumbnail")),
+            "sources": rec.get("sources") or [],
+            "aliases": rec.get("aliases") or [],
+            "url": as_str((rec.get("sources") or [{}])[0].get("source_url")),
+        }
+        for key in [
+            "weapon_type",
+            "rarity",
+            "attack",
+            "secondary_stat_name",
+            "secondary_stat_value",
+            "element",
+            "element_icon",
+            "stats",
+            "effects",
+            "roles",
+            "tags",
+        ]:
+            value = data.get(key)
+            if value not in (None, "", [], {}):
+                entry[key] = value
+        entry["images"] = [x for x in (normalize_image(i) for i in as_list(data.get("images"))) if x]
+        entry["sections"] = [x for x in (normalize_section(s) for s in as_list(data.get("sections"))) if x]
+        entry.update(page_payload(page))
+        out.append({k: v for k, v in entry.items() if v not in (None, "", [], {})})
+    return sorted(out, key=lambda x: x.get("name", ""))
+
+
+def merge_page_entity(entity: JSONLike, page: JSONLike) -> JSONLike:
+    merged = dict(entity)
+    payload = page_payload(page)
+    for key, value in payload.items():
+        if key in {"sections", "images"}:
+            existing = as_list(merged.get(key))
+            merged[key] = existing or value
+        elif not merged.get(key):
+            merged[key] = value
+    if not merged.get("image"):
+        merged["image"] = payload.get("image")
+    return merged
+
+
+def build_bosses_and_guides(records: list[JSONLike], pages_by_kind: dict[str, list[JSONLike]]) -> tuple[list[JSONLike], list[JSONLike]]:
+    bosses = build_generic_entities(records, "boss", {})
+    guides = build_generic_entities(records, "guide", {})
+
+    boss_by_slug = {as_str(x.get("id")): x for x in bosses}
+    guide_by_slug = {as_str(x.get("id")): x for x in guides}
+
+    for page in pages_by_kind.get("boss", []):
+        slug = slugify(as_str(page.get("page_title")) or as_str(page.get("url")))
+        base = boss_by_slug.get(slug)
+        entity = {
+            "id": slug,
+            "name": as_str(page.get("page_title")) or slug.replace("-", " ").title(),
+            "description": as_str(page.get("page_summary")),
+            "image": first_url(page.get("image"), page.get("images")),
+            "site": as_str(page.get("site")),
+            "url": as_str(page.get("url")),
+            "sections": as_list(page.get("sections")),
+            "images": as_list(page.get("images")),
+            "page_title": as_str(page.get("page_title")),
+            "page_summary": as_str(page.get("page_summary")),
+            "page_text": as_str(page.get("page_text")),
+            "page_type": as_str(page.get("page_type")),
+            "sources": [{"site": as_str(page.get("site")), "source_url": as_str(page.get("url")), "entity_type": "boss", "name": as_str(page.get("page_title"))}],
+        }
+        boss_by_slug[slug] = merge_page_entity(base or entity, page)
+
+    for page in pages_by_kind.get("guide", []):
+        slug = slugify(as_str(page.get("page_title")) or as_str(page.get("url")))
+        base = guide_by_slug.get(slug)
+        entity = {
+            "id": slug,
+            "name": as_str(page.get("page_title")) or slug.replace("-", " ").title(),
+            "description": as_str(page.get("page_summary")),
+            "image": first_url(page.get("image"), page.get("images")),
+            "site": as_str(page.get("site")),
+            "url": as_str(page.get("url")),
+            "sections": as_list(page.get("sections")),
+            "images": as_list(page.get("images")),
+            "page_title": as_str(page.get("page_title")),
+            "page_summary": as_str(page.get("page_summary")),
+            "page_text": as_str(page.get("page_text")),
+            "page_type": as_str(page.get("page_type")),
+            "sources": [{"site": as_str(page.get("site")), "source_url": as_str(page.get("url")), "entity_type": "guide", "name": as_str(page.get("page_title"))}],
+        }
+        guide_by_slug[slug] = merge_page_entity(base or entity, page)
+
+    return (
+        sorted(boss_by_slug.values(), key=lambda x: x.get("name", "")),
+        sorted(guide_by_slug.values(), key=lambda x: x.get("name", "")),
+    )
+
+
+def write_indexes(characters: list[JSONLike], weapons: list[JSONLike]) -> None:
+    ensure_dir(CHAR_INDEX_DIR)
+    ensure_dir(WEAPON_INDEX_DIR)
+    write_json(CHAR_INDEX_DIR / "index.json", [{"id": x.get("id"), "name": x.get("name"), "image": x.get("character_image") or x.get("image"), "element": x.get("element"), "weapon_types": x.get("weapon_types", [])} for x in characters])
+    write_json(WEAPON_INDEX_DIR / "index.json", [{"id": x.get("id"), "name": x.get("name"), "image": x.get("image"), "weapon_type": x.get("weapon_type"), "rarity": x.get("rarity")} for x in weapons])
 
 
 def main() -> None:
     ensure_dir(OUT_DIR)
+    records = [normalize_record(r) for r in load_canonical_entities()]
+    pages = load_pages()
+    coverage = load_coverage_report()
 
-    canon_dir = find_canon_dir()
-    all_path = canon_dir / "all.jsonl"
-    all_records = read_jsonl(all_path)
+    pages_by_slug, pages_by_kind = build_page_maps(pages)
 
-    if not all_records:
-        raise SystemExit(f"Canonical input is empty: {all_path} (did the scraper run?)")
+    characters = build_characters(records, pages_by_slug)
+    weapons = build_generic_entities(records, "weapon", pages_by_slug)
+    team_comps = build_generic_entities(records, "team_comp", pages_by_slug)
+    resources = build_generic_entities(records, "resource", pages_by_slug)
+    banners = build_generic_entities(records, "banner", pages_by_slug)
+    familiers = build_generic_entities(records, "familiar", pages_by_slug)
+    nourriture = build_generic_entities(records, "food", pages_by_slug)
+    objets = build_generic_entities(records, "item", pages_by_slug)
+    peche = build_generic_entities(records, "fishing", pages_by_slug)
+    bosses, guides = build_bosses_and_guides(records, pages_by_kind)
 
-    # Build datasets
-    resources = build_simple(all_records, "resource_collection")
-    resource_buckets = group_resources(resources)
+    outputs = {
+        "characters": characters,
+        "weapons": weapons,
+        "bosses": bosses,
+        "guides": guides,
+        "team_comps": team_comps,
+        "resources": resources,
+        "banners": banners,
+        "familiers": familiers,
+        "nourriture": nourriture,
+        "objets": objets,
+        "peche": peche,
+    }
 
-    characters = build_characters(all_records)
-    weapons = build_simple(all_records, "weapon")
-    banners = build_simple(all_records, "banner")
-    bosses = build_simple(all_records, "boss")
-    guides = build_simple(all_records, "guide")
-    team_comps = build_simple(all_records, "team_comp")
+    for name, data in outputs.items():
+        write_json(OUT_DIR / f"{name}.json", data)
+    write_json(OUT_DIR / "coverage_report.json", coverage)
+    write_indexes(characters, weapons)
 
-    # Write outputs
-    write_json(OUT_DIR / "characters.json", characters)
-    write_json(OUT_DIR / "weapons.json", weapons)
-    write_json(OUT_DIR / "banners.json", banners)
-    write_json(OUT_DIR / "bosses.json", bosses)
-    write_json(OUT_DIR / "guides.json", guides)
-    write_json(OUT_DIR / "team_comps.json", team_comps)
-    write_json(OUT_DIR / "resources.json", resources)
-    write_json(OUT_DIR / "familiers.json", resource_buckets["familiers"])
-    write_json(OUT_DIR / "peche.json", resource_buckets["peche"])
-    write_json(OUT_DIR / "objets.json", resource_buckets["objets"])
-    write_json(OUT_DIR / "nourriture.json", resource_buckets["nourriture"])
-
-    coverage_src = canon_dir / "coverage_report.json"
-    if coverage_src.exists():
-        try:
-            write_json(OUT_DIR / "coverage_report.json", json.loads(coverage_src.read_text(encoding="utf-8")))
-        except Exception:
-            # Don't fail build for coverage parse, but write a minimal marker
-            write_json(OUT_DIR / "coverage_report.json", {"error": "failed to parse coverage_report.json"})
-
-    # Minimal console summary (useful in Actions logs)
-    print(f"[build_bot_data] canon_dir={canon_dir}")
-    print(f"[build_bot_data] characters={len(characters)} weapons={len(weapons)} guides={len(guides)} team_comps={len(team_comps)} resources={len(resources)}")
+    print(
+        "[build_bot_data] "
+        + " ".join(
+            f"{name}={len(data)}" for name, data in [
+                ("characters", characters),
+                ("weapons", weapons),
+                ("bosses", bosses),
+                ("guides", guides),
+                ("team_comps", team_comps),
+                ("resources", resources),
+            ]
+        )
+    )
 
 
 if __name__ == "__main__":
-    import os
     main()

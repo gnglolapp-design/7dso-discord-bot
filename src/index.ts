@@ -1,807 +1,857 @@
-﻿import nacl from "tweetnacl";
-type JsonRecord = Record<string, any>;
+import nacl from "tweetnacl";
 
+type Json = Record<string, any>;
+type Env = {
+  DISCORD_PUBLIC_KEY: string;
+  DATA_BASE_URL?: string;
+  BOT_BRAND?: string;
+  MAP_URL?: string;
+};
 
+type Embed = Record<string, any>;
+type Component = Record<string, any>;
 
-function uniqueOptionValue(raw: unknown, index: number): string {
-  const base = String(raw ?? "value").slice(0, 80);
-  const suffix = String(index).slice(0, 18);
-  return `${base}:${suffix}`.slice(0, 100);
+type ViewResult = {
+  embeds: Embed[];
+  components: Component[];
+  content?: string;
+  flags?: number;
+};
+
+const COLORS = {
+  brand: 0xf59e0b,
+  info: 0x60a5fa,
+  ok: 0x34d399,
+  danger: 0xef4444,
+  neutral: 0x94a3b8,
+};
+
+const PAGE_SIZE = 25;
+const MAX_FIELD = 1024;
+
+const dataCache = new Map<string, Promise<any[]>>();
+
+function asRecord(v: unknown): Json {
+  return v && typeof v === "object" && !Array.isArray(v) ? (v as Json) : {};
 }
 
-function uniqueOptions(options: any[]): any[] {
+function asArray<T = any>(v: unknown): T[] {
+  return Array.isArray(v) ? (v as T[]) : [];
+}
+
+function asString(v: unknown): string {
+  return typeof v === "string" ? v.trim() : v == null ? "" : String(v).trim();
+}
+
+function firstString(...vals: unknown[]): string {
+  for (const v of vals) {
+    const s = asString(v);
+    if (s) return s;
+  }
+  return "";
+}
+
+function slugify(v: unknown): string {
+  return asString(v)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
+function humanizeKey(v: string): string {
+  return v
+    .replace(/_/g, " ")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (m) => m.toUpperCase());
+}
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
+function uniqStrings(values: unknown[]): string[] {
   const seen = new Set<string>();
-  const out: any[] = [];
-  for (let i = 0; i < (options || []).length; i += 1) {
-    const opt = options[i];
-    const v0 = opt?.value;
-    let v = String(v0 ?? "");
-    if (!v || seen.has(v)) {
-      v = uniqueOptionValue(opt?.label ?? opt?.name ?? "option", i);
-    }
-    if (seen.has(v)) {
-      v = uniqueOptionValue(v, i);
-    }
-    seen.add(v);
-    out.push({ ...opt, value: v });
+  const out: string[] = [];
+  for (const value of values) {
+    const s = asString(value);
+    if (!s || seen.has(s)) continue;
+    seen.add(s);
+    out.push(s);
   }
   return out;
 }
-const cacheStore = new Map<string, { expiresAt: number; data: any }>();
-const TTL_MS = 10 * 60 * 1000;
 
-const SELECT_PAGE_SIZE = 25;
-const LIST_PAGE_SIZE = 5;
-
-function hexToBytes(hex: string): Uint8Array {
-  const bytes = new Uint8Array(hex.length / 2);
-  for (let i = 0; i < bytes.length; i += 1) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
-  return bytes;
+function truncate(s: string, n = 350): string {
+  return s.length > n ? `${s.slice(0, n - 1)}…` : s;
 }
 
-function verifyDiscordRequest(publicKey: string, signature: string, timestamp: string, body: string): boolean {
-  const message = new TextEncoder().encode(timestamp + body);
-  return nacl.sign.detached.verify(message, hexToBytes(signature), hexToBytes(publicKey));
+function splitForFields(lines: string[]): [string, string] {
+  const mid = Math.ceil(lines.length / 2);
+  const left = lines.slice(0, mid).join("\n").slice(0, MAX_FIELD);
+  const right = lines.slice(mid).join("\n").slice(0, MAX_FIELD);
+  return [left || "—", right || "—"];
 }
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=UTF-8" } });
+function parseMaybeJsonObject(v: unknown): Json {
+  if (v && typeof v === "object" && !Array.isArray(v)) return v as Json;
+  if (typeof v !== "string") return {};
+  try {
+    const parsed = JSON.parse(v);
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? (parsed as Json) : {};
+  } catch {
+    return {};
+  }
 }
 
-function normalize(input: unknown): string {
-  if (input === null || input === undefined) return "";
-  let value: string;
-  if (typeof input === "string") value = input;
-  else if (Array.isArray(input)) value = input.join(" ");
-  else if (typeof input === "object") value = JSON.stringify(input);
-  else value = String(input);
-
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
+function cid(...parts: Array<string | number | undefined>): string {
+  return parts
+    .filter((x) => x !== undefined && x !== "")
+    .map((x) => String(x).replace(/~/g, "-"))
+    .join("~")
+    .slice(0, 100);
 }
 
-function text(v: unknown): string {
-  if (v === null || v === undefined) return "N/A";
-  if (typeof v === "string") return v;
-  if (Array.isArray(v)) return v.join(", ") || "N/A";
-  if (typeof v === "object") return JSON.stringify(v);
-  return String(v);
+function button(label: string, custom_id: string, style = 2, disabled = false, emoji?: string): Component {
+  const btn: Component = { type: 2, style, label, custom_id, disabled };
+  if (emoji) btn.emoji = { name: emoji };
+  return btn;
 }
 
-function truncate(v: string, max = 1024): string {
-  return v.length <= max ? v : `${v.slice(0, max - 3)}...`;
+function linkButton(label: string, url: string): Component {
+  return { type: 2, style: 5, label, url };
 }
 
-async function fetchJson(env: Env, fileName: string): Promise<any[]> {
-  const cached = cacheStore.get(fileName);
-  const now = Date.now();
-  if (cached && cached.expiresAt > now) return cached.data;
-
-  const base = (env.DATA_BASE_URL || "").replace(/\/$/, "");
-  const res = await fetch(`${base}/${fileName}`, { cf: { cacheTtl: 300, cacheEverything: true } as any });
-  if (!res.ok) throw new Error(`Impossible de charger ${fileName}: ${res.status}`);
-  const data = (await res.json()) as any[];
-  cacheStore.set(fileName, { expiresAt: now + TTL_MS, data });
-  return data;
-}
-
-function actionRow(components: JsonRecord[]): JsonRecord {
+function actionRow(...components: Component[]): Component {
   return { type: 1, components };
 }
 
-function button(custom_id: string, label: string, disabled = false, style: number = 2): JsonRecord {
-  return { type: 2, style, custom_id, label, disabled };
-}
-
-function linkButton(url: string, label: string): JsonRecord {
-  return { type: 2, style: 5, url, label };
-}
-
-function selectMenu(custom_id: string, placeholder: string, options: { label: string; value: string; description?: string }[]): JsonRecord {
+function selectMenu(custom_id: string, placeholder: string, options: any[]): Component {
   return {
-    type: 3,
-    custom_id,
-    placeholder,
-    min_values: 1,
-    max_values: 1,
-    options: uniqueOptions(options).slice(0, 25),
+    type: 1,
+    components: [
+      {
+        type: 3,
+        custom_id,
+        placeholder,
+        options: options.slice(0, 25),
+      },
+    ],
   };
 }
 
-function embed(title: string, description?: string): JsonRecord {
-  return { title, description: description ?? "" };
-}
-
-function listEmbed(title: string, items: JsonRecord[], page: number, formatter: (item: JsonRecord) => JsonRecord): JsonRecord {
-  const totalPages = Math.max(1, Math.ceil(items.length / LIST_PAGE_SIZE));
-  const start = page * LIST_PAGE_SIZE;
-  const sliced = items.slice(start, start + LIST_PAGE_SIZE);
-  return {
-    title,
-    description: items.length ? `Page ${page + 1}/${totalPages} - ${items.length} résultat(s)` : "Aucun résultat.",
-    fields: sliced.map(formatter).slice(0, 25),
-  };
-}
-
-function chunkForSelect<T>(items: T[], page: number): { totalPages: number; page: number; start: number; slice: T[] } {
-  const totalPages = Math.max(1, Math.ceil(items.length / SELECT_PAGE_SIZE));
-  const safePage = Math.max(0, Math.min(page, totalPages - 1));
-  const start = safePage * SELECT_PAGE_SIZE;
-  return { totalPages, page: safePage, start, slice: items.slice(start, start + SELECT_PAGE_SIZE) };
-}
-
-function makeIdxValue(prefix: string, idx: number): string {
-  // must be unique per menu; keep short
-  return `${prefix}:${idx}`;
-}
-
-function parseIdxValue(value: string): { prefix: string; idx: number } | null {
-  const m = /^([a-z]+):(\d+)$/.exec(value);
-  if (!m) return null;
-  return { prefix: m[1], idx: Number(m[2]) };
-}
-
-/** Edit original deferred response */
-async function editOriginal(env: Env, interaction: JsonRecord, data: JsonRecord): Promise<void> {
-  const appId = env.DISCORD_APPLICATION_ID || interaction.application_id || interaction?.application?.id;
-  if (!appId) {
-    console.log("editOriginal: missing application id");
-    return;
-  }
-  const url = `https://discord.com/api/v10/webhooks/${appId}/${interaction.token}/messages/@original`;
-  const res = await fetch(url, {
-    method: "PATCH",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(data),
+function message(view: ViewResult, update = false): Response {
+  return Response.json({
+    type: update ? 7 : 4,
+    data: {
+      content: view.content ?? "",
+      embeds: view.embeds,
+      components: view.components,
+      flags: view.flags,
+    },
   });
-  if (!res.ok) {
-    const t = await res.text().catch(() => "");
-    console.log("editOriginal failed", res.status, t);
-  }
 }
 
-function deferredAckCommand(ephemeral = false): JsonRecord {
-  return { type: 5, data: { flags: ephemeral ? 64 : 0 } };
-}
-
-function deferredAckComponent(): JsonRecord {
-  return { type: 6 };
-}
-
-function msgPayload(embedObj?: JsonRecord, components: JsonRecord[] = [], content?: string, ephemeral = false): JsonRecord {
+function errorView(text: string): ViewResult {
   return {
-    content: content ?? undefined,
-    embeds: embedObj ? [embedObj] : [],
-    components,
-    flags: ephemeral ? 64 : 0,
+    embeds: [{ title: "Erreur", description: text, color: COLORS.danger }],
+    components: [],
+    flags: 64,
   };
 }
 
-/* -------------------- PERSO -------------------- */
+function baseDataUrl(env: Env, file: string): string {
+  const raw = (env.DATA_BASE_URL || "").replace(/\/$/, "");
+  if (!raw) throw new Error("DATA_BASE_URL manquant");
+  return `${raw}/${file}.json`;
+}
 
-function buildPersoTabs(charIdx: number, tab: string): JsonRecord[] {
+async function loadData(env: Env, file: string): Promise<any[]> {
+  const key = baseDataUrl(env, file);
+  if (!dataCache.has(key)) {
+    dataCache.set(
+      key,
+      fetch(key)
+        .then((r) => {
+          if (!r.ok) throw new Error(`HTTP ${r.status} sur ${file}.json`);
+          return r.json();
+        })
+        .then((data) => (Array.isArray(data) ? data : [])),
+    );
+  }
+  return dataCache.get(key)!;
+}
+
+function hexToUint8Array(hex: string): Uint8Array {
+  const matches = hex.match(/.{1,2}/g) || [];
+  return new Uint8Array(matches.map((byte) => parseInt(byte, 16)));
+}
+
+async function verifyDiscordRequest(req: Request, env: Env): Promise<boolean> {
+  const sig = req.headers.get("x-signature-ed25519") || "";
+  const ts = req.headers.get("x-signature-timestamp") || "";
+  if (!sig || !ts || !env.DISCORD_PUBLIC_KEY) return false;
+  const body = await req.clone().text();
+  const msg = new TextEncoder().encode(ts + body);
+  return nacl.sign.detached.verify(msg, hexToUint8Array(sig), hexToUint8Array(env.DISCORD_PUBLIC_KEY));
+}
+
+const elementEmoji: Record<string, string> = {
+  fire: "🔥",
+  wind: "🍃",
+  earth: "🪨",
+  cold: "❄️",
+  ice: "❄️",
+  lightning: "⚡",
+  dark: "🌑",
+  darkness: "🌑",
+  holy: "✨",
+  physical: "⚔️",
+};
+
+const weaponEmoji: Record<string, string> = {
+  longsword: "🗡️",
+  greatsword: "⚔️",
+  sword: "🗡️",
+  dualswords: "⚔️",
+  "dual swords": "⚔️",
+  rapier: "🗡️",
+  lance: "🪄",
+  shield: "🛡️",
+  cudgel: "🔨",
+  axe: "🪓",
+  gauntlets: "🥊",
+  bow: "🏹",
+  staff: "🪄",
+};
+
+const statEmoji: Record<string, string> = {
+  attack: "⚔️",
+  defense: "🛡️",
+  "max hp": "❤️",
+  maxhp: "❤️",
+  accuracy: "🎯",
+  block: "🧱",
+  "crit rate": "💥",
+  critrate: "💥",
+  "crit damage": "☄️",
+  critdamage: "☄️",
+  "crit res": "🌀",
+  critres: "🌀",
+  "crit dmg res": "🧊",
+  critdmgres: "🧊",
+  "block dmg res": "🧱",
+  blockdmgres: "🧱",
+  "move speed": "💨",
+  movespeed: "💨",
+  "pvp dmg inc": "📈",
+  pvpdmginc: "📈",
+  "pvp dmg dec": "📉",
+  pvpdmgdec: "📉",
+};
+
+function emojiForElement(v: unknown): string {
+  return elementEmoji[slugify(v)] || "✨";
+}
+
+function emojiForWeapon(v: unknown): string {
+  return weaponEmoji[slugify(v)] || "⚔️";
+}
+
+function emojiForStat(v: unknown): string {
+  const s = slugify(v).replace(/-/g, " ");
+  return statEmoji[s] || "•";
+}
+
+function pickImage(...values: unknown[]): string | undefined {
+  for (const value of values) {
+    const s = asString(value);
+    if (/^https?:\/\//i.test(s)) return s;
+  }
+  return undefined;
+}
+
+function characterImageOf(c: Json | undefined): string | undefined {
+  const obj = asRecord(c);
+  const images = asRecord(obj.images);
+  return pickImage(
+    obj.character_image,
+    obj.characterImage,
+    obj.image,
+    obj.portrait,
+    obj.thumbnail,
+    images.character,
+    images.portrait,
+    images.full,
+    images.card,
+    images.icon,
+    images.thumbnail,
+  );
+}
+
+function elementIconOf(c: Json | undefined): string | undefined {
+  const obj = asRecord(c);
+  const images = asRecord(obj.images);
+  return pickImage(obj.element_icon, obj.elementIcon, images.element_icon, images.elementIcon);
+}
+
+function normalizeWeaponType(v: unknown): string {
+  const s = asString(v);
+  const compact = s.replace(/\s+/g, "");
+  if (/^dual\s*swords?$/i.test(s) || /^dualswords?$/i.test(compact)) return "Dual Swords";
+  if (/^great\s*sword$/i.test(s) || /^greatsword$/i.test(compact)) return "Greatsword";
+  if (/^long\s*sword$/i.test(s) || /^longsword$/i.test(compact)) return "Longsword";
+  return s || "Type";
+}
+
+function characterWeaponProfiles(c: Json): Json[] {
+  return asArray<Json>(c.weapon_profiles)
+    .map(asRecord)
+    .filter((x) => Object.keys(x).length > 0);
+}
+
+function characterWeaponTypes(c: Json): string[] {
+  const explicit = asArray(c.weapon_types).map(normalizeWeaponType).filter(Boolean);
+  const fromProfiles = characterWeaponProfiles(c)
+    .map((p) => normalizeWeaponType(p.weapon_type || p.type || p.name))
+    .filter(Boolean);
+  return uniqStrings([...explicit, ...fromProfiles]);
+}
+
+function findWeaponProfile(c: Json, weaponType?: string): Json | undefined {
+  const profiles = characterWeaponProfiles(c);
+  if (!profiles.length) return undefined;
+  if (!weaponType) return profiles[0];
+  const target = slugify(weaponType);
+  return profiles.find((p) => slugify(normalizeWeaponType(p.weapon_type || p.type || p.name)) === target) || profiles[0];
+}
+
+function skillTypeLabel(item: Json): string {
+  return firstString(item.kind, item.type, item.section, item.subtitle, item.tag, item.category);
+}
+
+function normalizeSkills(profile: Json): Json[] {
+  const raw = asArray<Json>(profile.skills);
+  if (raw.length) return raw.map(asRecord);
+  const skills = asRecord(profile.skill_set);
+  const out: Json[] = [];
+  for (const [key, value] of Object.entries(skills)) {
+    if (Array.isArray(value)) {
+      for (const item of value) out.push({ ...asRecord(item), type: humanizeKey(key) });
+    } else if (value && typeof value === "object") {
+      out.push({ ...asRecord(value), type: humanizeKey(key) });
+    }
+  }
+  return out;
+}
+
+function normalizePotentials(profile: Json): Json[] {
+  const raw = asArray<Json>(profile.potentials);
+  if (raw.length) return raw.map(asRecord);
+  const obj = asRecord(profile.potentials_map || profile.potential_map);
+  const out: Json[] = [];
+  for (const [key, value] of Object.entries(obj)) {
+    if (Array.isArray(value)) {
+      for (const item of value) out.push({ ...asRecord(item), tier: key });
+    } else if (value && typeof value === "object") {
+      out.push({ ...asRecord(value), tier: key });
+    }
+  }
+  return out;
+}
+
+function normalizeCostumes(c: Json): Json[] {
+  return asArray<Json>(c.costumes).map(asRecord).filter((x) => Object.keys(x).length > 0);
+}
+
+function normalizeSections(source: Json): Json[] {
+  const out: Json[] = [];
+  for (const item of asArray(source.sections)) {
+    if (typeof item === "string") {
+      const title = asString(item);
+      if (title) out.push({ title, content: "" });
+      continue;
+    }
+    const obj = asRecord(item);
+    const title = firstString(obj.title, obj.heading, obj.name, obj.label);
+    const content = firstString(obj.content, obj.body, obj.description, obj.summary, obj.text);
+    const bullets = asArray(obj.bullets || obj.items || obj.points).map(asString).filter(Boolean);
+    out.push({ title, content, bullets, image: pickImage(obj.image, obj.icon) });
+  }
+  return out.filter((x) => x.title || x.content || (Array.isArray(x.bullets) && x.bullets.length));
+}
+
+function formatSkill(item: Json): { name: string; value: string; inline?: boolean; thumb?: string } {
+  const name = firstString(item.heading, item.title, item.name, item.label, "Compétence");
+  const tag = skillTypeLabel(item);
+  const desc = firstString(item.description, item.content, item.body, item.summary, item.effect, item.text, "Non disponible.");
+  const lines = [tag && `**${tag}**`, desc].filter(Boolean).join("\n");
+  return {
+    name: truncate(name, 256),
+    value: truncate(lines, MAX_FIELD),
+    thumb: pickImage(item.image, item.icon, item.thumbnail),
+  };
+}
+
+function formatPotential(item: Json): { name: string; value: string } {
+  const name = firstString(item.heading, item.title, item.name, item.tier, "Palier");
+  const desc = firstString(item.description, item.content, item.body, item.summary, item.text, "Non disponible.");
+  return { name: truncate(name, 256), value: truncate(desc, MAX_FIELD) };
+}
+
+function formatCostume(item: Json): { title: string; description: string; image?: string } {
+  const title = firstString(item.title, item.name, item.heading, "Costume");
+  const subtitle = firstString(item.subtitle, item.tag, item.effect_name);
+  const description = [subtitle && `**${subtitle}**`, firstString(item.description, item.content, item.body, item.summary)].filter(Boolean).join("\n\n") || "Non disponible.";
+  return { title, description, image: pickImage(item.image, item.icon, item.thumbnail) };
+}
+
+function renderPagedMenu(title: string, fileLabel: string, page: number, items: Json[], menuPrefix: string, pickPrefix: string): ViewResult {
+  const safePage = Math.max(0, Math.min(page, Math.max(0, Math.ceil(items.length / PAGE_SIZE) - 1)));
+  const slice = items.slice(safePage * PAGE_SIZE, safePage * PAGE_SIZE + PAGE_SIZE);
+  return {
+    embeds: [{
+      title,
+      description: items.length ? `Page ${safePage + 1}/${Math.max(1, Math.ceil(items.length / PAGE_SIZE))}` : "Aucune donnée.",
+      color: COLORS.brand,
+      footer: { text: `${items.length} ${fileLabel}` },
+    }],
+    components: items.length
+      ? [
+          selectMenu(
+            cid(pickPrefix, safePage),
+            `Choisir ${fileLabel === 'personnages' ? 'un personnage' : fileLabel === 'armes' ? 'une arme' : fileLabel === 'boss' ? 'un boss' : 'un guide'}`,
+            slice.map((item) => ({
+              label: truncate(asString(item.name), 100),
+              description: truncate(firstString(item.description, item.summary, item.category), 100),
+              value: asString(item.id),
+            })),
+          ),
+          actionRow(
+            button("Précédent", cid(menuPrefix, safePage - 1), 2, safePage <= 0),
+            button("Suivant", cid(menuPrefix, safePage + 1), 2, safePage >= Math.ceil(items.length / PAGE_SIZE) - 1),
+          ),
+        ]
+      : [],
+  };
+}
+
+function renderCharacterMenu(chars: Json[], page = 0): ViewResult {
+  return renderPagedMenu("Choisir un personnage", "personnages", page, chars, "perso", "perso-pick");
+}
+
+function renderWeaponsTypeMenu(weapons: Json[]): ViewResult {
+  const types = uniqStrings(weapons.map((w) => normalizeWeaponType(w.weapon_type || w.type))).sort((a, b) => a.localeCompare(b));
+  return {
+    embeds: [{ title: "Types d'armes", description: "Choisir un type d'arme.", color: COLORS.brand }],
+    components: chunk(types, 5).slice(0, 5).map((group) =>
+      actionRow(...group.map((type) => button(type, cid("arme-type", slugify(type)), 1, false, emojiForWeapon(type)))),
+    ),
+  };
+}
+
+function renderWeaponsMenu(weapons: Json[], weaponType: string, page = 0): ViewResult {
+  const filtered = weapons.filter((w) => slugify(normalizeWeaponType(w.weapon_type || w.type)) === slugify(weaponType));
+  const safePage = Math.max(0, Math.min(page, Math.max(0, Math.ceil(filtered.length / PAGE_SIZE) - 1)));
+  const slice = filtered.slice(safePage * PAGE_SIZE, safePage * PAGE_SIZE + PAGE_SIZE);
+  return {
+    embeds: [{ title: normalizeWeaponType(weaponType), description: `Choisir une arme. Page ${safePage + 1}/${Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))}`, color: COLORS.brand }],
+    components: [
+      selectMenu(
+        cid("arme-pick", slugify(weaponType), safePage),
+        "Choisir une arme",
+        slice.map((w) => ({
+          label: truncate(asString(w.name), 100),
+          description: truncate(firstString(w.description, w.rarity && `Rareté ${w.rarity}`), 100),
+          value: asString(w.id),
+        })),
+      ),
+      actionRow(
+        button("Précédent", cid("arme-list", slugify(weaponType), safePage - 1), 2, safePage <= 0),
+        button("Suivant", cid("arme-list", slugify(weaponType), safePage + 1), 2, safePage >= Math.ceil(filtered.length / PAGE_SIZE) - 1),
+        button("Retour types", cid("arme-menu"), 2),
+      ),
+    ],
+  };
+}
+
+function renderWeaponDetail(w: Json): ViewResult {
+  const fields = [
+    { name: "Type", value: normalizeWeaponType(w.weapon_type || w.type) || "—", inline: true },
+    { name: "Rareté", value: asString(w.rarity) || "—", inline: true },
+    { name: "Stat principale", value: asString(w.attack) ? `ATQ: ${w.attack}` : "—", inline: true },
+    {
+      name: "Stat secondaire",
+      value: [asString(w.secondary_stat_name), asString(w.secondary_stat_value)].filter(Boolean).join(" • ") || "—",
+      inline: true,
+    },
+  ];
+  return {
+    embeds: [{
+      title: asString(w.name),
+      description: firstString(w.description, "Non disponible."),
+      color: COLORS.info,
+      thumbnail: pickImage(w.image) ? { url: pickImage(w.image) } : undefined,
+      url: asString(w.url) || undefined,
+      fields,
+    }],
+    components: [actionRow(button("Retour types", cid("arme-menu"), 2))],
+  };
+}
+
+function renderCharacterHome(c: Json): ViewResult {
+  const weapons = characterWeaponTypes(c).map((t) => `${emojiForWeapon(t)} ${t}`).join(", ") || "—";
+  const fields = [
+    { name: `${emojiForElement(c.element)} Élément`, value: asString(c.element) || "—", inline: true },
+    { name: "⚔️ Types d'armes", value: weapons, inline: true },
+  ];
+  const embed: Embed = {
+    title: asString(c.name),
+    description: firstString(c.description, "Non disponible."),
+    color: COLORS.brand,
+    fields,
+    url: asString(c.url) || undefined,
+  };
+  const image = characterImageOf(c);
+  if (image) embed.thumbnail = { url: image };
+  const icon = elementIconOf(c);
+  if (icon) embed.author = { name: envBrandPlaceholder, icon_url: icon };
+  return { embeds: [embed], components: characterNav(c, "home") };
+}
+
+const envBrandPlaceholder = "Escanor";
+
+function renderCharacterStats(c: Json): ViewResult {
+  const stats = parseMaybeJsonObject(c.base_stats);
+  const entries = Object.entries(stats);
+  const statLines = entries.length
+    ? entries.map(([k, v]) => `${emojiForStat(k)} **${humanizeKey(k)}**: ${asString(v)}`)
+    : ["Aucune statistique disponible."];
+  const [left, right] = splitForFields(statLines);
+  const embed: Embed = {
+    title: asString(c.name),
+    description: "Statistiques",
+    color: COLORS.info,
+    fields: [
+      { name: "Base stats", value: left, inline: true },
+      { name: "\u200b", value: right, inline: true },
+    ],
+  };
+  const image = characterImageOf(c);
+  if (image) embed.thumbnail = { url: image };
+  return { embeds: [embed], components: characterNav(c, "stats") };
+}
+
+function characterNav(c: Json, active: string, extraRows: Component[] = []): Component[] {
+  const rows: Component[] = [
+    actionRow(
+      button("Accueil", cid("perso-tab", c.id, "home"), active === "home" ? 1 : 2),
+      button("Stats", cid("perso-tab", c.id, "stats"), active === "stats" ? 1 : 2),
+      button("Armes & Skills", cid("perso-skills", c.id, slugify(characterWeaponTypes(c)[0] || "")), active === "skills" ? 1 : 2, "⚔️"),
+      button("Potentiels", cid("perso-pots", c.id, slugify(characterWeaponTypes(c)[0] || ""), 0), active === "potentials" ? 1 : 2, "✨"),
+      button("Costumes", cid("perso-cost", c.id, 0), active === "costumes" ? 1 : 2, "👗"),
+    ),
+    ...extraRows,
+    actionRow(button("Retour au menu", cid("perso", 0), 2)),
+  ];
+  return rows;
+}
+
+function characterWeaponTypeButtons(c: Json, prefix: string, activeWeapon: string, page = 0): Component[] {
+  const types = characterWeaponTypes(c);
+  if (!types.length) return [];
   return [
-    actionRow([
-      button(`perso:tab:${charIdx}:home`, "Accueil", tab === "home", 2),
-      button(`perso:tab:${charIdx}:stats`, "Stats", tab === "stats", 2),
-      button(`perso:tab:${charIdx}:skills`, "Armes & Skills", tab === "skills", 2),
-      button(`perso:tab:${charIdx}:pots`, "Potentiels", tab === "pots", 2),
-      button(`perso:tab:${charIdx}:costumes`, "Costumes", tab === "costumes", 2),
-    ]),
-    actionRow([button(`perso:back`, "Retour au menu", false, 2)]),
+    actionRow(
+      ...types.slice(0, 5).map((type) => {
+        const active = slugify(type) === slugify(activeWeapon);
+        if (prefix === "skills") return button(type, cid("perso-skills", c.id, slugify(type)), active ? 3 : 2, false, emojiForWeapon(type));
+        return button(type, cid("perso-pots", c.id, slugify(type), page), active ? 3 : 2, false, emojiForWeapon(type));
+      }),
+    ),
   ];
 }
 
-function flattenSkills(profiles: any[]): string {
-  const lines: string[] = [];
-  for (const profile of profiles || []) {
-    const weaponType = profile.weapon_type || profile.weaponType || profile.type || "Arme inconnue";
-    const skills = profile.skills || [];
-    lines.push(`**${weaponType}**`);
-    if (!skills.length) {
-      lines.push("- (aucune compétence)");
-      continue;
-    }
-    for (const s of skills.slice(0, 12)) {
-      const kind = s.skill_type || s.kind || "type";
-      lines.push(`- ${s.name || "Compétence"} (${kind})`);
-    }
-  }
-  return lines.join("\n");
-}
-
-function flattenPotentials(profiles: any[]): string {
-  const lines: string[] = [];
-  for (const profile of profiles || []) {
-    const weaponType = profile.weapon_type || profile.weaponType || profile.type || "Arme inconnue";
-    const pots = profile.potentials || [];
-    lines.push(`**${weaponType}**`);
-    if (!pots.length) {
-      lines.push("- (aucun potentiel)");
-      continue;
-    }
-    for (const p of pots.slice(0, 10)) {
-      lines.push(`- T${p.tier ?? "?"}: ${p.effect || p.description || "..."}`);
+function renderCharacterSkills(c: Json, weaponType?: string): ViewResult {
+  const profile = findWeaponProfile(c, weaponType);
+  const selected = normalizeWeaponType(profile?.weapon_type || weaponType || characterWeaponTypes(c)[0]);
+  const skills = normalizeSkills(asRecord(profile));
+  const header: Embed = {
+    title: `${asString(c.name)} — ${selected}`,
+    description: `Armes & Skills${selected ? ` • ${selected}` : ""}`,
+    color: COLORS.ok,
+  };
+  const image = characterImageOf(c);
+  if (image) header.thumbnail = { url: image };
+  const embeds: Embed[] = [header];
+  if (!profile) {
+    embeds.push({ title: asString(c.name), description: "Aucun profil d'arme disponible.", color: COLORS.neutral });
+  } else if (!skills.length) {
+    embeds.push({ title: asString(c.name), description: "Aucune compétence disponible.", color: COLORS.neutral });
+  } else {
+    for (const skill of skills.slice(0, 9)) {
+      const field = formatSkill(skill);
+      const embed: Embed = { title: field.name, description: field.value, color: COLORS.info };
+      if (field.thumb) embed.thumbnail = { url: field.thumb };
+      embeds.push(embed);
     }
   }
-  return lines.join("\n");
+  return { embeds, components: characterNav(c, "skills", characterWeaponTypeButtons(c, "skills", selected)) };
 }
 
-function buildPersoEmbed(match: JsonRecord, tab: string): JsonRecord {
-  const base: JsonRecord = {
-    title: match.name || "Personnage",
-    thumbnail: characterImageOf(match) ? { url: characterImageOf(match)! } : undefined,
+function renderCharacterPotentials(c: Json, weaponType?: string, page = 0): ViewResult {
+  const profile = findWeaponProfile(c, weaponType);
+  const selected = normalizeWeaponType(profile?.weapon_type || weaponType || characterWeaponTypes(c)[0]);
+  const items = normalizePotentials(asRecord(profile));
+  const safePage = Math.max(0, Math.min(Number(page) || 0, Math.max(0, Math.ceil(items.length / 10) - 1)));
+  const slice = items.slice(safePage * 10, safePage * 10 + 10);
+  const fields = slice.length ? slice.map(formatPotential) : [{ name: "Potentiels", value: "Non disponible." }];
+  const embed: Embed = {
+    title: `${asString(c.name)} — Potentiels`,
+    description: `${selected}${items.length ? ` • Page ${safePage + 1}/${Math.max(1, Math.ceil(items.length / 10))}` : ""}`,
+    color: COLORS.ok,
+    fields,
   };
-
-  if (tab === "stats") {
-    return {
-      ...base,
-      description: "Statistiques",
-      fields: [
-        { name: "Élément", value: text(match.element), inline: true },
-        { name: "Types d'armes", value: truncate(text(match.weapon_types)), inline: true },
-        { name: "Stats de base", value: truncate(text(match.base_stats), 1024), inline: false },
-      ],
-    };
+  const image = characterImageOf(c);
+  if (image) embed.thumbnail = { url: image };
+  const extra = [...characterWeaponTypeButtons(c, "potentials", selected, safePage)];
+  if (items.length > 10) {
+    extra.push(
+      actionRow(
+        button("Précédent", cid("perso-pots", c.id, slugify(selected), safePage - 1), 2, safePage <= 0),
+        button("Suivant", cid("perso-pots", c.id, slugify(selected), safePage + 1), 2, safePage >= Math.ceil(items.length / 10) - 1),
+      ),
+    );
   }
-
-  if (tab === "skills") {
-    return { ...base, description: truncate(flattenSkills(match.weapon_profiles || []) || "Non disponible.", 4096) };
-  }
-
-  if (tab === "pots") {
-    return { ...base, description: truncate(flattenPotentials(match.weapon_profiles || []) || "Non disponible.", 4096) };
-  }
-
-  if (tab === "costumes") {
-    const costumes = match.costumes || match.skins || [];
-    const lines = (costumes || []).slice(0, 30).map((c: any) => `- ${c.name || c.title || "Costume"}`);
-    return { ...base, description: lines.length ? truncate(lines.join("\n"), 4096) : "Non disponible." };
-  }
-
-  return {
-    ...base,
-    description: truncate(match.description || "Aucune description.", 4096),
-    fields: [
-      { name: "Élément", value: text(match.element), inline: true },
-      { name: "Types d'armes", value: truncate(text(match.weapon_types)), inline: true },
-    ],
-  };
+  return { embeds: [embed], components: characterNav(c, "potentials", extra) };
 }
 
-async function getSortedCharacters(env: Env): Promise<any[]> {
-  const chars = await fetchJson(env, "characters.json");
-  return [...chars].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-}
-
-async function payloadPersoMenu(env: Env, page = 0): Promise<JsonRecord> {
-  const sorted = await getSortedCharacters(env);
-  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
-
-  const options = slice.map((c: any, i: number) => {
-    const idx = start + i;
-    return {
-      label: (c.name || "Perso").slice(0, 100),
-      value: makeIdxValue("p", idx),
-      description: c.element ? `Élément: ${c.element}` : undefined,
-    };
-  });
-
-  const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:perso:${safePage}`, "Sélectionner un personnage", options)]),
-    actionRow([
-      button(`selpage:perso:prev:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:perso:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-    ]),
-  ];
-
-  return msgPayload(embed("Choisir un personnage", `Page ${safePage + 1}/${totalPages}`), components);
-}
-
-async function payloadPersoCardByIdx(env: Env, idx: number, tab: string): Promise<JsonRecord> {
-  const sorted = await getSortedCharacters(env);
-  const match = sorted[idx];
-  if (!match) return msgPayload(embed("Personnage introuvable", "Index invalide."), [], undefined, true);
-  return msgPayload(buildPersoEmbed(match, tab), buildPersoTabs(idx, tab));
-}
-
-/* -------------------- ARMES -------------------- */
-
-async function getSortedWeapons(env: Env): Promise<any[]> {
-  const weapons = await fetchJson(env, "weapons.json");
-  function weaponDisplayName(w: any): string {
-    if (w?.name) return String(w.name);
-    const s = Array.isArray(w?.sources) ? w.sources[0] : null;
-    if (s?.name) return String(s.name);
-    if (s?.source_url) return String(s.source_url).split("/").pop() || "Arme";
-    return "Arme";
-  }
-  return [...weapons].sort((a, b) => normalize(weaponDisplayName(a)).localeCompare(normalize(weaponDisplayName(b))));
-}
-
-function weaponDisplayName(w: any): string {
-  if (w?.name) return String(w.name);
-  const s = Array.isArray(w?.sources) ? w.sources[0] : null;
-  if (s?.name) return String(s.name);
-  if (s?.source_url) return String(s.source_url).split("/").pop() || "Arme";
-  return "Arme";
-}
-
-function weaponTypeOf(w: any): string {
-  return (
-    w?.type ??
-    w?.weapon_type ??
-    w?.weaponType ??
-    w?.weapon_class ??
-    w?.weaponClass ??
-    w?.weapon_category ??
-    w?.weaponCategory ??
-    w?.category ??
-    ""
-  );
-}
-
-async function payloadWeaponsTypeMenu(env: Env): Promise<JsonRecord> {
-  const weapons = await fetchJson(env, "weapons.json");
-  const types = Array.from(
-    new Set(
-      weapons
-        .map((w: any) => weaponTypeOf(w))
-        .filter((x: any) => typeof x === "string" && x.trim().length)
-        .map((x: string) => x.trim())
-    )
-  ).sort((a, b) => normalize(a).localeCompare(normalize(b)));
-
-  if (!types.length) {
-    // fallback list (data incomplete)
-    return payloadWeaponsFlatMenu(env, 0);
-  }
-
-  const options = types.slice(0, 25).map((t) => ({ label: t.slice(0, 100), value: t }));
-  return msgPayload(embed("Types d'armes", "Choisir un type"), [actionRow([selectMenu("sel:weapontype", "Type d'arme", options)])]);
-}
-
-async function payloadWeaponsFlatMenu(env: Env, page = 0): Promise<JsonRecord> {
-  const sorted = await getSortedWeapons(env);
-  if (!sorted.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
-
-  const options = slice.map((w: any, i: number) => {
-    const idx = start + i;
-    return {
-      label: weaponDisplayName(w).slice(0, 100),
-      value: makeIdxValue("w", idx),
-      description: w?.sources?.[0]?.site ? `Source: ${w.sources[0].site}` : undefined,
-    };
-  });
-
-  const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:weaponflat:${safePage}`, "Choisir une arme", options)]),
-    actionRow([
-      button(`selpage:weaponflat:prev:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:weaponflat:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-    ]),
-  ];
-
-  return msgPayload(embed("Armes", `Page ${safePage + 1}/${totalPages}`), components);
-}
-
-async function payloadWeaponsOfType(env: Env, type: string, page = 0): Promise<JsonRecord> {
-  const weapons = await fetchJson(env, "weapons.json");
-  const filtered = weapons.filter((w: any) => normalize(weaponTypeOf(w)) === normalize(type));
-  const sorted = [...filtered].sort((a, b) => normalize(weaponDisplayName(a)).localeCompare(normalize(weaponDisplayName(b))));
-  if (!sorted.length) return msgPayload(embed("Armes", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
-
-  const options = slice.map((w: any, i: number) => {
-    const idx = start + i;
-    return { label: weaponDisplayName(w).slice(0, 100), value: makeIdxValue("wt", idx) };
-  });
-
-  const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:weapon:${type}:${safePage}`, "Choisir une arme", options)]),
-    actionRow([
-      button(`selpage:weapon:${type}:prev:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:weapon:${type}:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-      button("armes:backtypes", "Retour types", false, 2),
-    ]),
-  ];
-
-  return msgPayload(embed(`Armes - ${type}`, `Page ${safePage + 1}/${totalPages}`), components);
-}
-
-function looksNumericLike(value: any): boolean {
-  const s = String(value ?? '').trim();
-  return !!s && /^[0-9.,%+\- ]+$/.test(s);
-}
-
-function weaponSecondaryStatLine(w: any): string | null {
-  const rawA = String(w?.secondary_stat_name ?? '').trim();
-  const rawB = String(w?.secondary_stat_value ?? '').trim();
-  if (!rawA && !rawB) return null;
-  if (rawA && rawB) {
-    if (looksNumericLike(rawA) && !looksNumericLike(rawB)) return `${rawB}: ${rawA}`;
-    if (!looksNumericLike(rawA) && looksNumericLike(rawB)) return `${rawA}: ${rawB}`;
-    return `${rawB || rawA}: ${rawA || rawB}`;
-  }
-  return rawA || rawB;
-}
-
-function weaponStatsBlock(w: any): string {
-  const lines: string[] = [];
-  const attack = String(w?.attack ?? '').trim();
-  if (attack) lines.push(`ATQ: ${attack}`);
-
-  const secondary = weaponSecondaryStatLine(w);
-  if (secondary) lines.push(secondary);
-
-  return lines.length ? lines.join('\n') : 'Non disponible.';
-}
-
-function weaponEffectsBlock(w: any): string {
-  const description = String(w?.description ?? '').trim();
-  return description || 'Non disponible.';
-}
-
-async function payloadWeaponCardFromSorted(env: Env, sorted: any[], idx: number): Promise<JsonRecord> {
-  const w = sorted[idx];
-  if (!w) return msgPayload(embed("Arme introuvable", "Index invalide."), [], undefined, true);
-
-  const emb: JsonRecord = {
-    title: weaponDisplayName(w),
-    thumbnail: w.image ? { url: w.image } : undefined,
-    fields: [
-      { name: "Type", value: weaponTypeOf(w) || "Non disponible.", inline: true },
-      { name: "Rareté", value: text(w.rarity || w.star || w.rank || "Non disponible."), inline: true },
-      { name: "Stats", value: weaponStatsBlock(w), inline: false },
-      { name: "Effets", value: weaponEffectsBlock(w), inline: false },
-    ],
-    description: w.description ? truncate(String(w.description), 4096) : undefined,
-  };
-
-  return msgPayload(emb);
-}
-
-/* -------------------- BANNIERES -------------------- */
-
-async function payloadBanners(env: Env, page = 0): Promise<JsonRecord> {
-  const banners = await fetchJson(env, "banners.json");
-  if (!banners.length) return msgPayload(embed("Bannières", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const totalPages = Math.max(1, Math.ceil(banners.length / LIST_PAGE_SIZE));
-  const safe = Math.max(0, Math.min(page, totalPages - 1));
-
-  const emb = listEmbed("Bannières", banners, safe, (b) => ({
-    name: b.name || "Bannière",
-    value: truncate(`Statut: ${text(b.status)}\nDates: ${text(b.date_range || b.dates)}\n${text(b.description || "")}`),
-  }));
-
-  const components: JsonRecord[] = [
-    actionRow([
-      button(`page:banners:prev:${Math.max(safe - 1, 0)}`, "Précédent", safe <= 0),
-      button(`page:banners:next:${Math.min(safe + 1, totalPages - 1)}`, "Suivant", safe >= totalPages - 1),
-    ]),
-  ];
-
-  return msgPayload(emb, components);
-}
-
-/* -------------------- BOSS -------------------- */
-
-async function getSortedBosses(env: Env): Promise<any[]> {
-  const bosses = await fetchJson(env, "bosses.json");
-  return [...bosses].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-}
-
-async function payloadBossMenu(env: Env, page = 0): Promise<JsonRecord> {
-  const sorted = await getSortedBosses(env);
-  if (!sorted.length) return msgPayload(embed("Boss", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
-  const options = slice.map((b: any, i: number) => ({ label: (b.name || "Boss").slice(0, 100), value: makeIdxValue("b", start + i) }));
-
-  const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:boss:${safePage}`, "Sélectionner un boss", options)]),
-    actionRow([
-      button(`selpage:boss:prev:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:boss:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-    ]),
-  ];
-
-  return msgPayload(embed("Choisir un boss", `Page ${safePage + 1}/${totalPages}`), components);
-}
-
-async function payloadBossCardByIdx(env: Env, idx: number): Promise<JsonRecord> {
-  const sorted = await getSortedBosses(env);
-  const match = sorted[idx];
-  if (!match) return msgPayload(embed("Boss introuvable", "Index invalide."), [], undefined, true);
-
-  const stats = match.stats || match.base_stats || match.attributes || null;
-
-  const emb: JsonRecord = {
-    title: match.name || "Boss",
-    thumbnail: characterImageOf(match) ? { url: characterImageOf(match)! } : undefined,
-    fields: [
-      { name: "Description", value: truncate(text(match.description || "N/A"), 1024), inline: false },
-      { name: "Stats", value: stats ? truncate(text(stats), 1024) : "Non disponible.", inline: false },
-    ],
-  };
-
-  return msgPayload(emb, [actionRow([button("boss:back", "Retour", false, 2)])]);
-}
-
-/* -------------------- GUIDES -------------------- */
-
-async function payloadGuideCategories(env: Env): Promise<JsonRecord> {
-  const guides = await fetchJson(env, "guides.json");
-  if (!guides.length) return msgPayload(embed("Guides", "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const cats = Array.from(new Set(guides.map((g: any) => g.category).filter(Boolean))).sort((a, b) => normalize(a).localeCompare(normalize(b)));
-  if (!cats.length) return msgPayload(embed("Guides", "Pas de catégories."), [], undefined, true);
-
-  const options = cats.slice(0, 25).map((c: any) => ({ label: String(c).slice(0, 100), value: String(c) }));
-  return msgPayload(embed("Guides", "Choisir une catégorie"), [actionRow([selectMenu("sel:guidecat", "Catégorie", options)])]);
-}
-
-async function getGuidesInCategory(env: Env, category: string): Promise<any[]> {
-  const guides = await fetchJson(env, "guides.json");
-  const filtered = guides.filter((g: any) => normalize(g.category) === normalize(category));
-  return [...filtered].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-}
-
-async function payloadGuidesInCategory(env: Env, category: string, page = 0): Promise<JsonRecord> {
-  const sorted = await getGuidesInCategory(env, category);
-  if (!sorted.length) return msgPayload(embed("Guides", "Aucun guide dans cette catégorie."), [], undefined, true);
-
-  const { totalPages, page: safePage, start, slice } = chunkForSelect(sorted, page);
-  const options = slice.map((g: any, i: number) => ({
-    label: (g.name || "Guide").slice(0, 100),
-    value: makeIdxValue("g", start + i),
-    description: g.summary ? String(g.summary).slice(0, 100) : undefined,
-  }));
-
-  const components: JsonRecord[] = [
-    actionRow([selectMenu(`sel:guide:${category}:${safePage}`, "Choisir un guide", options)]),
-    actionRow([
-      button(`selpage:guide:${category}:prev:${Math.max(safePage - 1, 0)}`, "Précédent", safePage <= 0),
-      button(`selpage:guide:${category}:next:${Math.min(safePage + 1, totalPages - 1)}`, "Suivant", safePage >= totalPages - 1),
-      button("guides:backcat", "Retour catégories", false, 2),
-    ]),
-  ];
-
-  return msgPayload(embed(`Guides - ${category}`, `Page ${safePage + 1}/${totalPages}`), components);
-}
-
-async function payloadGuideCardByIdx(env: Env, category: string, idx: number): Promise<JsonRecord> {
-  const sorted = await getGuidesInCategory(env, category);
-  const match = sorted[idx];
-  if (!match) return msgPayload(embed("Guide introuvable", "Index invalide."), [], undefined, true);
-
-  const emb: JsonRecord = {
-    title: match.name || "Guide",
-    description: truncate(text(match.content || match.description || match.summary || "N/A"), 4096),
-    fields: [{ name: "Catégorie", value: text(match.category || "N/A"), inline: true }],
-  };
-
-  return msgPayload(emb, [actionRow([button("guides:backcat", "Retour catégories", false, 2)])]);
-}
-
-/* -------------------- RESOURCES -------------------- */
-
-async function payloadResourceCategory(env: Env, categoryKey: string): Promise<JsonRecord> {
-  const resources = await fetchJson(env, "resources.json");
-  if (!resources || !resources.length) return msgPayload(embed(categoryKey, "Pas d'informations pour l'instant."), [], undefined, true);
-
-  let items: any[] = [];
-  const byContainer = resources.find((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
-  if (byContainer && Array.isArray(byContainer.items)) items = byContainer.items;
-  else items = resources.filter((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
-
-  if (!items.length) return msgPayload(embed(categoryKey, "Pas d'informations pour l'instant."), [], undefined, true);
-
-  const sorted = [...items].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-  const { start, slice } = chunkForSelect(sorted, 0);
-
-  const options = slice.map((it: any, i: number) => ({ label: (it.name || "Entrée").slice(0, 100), value: makeIdxValue("r", start + i) }));
-  const components = [actionRow([selectMenu(`sel:res:${categoryKey}:0`, "Choisir", options)])];
-
-  return msgPayload(embed(`Liste - ${categoryKey}`, "Sélectionne un élément."), components);
-}
-
-async function payloadResourceCard(env: Env, categoryKey: string, idx: number): Promise<JsonRecord> {
-  const resources = await fetchJson(env, "resources.json");
-  let items: any[] = [];
-  const byContainer = resources.find((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
-  if (byContainer && Array.isArray(byContainer.items)) items = byContainer.items;
-  else items = resources.filter((r: any) => normalize(r.category) === normalize(categoryKey) || normalize(r.type) === normalize(categoryKey));
-
-  const sorted = [...items].sort((a, b) => normalize(a.name).localeCompare(normalize(b.name)));
-  const match = sorted[idx];
-  if (!match) return msgPayload(embed("Introuvable", "Index invalide."), [], undefined, true);
-
-  const emb: JsonRecord = {
-    title: match.name || categoryKey,
-    description: truncate(text(match.description || match.content || "N/A"), 4096),
-    thumbnail: characterImageOf(match) ? { url: characterImageOf(match)! } : undefined,
-  };
-
-  return msgPayload(emb, [actionRow([button(`res:back:${categoryKey}`, "Retour", false, 2)])]);
-}
-
-/* -------------------- MAP -------------------- */
-
-function payloadMap(env: Env): JsonRecord {
-  return msgPayload(
-    { title: "Carte interactive", description: "Discord ne peut pas afficher la carte web interactive dans un embed. Lien direct ci-dessous." },
-    [actionRow([linkButton(env.MAP_URL, "Ouvrir la carte")])]
-  );
-}
-
-/* -------------------- Async processors -------------------- */
-
-async function processCommand(env: Env, interaction: JsonRecord): Promise<void> {
-  const cmd = interaction.data?.name;
-
-  try {
-    let payload: JsonRecord;
-
-    if (cmd === "perso") payload = await payloadPersoMenu(env, 0);
-    else if (cmd === "armes") payload = await payloadWeaponsTypeMenu(env);
-    else if (cmd === "banniere") payload = await payloadBanners(env, 0);
-    else if (cmd === "boss") payload = await payloadBossMenu(env, 0);
-    else if (cmd === "guides") payload = await payloadGuideCategories(env);
-    else if (cmd === "familiers") payload = await payloadResourceCategory(env, "familiers");
-    else if (cmd === "peche") payload = await payloadResourceCategory(env, "peche");
-    else if (cmd === "objet") payload = await payloadResourceCategory(env, "objets");
-    else if (cmd === "nourriture") payload = await payloadResourceCategory(env, "nourriture");
-    else if (cmd === "map") payload = payloadMap(env);
-    else payload = msgPayload(embed("Commande inconnue", `Non gérée: ${cmd}`), [], undefined, true);
-
-    await editOriginal(env, interaction, payload);
-  } catch (e: any) {
-    await editOriginal(env, interaction, msgPayload(embed("Erreur", truncate(String(e?.message || e), 1024)), [], undefined, true));
-  }
-}
-
-async function processComponent(env: Env, interaction: JsonRecord): Promise<void> {
-  const cid = String(interaction.data?.custom_id || "");
-  const values: string[] = interaction.data?.values || [];
-  const selected = values[0];
-
-  try {
-    let payload: JsonRecord | null = null;
-
-    // pagination for select menus
-    if (cid.startsWith("selpage:")) {
-      const parts = cid.split(":");
-      const kind = parts[1];
-
-      if (kind === "perso") payload = await payloadPersoMenu(env, Number(parts[2] || "0"));
-      else if (kind === "boss") payload = await payloadBossMenu(env, Number(parts[2] || "0"));
-      else if (kind === "weaponflat") payload = await payloadWeaponsFlatMenu(env, Number(parts[2] || "0"));
-      else if (kind === "weapon") payload = await payloadWeaponsOfType(env, parts[2], Number(parts[3] || "0"));
-      else if (kind === "guide") payload = await payloadGuidesInCategory(env, parts[2], Number(parts[3] || "0"));
-    }
-
-    // select menus
-    if (!payload && cid.startsWith("sel:")) {
-      const parts = cid.split(":");
-      const kind = parts[1];
-
-      if (kind === "perso") {
-        const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "p") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
-        else payload = await payloadPersoCardByIdx(env, p.idx, "home");
-      } else if (kind === "weaponflat") {
-        const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "w") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
-        else {
-          const sorted = await getSortedWeapons(env);
-          payload = await payloadWeaponCardFromSorted(env, sorted, p.idx);
-        }
-      } else if (kind === "weapontype") {
-        payload = await payloadWeaponsOfType(env, selected, 0);
-      } else if (kind === "weapon") {
-        const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "wt") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
-        else {
-          // We'll reconstruct sorted weapons of this type again
-          const weapons = await fetchJson(env, "weapons.json");
-          const type = parts[2];
-          const filtered = weapons.filter((w: any) => normalize(weaponTypeOf(w)) === normalize(type));
-          const s = [...filtered].sort((a, b) => normalize(weaponDisplayName(a)).localeCompare(normalize(weaponDisplayName(b))));
-          payload = await payloadWeaponCardFromSorted(env, s, p.idx);
-        }
-      } else if (kind === "boss") {
-        const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "b") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
-        else payload = await payloadBossCardByIdx(env, p.idx);
-      } else if (kind === "guidecat") {
-        payload = await payloadGuidesInCategory(env, selected, 0);
-      } else if (kind === "guide") {
-        const category = parts[2];
-        const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "g") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
-        else payload = await payloadGuideCardByIdx(env, category, p.idx);
-      } else if (kind === "res") {
-        const category = parts[2];
-        const p = parseIdxValue(selected);
-        if (!p || p.prefix !== "r") payload = msgPayload(embed("Erreur", "Sélection invalide."), [], undefined, true);
-        else payload = await payloadResourceCard(env, category, p.idx);
+function renderCharacterCostumes(c: Json, page = 0): ViewResult {
+  const items = normalizeCostumes(c);
+  const safePage = Math.max(0, Math.min(Number(page) || 0, Math.max(0, items.length - 1)));
+  const costume = items[safePage];
+  const embed: Embed = costume
+    ? {
+        title: `${asString(c.name)} — ${formatCostume(costume).title}`,
+        description: formatCostume(costume).description,
+        color: COLORS.brand,
       }
+    : {
+        title: `${asString(c.name)} — Costumes`,
+        description: "Non disponible.",
+        color: COLORS.neutral,
+      };
+  const image = costume ? formatCostume(costume).image || characterImageOf(c) : characterImageOf(c);
+  if (image) embed.thumbnail = { url: image };
+  const extra: Component[] = [];
+  if (items.length > 1) {
+    extra.push(
+      actionRow(
+        button("Précédent", cid("perso-cost", c.id, safePage - 1), 2, safePage <= 0),
+        button("Suivant", cid("perso-cost", c.id, safePage + 1), 2, safePage >= items.length - 1),
+      ),
+    );
+  }
+  return { embeds: [embed], components: characterNav(c, "costumes", extra) };
+}
+
+function renderEntitySections(entity: Json, title: string, mode: "boss" | "guide", page = 0): ViewResult {
+  const sections = normalizeSections(entity);
+  const safePage = Math.max(0, Math.min(Number(page) || 0, Math.max(0, sections.length - 1)));
+  const section = sections[safePage];
+  const image = pickImage(entity.image, ...(asArray(entity.images) as string[]));
+  const overview: Embed = {
+    title,
+    description: firstString(entity.summary, entity.description, entity.page_summary, "Non disponible."),
+    color: mode === "boss" ? COLORS.danger : COLORS.info,
+    url: asString(entity.url || entity.source_url) || undefined,
+  };
+  if (image) overview.thumbnail = { url: image };
+  const embeds: Embed[] = [overview];
+  if (section) {
+    embeds.push({
+      title: section.title || `Section ${safePage + 1}`,
+      description: [section.content, ...asArray(section.bullets).map((x) => `• ${x}`)].filter(Boolean).join("\n") || "—",
+      color: mode === "boss" ? COLORS.danger : COLORS.ok,
+      thumbnail: section.image ? { url: section.image } : undefined,
+    });
+  } else if (asString(entity.page_text)) {
+    embeds.push({ title: "Contenu", description: truncate(asString(entity.page_text), 3500), color: COLORS.neutral });
+  }
+  const rows: Component[] = [
+    actionRow(
+      button("Aperçu", cid(mode, "view", entity.id, "overview", 0), 1),
+      button("Sections", cid(mode, "view", entity.id, "sections", safePage), 2, sections.length === 0),
+      button("Précédent", cid(mode, "view", entity.id, "sections", safePage - 1), 2, safePage <= 0 || sections.length === 0),
+      button("Suivant", cid(mode, "view", entity.id, "sections", safePage + 1), 2, safePage >= sections.length - 1 || sections.length === 0),
+      button("Retour", cid(mode, 0), 2),
+    ),
+  ];
+  const link = asString(entity.url || entity.source_url);
+  if (link) rows.push(actionRow(linkButton("Source", link)));
+  return { embeds, components: rows };
+}
+
+function renderBossMenu(items: Json[], page = 0): ViewResult {
+  return renderPagedMenu("Boss", "boss", page, items, "boss", "boss-pick");
+}
+
+function renderGuideMenu(items: Json[], page = 0): ViewResult {
+  return renderPagedMenu("Guides", "guides", page, items, "guide", "guide-pick");
+}
+
+async function handlePersoCommand(env: Env): Promise<ViewResult> {
+  const chars = await loadData(env, "characters");
+  return renderCharacterMenu(chars, 0);
+}
+
+async function handleArmesCommand(env: Env): Promise<ViewResult> {
+  const weapons = await loadData(env, "weapons");
+  return renderWeaponsTypeMenu(weapons);
+}
+
+async function handleBossCommand(env: Env): Promise<ViewResult> {
+  const items = await loadData(env, "bosses");
+  return renderBossMenu(items, 0);
+}
+
+async function handleGuidesCommand(env: Env): Promise<ViewResult> {
+  const items = await loadData(env, "guides");
+  return renderGuideMenu(items, 0);
+}
+
+function findById(items: Json[], id: string): Json | undefined {
+  return items.find((x) => asString(x.id) === id);
+}
+
+async function handleComponent(env: Env, data: Json): Promise<ViewResult> {
+  const id = asString(data.custom_id);
+  const parts = id.split("~");
+
+  if (parts[0] === "perso") {
+    const chars = await loadData(env, "characters");
+    return renderCharacterMenu(chars, Number(parts[1] || 0));
+  }
+  if (parts[0] === "perso-pick") {
+    const chars = await loadData(env, "characters");
+    const picked = findById(chars, asString(asArray(data.values)[0]));
+    return picked ? renderCharacterHome(picked) : errorView("Personnage introuvable.");
+  }
+  if (parts[0] === "perso-tab") {
+    const chars = await loadData(env, "characters");
+    const picked = findById(chars, parts[1]);
+    if (!picked) return errorView("Personnage introuvable.");
+    if (parts[2] === "home") return renderCharacterHome(picked);
+    if (parts[2] === "stats") return renderCharacterStats(picked);
+  }
+  if (parts[0] === "perso-skills") {
+    const chars = await loadData(env, "characters");
+    const picked = findById(chars, parts[1]);
+    return picked ? renderCharacterSkills(picked, parts[2]) : errorView("Personnage introuvable.");
+  }
+  if (parts[0] === "perso-pots") {
+    const chars = await loadData(env, "characters");
+    const picked = findById(chars, parts[1]);
+    return picked ? renderCharacterPotentials(picked, parts[2], Number(parts[3] || 0)) : errorView("Personnage introuvable.");
+  }
+  if (parts[0] === "perso-cost") {
+    const chars = await loadData(env, "characters");
+    const picked = findById(chars, parts[1]);
+    return picked ? renderCharacterCostumes(picked, Number(parts[2] || 0)) : errorView("Personnage introuvable.");
+  }
+
+  if (parts[0] === "arme-menu") {
+    const weapons = await loadData(env, "weapons");
+    return renderWeaponsTypeMenu(weapons);
+  }
+  if (parts[0] === "arme-type") {
+    const weapons = await loadData(env, "weapons");
+    return renderWeaponsMenu(weapons, parts[1], 0);
+  }
+  if (parts[0] === "arme-list") {
+    const weapons = await loadData(env, "weapons");
+    return renderWeaponsMenu(weapons, parts[1], Number(parts[2] || 0));
+  }
+  if (parts[0] === "arme-pick") {
+    const weapons = await loadData(env, "weapons");
+    const picked = findById(weapons, asString(asArray(data.values)[0]));
+    return picked ? renderWeaponDetail(picked) : errorView("Arme introuvable.");
+  }
+
+  if (parts[0] === "boss") {
+    const items = await loadData(env, "bosses");
+    if (parts.length === 2 && /^\d+$/.test(parts[1])) return renderBossMenu(items, Number(parts[1] || 0));
+    if (parts[1] === "view") {
+      const picked = findById(items, parts[2]);
+      return picked ? renderEntitySections(picked, asString(picked.name), "boss", Number(parts[4] || 0)) : errorView("Boss introuvable.");
     }
+  }
+  if (parts[0] === "boss-pick") {
+    const items = await loadData(env, "bosses");
+    const picked = findById(items, asString(asArray(data.values)[0]));
+    return picked ? renderEntitySections(picked, asString(picked.name), "boss", 0) : errorView("Boss introuvable.");
+  }
 
-    // tabs perso + back
-    if (!payload && cid.startsWith("perso:tab:")) {
-      const [, , idxStr, tab] = cid.split(":");
-      payload = await payloadPersoCardByIdx(env, Number(idxStr), tab || "home");
+  if (parts[0] === "guide") {
+    const items = await loadData(env, "guides");
+    if (parts.length === 2 && /^\d+$/.test(parts[1])) return renderGuideMenu(items, Number(parts[1] || 0));
+    if (parts[1] === "view") {
+      const picked = findById(items, parts[2]);
+      return picked ? renderEntitySections(picked, asString(picked.name), "guide", Number(parts[4] || 0)) : errorView("Guide introuvable.");
     }
-    if (!payload && cid === "perso:back") payload = await payloadPersoMenu(env, 0);
+  }
+  if (parts[0] === "guide-pick") {
+    const items = await loadData(env, "guides");
+    const picked = findById(items, asString(asArray(data.values)[0]));
+    return picked ? renderEntitySections(picked, asString(picked.name), "guide", 0) : errorView("Guide introuvable.");
+  }
 
-    // back buttons
-    if (!payload && cid === "boss:back") payload = await payloadBossMenu(env, 0);
-    if (!payload && cid === "guides:backcat") payload = await payloadGuideCategories(env);
-    if (!payload && cid === "armes:backtypes") payload = await payloadWeaponsTypeMenu(env);
-    if (!payload && cid.startsWith("res:back:")) payload = await payloadResourceCategory(env, cid.split(":")[2]);
+  return errorView("Interaction inconnue.");
+}
 
-    // banners pager
-    if (!payload && cid.startsWith("page:")) {
-      const parts = cid.split(":");
-      const kind = parts[1];
-      const pageStr = parts[3] || parts[2] || "0";
-      if (kind === "banners") payload = await payloadBanners(env, Number(pageStr || "0"));
+async function handleInteraction(req: Request, env: Env): Promise<Response> {
+  if (!(await verifyDiscordRequest(req, env))) {
+    return new Response("Bad request signature.", { status: 401 });
+  }
+
+  const interaction = (await req.json()) as Json;
+  if (interaction.type === 1) {
+    return Response.json({ type: 1 });
+  }
+
+  try {
+    if (interaction.type === 2) {
+      const name = asString(interaction.data?.name).toLowerCase();
+      if (name === "perso") return message(await handlePersoCommand(env));
+      if (name === "armes") return message(await handleArmesCommand(env));
+      if (name === "boss") return message(await handleBossCommand(env));
+      if (name === "guides") return message(await handleGuidesCommand(env));
+      return message(errorView(`Commande inconnue: ${name}`));
     }
-
-    if (!payload) payload = msgPayload(embed("Action non gérée", cid), [], undefined, true);
-
-    await editOriginal(env, interaction, payload);
-  } catch (e: any) {
-    await editOriginal(env, interaction, msgPayload(embed("Erreur", truncate(String(e?.message || e), 1024)), [], undefined, true));
+    if (interaction.type === 3) {
+      return message(await handleComponent(env, asRecord(interaction.data)), true);
+    }
+    return message(errorView("Type d'interaction non supporté."));
+  } catch (err) {
+    const text = err instanceof Error ? err.message : String(err);
+    return message(errorView(text), interaction.type === 3);
   }
 }
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const url = new URL(request.url);
-
-    if (request.method === "GET" && url.pathname === "/") return new Response("7DS Origin Discord Worker OK");
-
-    if (request.method !== "POST" || url.pathname !== "/interactions") return new Response("Not found", { status: 404 });
-
-    const signature = request.headers.get("X-Signature-Ed25519");
-    const timestamp = request.headers.get("X-Signature-Timestamp");
-    if (!signature || !timestamp) return new Response("Bad request signature", { status: 401 });
-
-    const body = await request.text();
-    const ok = verifyDiscordRequest(env.DISCORD_PUBLIC_KEY, signature, timestamp, body);
-    if (!ok) return new Response("Invalid request signature", { status: 401 });
-
-    const interaction = JSON.parse(body);
-
-    if (interaction.type === 1) return json({ type: 1 });
-
-    if (interaction.type === 2) {
-      ctx.waitUntil(processCommand(env, interaction));
-      return json(deferredAckCommand(false));
+  async fetch(req: Request, env: Env): Promise<Response> {
+    const url = new URL(req.url);
+    if (url.pathname === "/interactions" && req.method === "POST") {
+      return handleInteraction(req, env);
     }
-
-    if (interaction.type === 3) {
-      ctx.waitUntil(processComponent(env, interaction));
-      return json(deferredAckComponent());
+    if (url.pathname === "/health") {
+      return Response.json({ ok: true, brand: env.BOT_BRAND || "Escanor" });
     }
-
-    if (interaction.type === 4) return json({ type: 8, data: { choices: [] } });
-
-    return json({ type: 4, data: { content: "Type interaction non géré.", flags: 64 } });
+    return new Response("Not found", { status: 404 });
   },
 };
-
-
-
-
-
