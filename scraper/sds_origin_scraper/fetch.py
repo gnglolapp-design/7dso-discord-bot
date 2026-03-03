@@ -137,7 +137,11 @@ class HtmlFetcher:
             if wait_selector:
                 page.wait_for_selector(wait_selector, timeout=int(self.timeout * 1000))
             else:
-                page.wait_for_load_state("networkidle", timeout=int(self.timeout * 1000))
+                try:
+                    page.wait_for_load_state("load", timeout=int(self.timeout * 1000))
+                except Exception:
+                    pass
+                page.wait_for_timeout(800)
             if extra_wait_ms > 0:
                 page.wait_for_timeout(extra_wait_ms)
             html = page.content()

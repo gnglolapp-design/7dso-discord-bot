@@ -1,4 +1,4 @@
-name: update-7dso-data
+﻿name: update-7dso-data
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Stop early
         if: env.RUN_SCRAPE != 'true'
-        run: echo "Moins de 72 heures depuis la dernière mise à jour."
+        run: echo "Moins de 72 heures depuis la derniÃ¨re mise Ã  jour."
 
       - name: Install scraper
         if: env.RUN_SCRAPE == 'true'
@@ -37,7 +37,7 @@ jobs:
       - name: Run scraper
         if: env.RUN_SCRAPE == 'true'
         run: |
-          7dso-scraper --site all --force-browser --max-pages 800 --out scrape-data --sqlite
+          7dso-scraper --site all --max-pages 800 --out scrape-data --sqlite
 
       - name: Build JSON for bot
         if: env.RUN_SCRAPE == 'true'
@@ -58,3 +58,4 @@ jobs:
           git add docs/data .bot-state scrape-data || true
           git diff --cached --quiet || git commit -m "chore: refresh 7dso data"
           git push
+
