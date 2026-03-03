@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "7dso-discord-bot",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-03-03",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "DATA_BASE_URL": "https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/data",
+    "BOT_BRAND": "7DS Origin Bot",
+    "MAP_URL": "https://genshin.gg/7dso/interactive-map"
+  }
+}

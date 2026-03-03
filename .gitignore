@@ -1,0 +1,7 @@
+node_modules/
+.wrangler/
+.venv/
+__pycache__/
+*.pyc
+scrape-data/
+*.sqlite
