@@ -1,1 +1,45 @@
-[]
+[
+  {
+    "id": "red-demon",
+    "name": "Red Demon",
+    "description": "🔔 Some data may be incomplete. They will be updated at the end of the beta phase, and again upon the official release of the game.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbosses%2Fred-demon.png&w=1920",
+    "sources": [
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/boss/red-demon",
+        "entity_type": "boss",
+        "name": "Red Demon"
+      },
+      {
+        "site": "7dsorigin.gg",
+        "source_url": "https://7dsorigin.gg/boss/red-demon",
+        "entity_type": "boss",
+        "name": "Red Demon"
+      }
+    ],
+    "url": "https://7dsorigin.gg/boss/red-demon"
+  },
+  {
+    "id": "seven-deadly-sins-origin-boss-guide-hideout-guides-hideout-guides",
+    "name": "Seven Deadly Sins: Origin Boss Guide | Hideout Guides | Hideout Guides",
+    "description": "Nightmare bosses — mechanics, interrupt timing, and strategy",
+    "image": null,
+    "site": "hideoutgacha.com",
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/boss-guide",
+    "sections": [],
+    "images": [],
+    "page_title": "Seven Deadly Sins: Origin Boss Guide | Hideout Guides | Hideout Guides",
+    "page_summary": "Nightmare bosses — mechanics, interrupt timing, and strategy",
+    "page_text": "",
+    "page_type": "boss-guide_guide",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/boss-guide",
+        "entity_type": "boss",
+        "name": "Seven Deadly Sins: Origin Boss Guide | Hideout Guides | Hideout Guides"
+      }
+    ]
+  }
+]

@@ -1,1 +1,1346 @@
-[]
+[
+  {
+    "id": "black-flame-wings-axe",
+    "name": "Black Flame Wings Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0302.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-axe",
+    "name": "Black Flame Wings Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0302.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-dual-swords",
+    "name": "Black Flame Wings Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0302.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-dual-swords",
+    "name": "Black Flame Wings Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0302.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-gauntlets",
+    "name": "Black Flame Wings Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0302.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-gauntlets",
+    "name": "Black Flame Wings Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0302.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-greatsword",
+    "name": "Black Flame Wings Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0306.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-greatsword",
+    "name": "Black Flame Wings Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0306.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-grimoire",
+    "name": "Black Flame Wings Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0302.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-grimoire",
+    "name": "Black Flame Wings Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0302.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-lance",
+    "name": "Black Flame Wings Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0302.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-lance",
+    "name": "Black Flame Wings Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0302.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-longsword",
+    "name": "Black Flame Wings Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0302.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-longsword",
+    "name": "Black Flame Wings Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0302.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-nunchaku",
+    "name": "Black Flame Wings Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0302.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-nunchaku",
+    "name": "Black Flame Wings Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0302.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-rapier",
+    "name": "Black Flame Wings Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0302.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-rapier",
+    "name": "Black Flame Wings Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0302.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-staff",
+    "name": "Black Flame Wings Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0302.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-staff",
+    "name": "Black Flame Wings Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0302.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-sword-and-shield",
+    "name": "Black Flame Wings Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0302.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-sword-and-shield",
+    "name": "Black Flame Wings Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0302.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-wand",
+    "name": "Black Flame Wings Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0302.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "black-flame-wings-wand",
+    "name": "Black Flame Wings Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0302.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "black-shadow-greatsword",
+    "name": "Black Shadow Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword2h_3013.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "black-shadow-greatsword",
+    "name": "Black Shadow Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword2h_3013.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-axe",
+    "name": "Blazing Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_4011.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-axe",
+    "name": "Blazing Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_4011.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-dual-swords",
+    "name": "Blazing Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_4011.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-dual-swords",
+    "name": "Blazing Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_4011.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-gauntlets",
+    "name": "Blazing Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Gauntlets_4011.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-gauntlets",
+    "name": "Blazing Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Gauntlets_4011.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-greatsword",
+    "name": "Blazing Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword2h_4011.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-greatsword",
+    "name": "Blazing Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword2h_4011.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-grimoire",
+    "name": "Blazing Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_4011.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-grimoire",
+    "name": "Blazing Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_4011.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-lance",
+    "name": "Blazing Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Lance_4011.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-lance",
+    "name": "Blazing Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Lance_4011.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-longsword",
+    "name": "Blazing Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword1h_4011.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-longsword",
+    "name": "Blazing Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword1h_4011.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-nunchaku",
+    "name": "Blazing Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Cudgel3c_4011.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-nunchaku",
+    "name": "Blazing Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Cudgel3c_4011.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-rapier",
+    "name": "Blazing Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Rapier_4011.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-rapier",
+    "name": "Blazing Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Rapier_4011.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-staff",
+    "name": "Blazing Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_4011.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-staff",
+    "name": "Blazing Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_4011.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-sword-and-shield",
+    "name": "Blazing Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Shield_4011.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-sword-and-shield",
+    "name": "Blazing Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Shield_4011.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-wand",
+    "name": "Blazing Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Wand_4011.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "blazing-wand",
+    "name": "Blazing Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Wand_4011.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "chaos-song-rapier",
+    "name": "Chaos Song Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Rapier_3016.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "chaos-song-rapier",
+    "name": "Chaos Song Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Rapier_3016.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "corrupted-conviction-longsword",
+    "name": "Corrupted Conviction Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword1h_3013.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "corrupted-conviction-longsword",
+    "name": "Corrupted Conviction Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Sword1h_3013.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "corrupted-will-gauntlets",
+    "name": "Corrupted Will Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Gauntlets_3019.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "corrupted-will-gauntlets",
+    "name": "Corrupted Will Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Gauntlets_3019.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-axe",
+    "name": "Crimson Flame Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0304.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-axe",
+    "name": "Crimson Flame Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0304.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-dual-swords",
+    "name": "Crimson Flame Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0304.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-dual-swords",
+    "name": "Crimson Flame Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0304.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-gauntlets",
+    "name": "Crimson Flame Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0304.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-gauntlets",
+    "name": "Crimson Flame Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0304.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-greatsword",
+    "name": "Crimson Flame Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0306.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-greatsword",
+    "name": "Crimson Flame Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0306.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-grimoire",
+    "name": "Crimson Flame Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0304.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-grimoire",
+    "name": "Crimson Flame Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0304.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-lance",
+    "name": "Crimson Flame Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0304.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-lance",
+    "name": "Crimson Flame Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0304.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-longsword",
+    "name": "Crimson Flame Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0304.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-longsword",
+    "name": "Crimson Flame Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0304.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-nunchaku",
+    "name": "Crimson Flame Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0304.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-nunchaku",
+    "name": "Crimson Flame Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0304.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-rapier",
+    "name": "Crimson Flame Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0304.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-rapier",
+    "name": "Crimson Flame Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0304.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-staff",
+    "name": "Crimson Flame Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0304.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-staff",
+    "name": "Crimson Flame Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0304.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-sword-and-shield",
+    "name": "Crimson Flame Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0304.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-sword-and-shield",
+    "name": "Crimson Flame Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0304.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-wand",
+    "name": "Crimson Flame Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0304.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "crimson-flame-wand",
+    "name": "Crimson Flame Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0304.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "dark-clouds-enhancement-staff",
+    "name": "Dark Clouds Enhancement Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_3013.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "dark-clouds-enhancement-staff",
+    "name": "Dark Clouds Enhancement Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_3013.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "dead-spirit-s-breath-nunchaku",
+    "name": "Dead Spirit's Breath Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Cudgel3c_3025.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "dead-spirit-s-breath-nunchaku",
+    "name": "Dead Spirit's Breath Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Cudgel3c_3025.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-axe",
+    "name": "Eternal Grace Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0307.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-axe",
+    "name": "Eternal Grace Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0307.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-dual-swords",
+    "name": "Eternal Grace Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0307.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-dual-swords",
+    "name": "Eternal Grace Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0307.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-gauntlets",
+    "name": "Eternal Grace Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0307.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-gauntlets",
+    "name": "Eternal Grace Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0307.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-greatsword",
+    "name": "Eternal Grace Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0307.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-greatsword",
+    "name": "Eternal Grace Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0307.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-grimoire",
+    "name": "Eternal Grace Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0307.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-grimoire",
+    "name": "Eternal Grace Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0307.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-lance",
+    "name": "Eternal Grace Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0307.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-lance",
+    "name": "Eternal Grace Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0307.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-longsword",
+    "name": "Eternal Grace Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0307.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-longsword",
+    "name": "Eternal Grace Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0307.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-nunchaku",
+    "name": "Eternal Grace Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0307.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-nunchaku",
+    "name": "Eternal Grace Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0307.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-rapier",
+    "name": "Eternal Grace Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0307.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-rapier",
+    "name": "Eternal Grace Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0307.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-staff",
+    "name": "Eternal Grace Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0307.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-staff",
+    "name": "Eternal Grace Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0307.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-sword-and-shield",
+    "name": "Eternal Grace Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0307.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-sword-and-shield",
+    "name": "Eternal Grace Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0307.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-wand",
+    "name": "Eternal Grace Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0307.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "eternal-grace-wand",
+    "name": "Eternal Grace Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0307.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-axe",
+    "name": "Indomitable Guard Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0402.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-axe",
+    "name": "Indomitable Guard Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0402.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-dual-swords",
+    "name": "Indomitable Guard Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0402.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-dual-swords",
+    "name": "Indomitable Guard Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0402.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-gauntlets",
+    "name": "Indomitable Guard Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0402.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-gauntlets",
+    "name": "Indomitable Guard Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0402.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-greatsword",
+    "name": "Indomitable Guard Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0402.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-greatsword",
+    "name": "Indomitable Guard Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0402.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-grimoire",
+    "name": "Indomitable Guard Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0402.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-grimoire",
+    "name": "Indomitable Guard Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0402.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-lance",
+    "name": "Indomitable Guard Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0402.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-lance",
+    "name": "Indomitable Guard Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0402.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-longsword",
+    "name": "Indomitable Guard Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0402.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-longsword",
+    "name": "Indomitable Guard Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0402.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-nunchaku",
+    "name": "Indomitable Guard Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0402.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-nunchaku",
+    "name": "Indomitable Guard Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0402.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-rapier",
+    "name": "Indomitable Guard Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0402.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-rapier",
+    "name": "Indomitable Guard Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0402.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-staff",
+    "name": "Indomitable Guard Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0402.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-staff",
+    "name": "Indomitable Guard Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0402.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-sword-and-shield",
+    "name": "Indomitable Guard Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0402.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-sword-and-shield",
+    "name": "Indomitable Guard Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0402.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-wand",
+    "name": "Indomitable Guard Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0402.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "indomitable-guard-wand",
+    "name": "Indomitable Guard Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0402.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-axe",
+    "name": "Jet-black Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0306.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-axe",
+    "name": "Jet-black Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0306.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-dual-swords",
+    "name": "Jet-black Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0306.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-dual-swords",
+    "name": "Jet-black Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0306.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-gauntlets",
+    "name": "Jet-black Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0306.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-gauntlets",
+    "name": "Jet-black Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0306.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-greatsword",
+    "name": "Jet-black Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0304.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-greatsword",
+    "name": "Jet-black Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0304.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-grimoire",
+    "name": "Jet-black Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0306.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-grimoire",
+    "name": "Jet-black Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0306.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-lance",
+    "name": "Jet-black Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0306.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-lance",
+    "name": "Jet-black Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0306.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-longsword",
+    "name": "Jet-black Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0306.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-longsword",
+    "name": "Jet-black Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0306.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-nunchaku",
+    "name": "Jet-black Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0306.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-nunchaku",
+    "name": "Jet-black Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0306.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-rapier",
+    "name": "Jet-black Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0306.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-rapier",
+    "name": "Jet-black Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0306.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-staff",
+    "name": "Jet-black Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0306.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-staff",
+    "name": "Jet-black Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0306.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-sword-and-shield",
+    "name": "Jet-black Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0306.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-sword-and-shield",
+    "name": "Jet-black Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0306.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-wand",
+    "name": "Jet-black Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0306.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "jet-black-wand",
+    "name": "Jet-black Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0306.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "melody-of-temptation-grimoire",
+    "name": "Melody of Temptation Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_3019.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "melody-of-temptation-grimoire",
+    "name": "Melody of Temptation Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_3019.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "razorwind-wand",
+    "name": "Razorwind Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Wand_3013.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "razorwind-wand",
+    "name": "Razorwind Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Wand_3013.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "ruler-of-the-forest-axe",
+    "name": "Ruler of the Forest Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_3013.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "ruler-of-the-forest-axe",
+    "name": "Ruler of the Forest Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_3013.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-axe",
+    "name": "Shadow of Rupture Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0403.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-axe",
+    "name": "Shadow of Rupture Axe",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Axe_0403.png&w=640",
+    "weapon_type": "Axe",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-dual-swords",
+    "name": "Shadow of Rupture Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0403.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-dual-swords",
+    "name": "Shadow of Rupture Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_SwordDual_0403.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-gauntlets",
+    "name": "Shadow of Rupture Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0403.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-gauntlets",
+    "name": "Shadow of Rupture Gauntlets",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_gauntlets_0403.png&w=640",
+    "weapon_type": "Gauntlets",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-greatsword",
+    "name": "Shadow of Rupture Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0403.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-greatsword",
+    "name": "Shadow of Rupture Greatsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword2h_0403.png&w=640",
+    "weapon_type": "Greatsword",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-grimoire",
+    "name": "Shadow of Rupture Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0403.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-grimoire",
+    "name": "Shadow of Rupture Grimoire",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Book_0403.png&w=640",
+    "weapon_type": "book",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-lance",
+    "name": "Shadow of Rupture Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0403.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-lance",
+    "name": "Shadow of Rupture Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_lance_0403.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-longsword",
+    "name": "Shadow of Rupture Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0403.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-longsword",
+    "name": "Shadow of Rupture Longsword",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_sword1h_0403.png&w=640",
+    "weapon_type": "Longsword",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-nunchaku",
+    "name": "Shadow of Rupture Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0403.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-nunchaku",
+    "name": "Shadow of Rupture Nunchaku",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_cudgel3c_0403.png&w=640",
+    "weapon_type": "cudgel",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-rapier",
+    "name": "Shadow of Rupture Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0403.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-rapier",
+    "name": "Shadow of Rupture Rapier",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_rapier_0403.png&w=640",
+    "weapon_type": "Rapier",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-staff",
+    "name": "Shadow of Rupture Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0403.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-staff",
+    "name": "Shadow of Rupture Staff",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Staff_0403.png&w=640",
+    "weapon_type": "Staff",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-sword-and-shield",
+    "name": "Shadow of Rupture Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0403.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-sword-and-shield",
+    "name": "Shadow of Rupture Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_shield_0403.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-wand",
+    "name": "Shadow of Rupture Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0403.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "shadow-of-rupture-wand",
+    "name": "Shadow of Rupture Wand",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_wand_0403.png&w=640",
+    "weapon_type": "Wand",
+    "rarity": "5"
+  },
+  {
+    "id": "skyborne-gale-dual-swords",
+    "name": "Skyborne Gale Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2Ficon_Short_WEAPON3_SwordDual_3013.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "skyborne-gale-dual-swords",
+    "name": "Skyborne Gale Dual Swords",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2Ficon_Short_WEAPON3_SwordDual_3013.png&w=640",
+    "weapon_type": "Dual Swords",
+    "rarity": "5"
+  },
+  {
+    "id": "thorn-of-greed-lance",
+    "name": "Thorn of Greed Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Lance_3016.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "thorn-of-greed-lance",
+    "name": "Thorn of Greed Lance",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Lance_3016.png&w=640",
+    "weapon_type": "Lance",
+    "rarity": "5"
+  },
+  {
+    "id": "unyielding-spirit-sword-and-shield",
+    "name": "Unyielding Spirit Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Shield_3016.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  },
+  {
+    "id": "unyielding-spirit-sword-and-shield",
+    "name": "Unyielding Spirit Sword and Shield",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fweapons%2FShort_Shield_3016.png&w=640",
+    "weapon_type": "Shield",
+    "rarity": "5"
+  }
+]

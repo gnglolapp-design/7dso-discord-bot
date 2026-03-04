@@ -1,1 +1,115 @@
-[]
+[
+  {
+    "id": "all-guides-hideout-guides-hideout-guides",
+    "name": "All Guides | Hideout Guides | Hideout Guides",
+    "description": "Master every aspect of your favorite gacha games with our comprehensive guides written by top players and theorycrafters.",
+    "image": null,
+    "site": "hideoutgacha.com",
+    "url": "https://www.hideoutgacha.com/guides",
+    "sections": [],
+    "images": [],
+    "page_title": "All Guides | Hideout Guides | Hideout Guides",
+    "page_summary": "Master every aspect of your favorite gacha games with our comprehensive guides written by top players and theorycrafters.",
+    "page_text": "",
+    "page_type": "page",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/guides",
+        "entity_type": "guide",
+        "name": "All Guides | Hideout Guides | Hideout Guides"
+      }
+    ]
+  },
+  {
+    "id": "boss-guide",
+    "name": "Boss Guide",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/boss-guide",
+        "entity_type": "guide",
+        "name": "Boss Guide"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/boss-guide"
+  },
+  {
+    "id": "combat-guide",
+    "name": "Combat Guide",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/combat-guide",
+        "entity_type": "guide",
+        "name": "Combat Guide"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/combat-guide"
+  },
+  {
+    "id": "general-information",
+    "name": "General Information",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/general-info",
+        "entity_type": "guide",
+        "name": "General Information"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/general-info"
+  },
+  {
+    "id": "progression-guide",
+    "name": "Progression Guide",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/progression-guide",
+        "entity_type": "guide",
+        "name": "Progression Guide"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/progression-guide"
+  },
+  {
+    "id": "team-compositions",
+    "name": "Team Compositions",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "guide",
+        "name": "Team Compositions"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tier-list",
+    "name": "Tier List",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/tier-list",
+        "entity_type": "guide",
+        "name": "Tier List"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/tier-list"
+  },
+  {
+    "id": "world-map",
+    "name": "World Map",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/map-information",
+        "entity_type": "guide",
+        "name": "World Map"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/map-information"
+  }
+]
