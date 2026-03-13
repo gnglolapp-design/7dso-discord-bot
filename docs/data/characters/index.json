@@ -245,14 +245,14 @@
     "id": "gil-thunder",
     "name": "Gil Thunder",
     "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_gil_thunder_001.png",
-    "element": null,
+    "element": "Thunder",
     "weapon_types": []
   },
   {
     "id": "gil-thunder",
     "name": "Gil Thunder",
     "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_gil_thunder_001.png",
-    "element": null,
+    "element": "Thunder",
     "weapon_types": []
   },
   {
@@ -303,7 +303,7 @@
     "id": "griamore",
     "name": "Griamore",
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_griamore_001.png&w=1920",
-    "element": null,
+    "element": "Physical",
     "weapon_types": [
       "Shield",
       "cudgel",
@@ -314,7 +314,7 @@
     "id": "griamore",
     "name": "Griamore",
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_griamore_001.png&w=1920",
-    "element": null,
+    "element": "Physical",
     "weapon_types": [
       "Shield",
       "cudgel",

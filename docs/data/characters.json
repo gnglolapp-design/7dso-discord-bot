@@ -11277,7 +11277,8 @@
     "id": "gil-thunder",
     "name": "Gil Thunder",
     "description": "Tier List",
-    "element_icon": "https://sunderarmor.com/7DSO/WeaponIcons/ItemDivision_sword1h.png",
+    "element": "Thunder",
+    "element_icon": "https://sunderarmor.com/7DSO/Elements/thunder.png",
     "sources": [
       {
         "site": "genshin.gg",
@@ -11294,7 +11295,8 @@
     "id": "gil-thunder",
     "name": "Gil Thunder",
     "description": "Tier List",
-    "element_icon": "https://sunderarmor.com/7DSO/WeaponIcons/ItemDivision_sword1h.png",
+    "element": "Thunder",
+    "element_icon": "https://sunderarmor.com/7DSO/Elements/thunder.png",
     "sources": [
       {
         "site": "genshin.gg",
@@ -12963,6 +12965,7 @@
     "id": "griamore",
     "name": "Griamore",
     "description": "A Holy Knight of Liones, the son of former Holy Knight Grandmaster Dreyfus, and wielder of the magic known as \"Wall.\" He is prepared to do anything for Princess Veronica. Together with Howzer and Gilthunder, he is known as one of the Trio of Troublemakers.",
+    "element": "Physical",
     "element_icon": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fheaderimg%2FMainMenu_Icon_Hero.png&w=96",
     "weapon_types": [
       "Shield",
@@ -13685,6 +13688,7 @@
     "id": "griamore",
     "name": "Griamore",
     "description": "A Holy Knight of Liones, the son of former Holy Knight Grandmaster Dreyfus, and wielder of the magic known as \"Wall.\" He is prepared to do anything for Princess Veronica. Together with Howzer and Gilthunder, he is known as one of the Trio of Troublemakers.",
+    "element": "Physical",
     "element_icon": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fheaderimg%2FMainMenu_Icon_Hero.png&w=96",
     "weapon_types": [
       "Shield",
