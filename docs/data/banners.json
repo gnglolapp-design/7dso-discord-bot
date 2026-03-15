@@ -3,84 +3,60 @@
     "id": "cbt-limited-hero-draw",
     "name": "CBT Limited Hero Draw",
     "description": "Draw CBT-limited Heroes! You can obtain powerful and charismatic heroes.",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbanners%2Fgacha_banner_2.png&w=1920",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2FGacha%2Fdummy%2FFrames%2Fgacha_dummy_cha_2.png&w=1920",
     "sources": [
       {
         "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
-        "entity_type": "banner",
-        "name": "CBT Limited Hero Draw"
-      },
-      {
-        "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
+        "source_url": "https://7dsorigin.gg/banners/cbt-hero-draw",
         "entity_type": "banner",
         "name": "CBT Limited Hero Draw"
       }
     ],
-    "url": "https://7dsorigin.gg/banners/meliodas-banner"
+    "url": "https://7dsorigin.gg/banners/cbt-hero-draw"
   },
   {
     "id": "cbt-limited-hero-draw",
     "name": "CBT Limited Hero Draw",
     "description": "Draw CBT-limited Heroes! You can obtain powerful and charismatic heroes.",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbanners%2Fgacha_banner_2.png&w=1920",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2FGacha%2Fdummy%2FFrames%2Fgacha_dummy_cha_2.png&w=1920",
     "sources": [
       {
         "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
-        "entity_type": "banner",
-        "name": "CBT Limited Hero Draw"
-      },
-      {
-        "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/meliodas-banner",
+        "source_url": "https://7dsorigin.gg/banners/cbt-hero-draw",
         "entity_type": "banner",
         "name": "CBT Limited Hero Draw"
       }
     ],
-    "url": "https://7dsorigin.gg/banners/meliodas-banner"
+    "url": "https://7dsorigin.gg/banners/cbt-hero-draw"
   },
   {
     "id": "cbt-limited-weapon-draw",
     "name": "CBT Limited Weapon Draw",
-    "description": "Draw CBT-limited Weapons! You can obtain weapons that will further enhance your heroes' abilities.",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbanners%2Fgacha_banner_5.png&w=1920",
+    "description": "Draw CBT-limited Weapons! You can obtain weapons that will further enhance your heroes’ abilities.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2FGacha%2Fdummy%2FFrames%2Fgacha_dummy_cha2_5.png&w=1920",
     "sources": [
       {
         "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/festival-banner",
-        "entity_type": "banner",
-        "name": "CBT Limited Weapon Draw"
-      },
-      {
-        "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/festival-banner",
+        "source_url": "https://7dsorigin.gg/banners/cbt-limited-weapon-draw",
         "entity_type": "banner",
         "name": "CBT Limited Weapon Draw"
       }
     ],
-    "url": "https://7dsorigin.gg/banners/festival-banner"
+    "url": "https://7dsorigin.gg/banners/cbt-limited-weapon-draw"
   },
   {
     "id": "cbt-limited-weapon-draw",
     "name": "CBT Limited Weapon Draw",
-    "description": "Draw CBT-limited Weapons! You can obtain weapons that will further enhance your heroes' abilities.",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbanners%2Fgacha_banner_5.png&w=1920",
+    "description": "Draw CBT-limited Weapons! You can obtain weapons that will further enhance your heroes’ abilities.",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2FGacha%2Fdummy%2FFrames%2Fgacha_dummy_cha2_5.png&w=1920",
     "sources": [
       {
         "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/festival-banner",
-        "entity_type": "banner",
-        "name": "CBT Limited Weapon Draw"
-      },
-      {
-        "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/banners/festival-banner",
+        "source_url": "https://7dsorigin.gg/banners/cbt-limited-weapon-draw",
         "entity_type": "banner",
         "name": "CBT Limited Weapon Draw"
       }
     ],
-    "url": "https://7dsorigin.gg/banners/festival-banner"
+    "url": "https://7dsorigin.gg/banners/cbt-limited-weapon-draw"
   }
 ]

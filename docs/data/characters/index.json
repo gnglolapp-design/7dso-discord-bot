@@ -2,22 +2,22 @@
   {
     "id": "ban",
     "name": "Ban",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Ban_001.png&w=1920",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_ban_001.png&w=1920",
     "element": null,
     "weapon_types": [
-      "cudgel",
       "Greatsword",
+      "cudgel",
       "Gauntlets"
     ]
   },
   {
     "id": "ban",
     "name": "Ban",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Ban_001.png&w=1920",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_ban_001.png&w=1920",
     "element": null,
     "weapon_types": [
-      "cudgel",
       "Greatsword",
+      "cudgel",
       "Gauntlets"
     ]
   },
@@ -28,8 +28,8 @@
     "element": "Dark",
     "weapon_types": [
       "Dual Swords",
-      "Axe",
-      "book"
+      "book",
+      "Axe"
     ]
   },
   {
@@ -39,17 +39,39 @@
     "element": "Dark",
     "weapon_types": [
       "Dual Swords",
-      "Axe",
-      "book"
+      "book",
+      "Axe"
+    ]
+  },
+  {
+    "id": "clotho",
+    "name": "Clotho",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_klotho_001.png&w=1920",
+    "element": null,
+    "weapon_types": [
+      "Rapier",
+      "book",
+      "Staff"
+    ]
+  },
+  {
+    "id": "clotho",
+    "name": "Clotho",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_klotho_001.png&w=1920",
+    "element": null,
+    "weapon_types": [
+      "Rapier",
+      "book",
+      "Staff"
     ]
   },
   {
     "id": "daisy",
     "name": "Daisy",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Daisy_001.png&w=1920",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_daisy_001.png&w=1920",
     "element": "Earth",
     "weapon_types": [
-      "Shield",
+      "shield",
       "book",
       "Wand"
     ]
@@ -57,10 +79,10 @@
   {
     "id": "daisy",
     "name": "Daisy",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Daisy_001.png&w=1920",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_daisy_001.png&w=1920",
     "element": "Earth",
     "weapon_types": [
-      "Shield",
+      "shield",
       "book",
       "Wand"
     ]
@@ -71,9 +93,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_derieri_001.png&w=1920",
     "element": null,
     "weapon_types": [
+      "Greatsword",
       "Gauntlets",
-      "Axe",
-      "Greatsword"
+      "Axe"
     ]
   },
   {
@@ -82,9 +104,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_derieri_001.png&w=1920",
     "element": null,
     "weapon_types": [
+      "Greatsword",
       "Gauntlets",
-      "Axe",
-      "Greatsword"
+      "Axe"
     ]
   },
   {
@@ -93,9 +115,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_diane_001.png&w=1920",
     "element": "Earth",
     "weapon_types": [
+      "cudgel",
       "Gauntlets",
-      "Axe",
-      "cudgel"
+      "Axe"
     ]
   },
   {
@@ -104,9 +126,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_diane_001.png&w=1920",
     "element": "Earth",
     "weapon_types": [
+      "cudgel",
       "Gauntlets",
-      "Axe",
-      "cudgel"
+      "Axe"
     ]
   },
   {
@@ -115,9 +137,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Drake_001.png&w=1920",
     "element": "Thunder",
     "weapon_types": [
+      "Longsword",
       "Greatsword",
-      "Staff",
-      "Longsword"
+      "Staff"
     ]
   },
   {
@@ -126,41 +148,55 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Drake_001.png&w=1920",
     "element": "Thunder",
     "weapon_types": [
+      "Longsword",
       "Greatsword",
-      "Staff",
-      "Longsword"
+      "Staff"
+    ]
+  },
+  {
+    "id": "dredrin",
+    "name": "Dredrin",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreydrin_001.png&w=1920",
+    "element": "Earth",
+    "weapon_types": [
+      "shield",
+      "Rapier",
+      "Axe"
+    ]
+  },
+  {
+    "id": "dredrin",
+    "name": "Dredrin",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreydrin_001.png&w=1920",
+    "element": "Earth",
+    "weapon_types": [
+      "shield",
+      "Rapier",
+      "Axe"
     ]
   },
   {
     "id": "dreydrin",
     "name": "Dreydrin",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreydrin_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "Shield",
-      "Axe",
-      "Rapier"
-    ]
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_dreydrin_001.png",
+    "element": "Physical",
+    "weapon_types": []
   },
   {
     "id": "dreydrin",
     "name": "Dreydrin",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreydrin_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "Shield",
-      "Axe",
-      "Rapier"
-    ]
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_dreydrin_001.png",
+    "element": "Physical",
+    "weapon_types": []
   },
   {
     "id": "dreyfus",
     "name": "Dreyfus",
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreyfus_001.png&w=1920",
-    "element": "Earth",
+    "element": "Physical",
     "weapon_types": [
-      "Rapier",
       "Longsword",
+      "Rapier",
       "Lance"
     ]
   },
@@ -168,10 +204,10 @@
     "id": "dreyfus",
     "name": "Dreyfus",
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreyfus_001.png&w=1920",
-    "element": "Earth",
+    "element": "Physical",
     "weapon_types": [
-      "Rapier",
       "Longsword",
+      "Rapier",
       "Lance"
     ]
   },
@@ -225,9 +261,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_escanor_001.png&w=1920",
     "element": null,
     "weapon_types": [
-      "Axe",
       "Greatsword",
-      "Shield"
+      "shield",
+      "Axe"
     ]
   },
   {
@@ -236,9 +272,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_escanor_001.png&w=1920",
     "element": null,
     "weapon_types": [
-      "Axe",
       "Greatsword",
-      "Shield"
+      "shield",
+      "Axe"
     ]
   },
   {
@@ -258,22 +294,22 @@
   {
     "id": "gilthunder",
     "name": "Gilthunder",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gil_thunder_001.png&w=1920",
-    "element": "Thunder",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gilthunder_001.png&w=1920",
+    "element": null,
     "weapon_types": [
       "Longsword",
-      "Shield",
+      "shield",
       "Lance"
     ]
   },
   {
     "id": "gilthunder",
     "name": "Gilthunder",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gil_thunder_001.png&w=1920",
-    "element": "Thunder",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gilthunder_001.png&w=1920",
+    "element": null,
     "weapon_types": [
       "Longsword",
-      "Shield",
+      "shield",
       "Lance"
     ]
   },
@@ -305,7 +341,7 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_griamore_001.png&w=1920",
     "element": "Physical",
     "weapon_types": [
-      "Shield",
+      "shield",
       "cudgel",
       "Gauntlets"
     ]
@@ -316,7 +352,7 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_griamore_001.png&w=1920",
     "element": "Physical",
     "weapon_types": [
-      "Shield",
+      "shield",
       "cudgel",
       "Gauntlets"
     ]
@@ -327,9 +363,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_guila_001.png&w=1920",
     "element": "Fire",
     "weapon_types": [
-      "Lance",
-      "Shield",
-      "Rapier"
+      "shield",
+      "Rapier",
+      "Lance"
     ]
   },
   {
@@ -338,19 +374,8 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_guila_001.png&w=1920",
     "element": "Fire",
     "weapon_types": [
-      "Lance",
-      "Shield",
-      "Rapier"
-    ]
-  },
-  {
-    "id": "hendrickson",
-    "name": "Hendrickson",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_hendrickson_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "Dual Swords",
-      "Longsword",
+      "shield",
+      "Rapier",
       "Lance"
     ]
   },
@@ -360,8 +385,19 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_hendrickson_001.png&w=1920",
     "element": "Holy",
     "weapon_types": [
-      "Dual Swords",
       "Longsword",
+      "Dual Swords",
+      "Lance"
+    ]
+  },
+  {
+    "id": "hendrickson",
+    "name": "Hendrickson",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_hendrickson_001.png&w=1920",
+    "element": "Holy",
+    "weapon_types": [
+      "Longsword",
+      "Dual Swords",
       "Lance"
     ]
   },
@@ -371,9 +407,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_howzer_001.png&w=1920",
     "element": "Wind",
     "weapon_types": [
-      "Lance",
+      "cudgel",
       "Gauntlets",
-      "cudgel"
+      "Lance"
     ]
   },
   {
@@ -382,9 +418,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_howzer_001.png&w=1920",
     "element": "Wind",
     "weapon_types": [
-      "Lance",
+      "cudgel",
       "Gauntlets",
-      "cudgel"
+      "Lance"
     ]
   },
   {
@@ -394,8 +430,8 @@
     "element": "Ice",
     "weapon_types": [
       "Dual Swords",
-      "Lance",
-      "Rapier"
+      "Rapier",
+      "Lance"
     ]
   },
   {
@@ -405,8 +441,8 @@
     "element": "Ice",
     "weapon_types": [
       "Dual Swords",
-      "Lance",
-      "Rapier"
+      "Rapier",
+      "Lance"
     ]
   },
   {
@@ -434,29 +470,14 @@
   {
     "id": "klotho",
     "name": "Klotho",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Klotho_001.png&w=1920",
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_klotho_001.png",
     "element": null,
-    "weapon_types": [
-      "Rapier",
-      "Staff",
-      "book"
-    ]
+    "weapon_types": []
   },
   {
     "id": "klotho",
     "name": "Klotho",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Klotho_001.png&w=1920",
-    "element": null,
-    "weapon_types": [
-      "Rapier",
-      "Staff",
-      "book"
-    ]
-  },
-  {
-    "id": "liz",
-    "name": "Liz",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Liz_001.png",
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_klotho_001.png",
     "element": null,
     "weapon_types": []
   },
@@ -468,25 +489,57 @@
     "weapon_types": []
   },
   {
-    "id": "manny",
-    "name": "Manny",
+    "id": "liz",
+    "name": "Liz",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Liz_001.png",
+    "element": null,
+    "weapon_types": []
+  },
+  {
+    "id": "mannie",
+    "name": "Mannie",
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_manny_001.png&w=1920",
     "element": "Holy",
     "weapon_types": [
-      "Staff",
+      "Longsword",
       "Dual Swords",
-      "Longsword"
+      "Staff"
+    ]
+  },
+  {
+    "id": "mannie",
+    "name": "Mannie",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_manny_001.png&w=1920",
+    "element": "Holy",
+    "weapon_types": [
+      "Longsword",
+      "Dual Swords",
+      "Staff"
     ]
   },
   {
     "id": "manny",
     "name": "Manny",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_manny_001.png&w=1920",
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_manny_001.png",
     "element": "Holy",
+    "weapon_types": []
+  },
+  {
+    "id": "manny",
+    "name": "Manny",
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_manny_001.png",
+    "element": "Holy",
+    "weapon_types": []
+  },
+  {
+    "id": "meliodas",
+    "name": "Meliodas",
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_meliodas_001.png&w=1920",
+    "element": "Dark",
     "weapon_types": [
-      "Staff",
+      "Longsword",
       "Dual Swords",
-      "Longsword"
+      "Axe"
     ]
   },
   {
@@ -496,19 +549,8 @@
     "element": "Dark",
     "weapon_types": [
       "Longsword",
-      "Axe",
-      "Dual Swords"
-    ]
-  },
-  {
-    "id": "meliodas",
-    "name": "Meliodas",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_meliodas_001.png&w=1920",
-    "element": "Dark",
-    "weapon_types": [
-      "Longsword",
-      "Axe",
-      "Dual Swords"
+      "Dual Swords",
+      "Axe"
     ]
   },
   {
@@ -536,38 +578,38 @@
   {
     "id": "slader",
     "name": "Slader",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_slader_001.png&w=1920",
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_slader_001.png",
     "element": "Fire",
-    "weapon_types": [
-      "Greatsword",
-      "Axe",
-      "cudgel"
-    ]
+    "weapon_types": []
   },
   {
     "id": "slader",
     "name": "Slader",
+    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_slader_001.png",
+    "element": "Fire",
+    "weapon_types": []
+  },
+  {
+    "id": "slater",
+    "name": "Slater",
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_slader_001.png&w=1920",
     "element": "Fire",
     "weapon_types": [
       "Greatsword",
-      "Axe",
-      "cudgel"
+      "cudgel",
+      "Axe"
     ]
   },
   {
     "id": "slater",
     "name": "Slater",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "slater",
-    "name": "Slater",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
-    "element": null,
-    "weapon_types": []
+    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_slader_001.png&w=1920",
+    "element": "Fire",
+    "weapon_types": [
+      "Greatsword",
+      "cudgel",
+      "Axe"
+    ]
   },
   {
     "id": "tioreh",
@@ -597,9 +639,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_tristan_001.png&w=1920",
     "element": "Fire",
     "weapon_types": [
-      "Dual Swords",
       "Longsword",
-      "Greatsword"
+      "Greatsword",
+      "Dual Swords"
     ]
   },
   {
@@ -608,9 +650,9 @@
     "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_tristan_001.png&w=1920",
     "element": "Fire",
     "weapon_types": [
-      "Dual Swords",
       "Longsword",
-      "Greatsword"
+      "Greatsword",
+      "Dual Swords"
     ]
   }
 ]
