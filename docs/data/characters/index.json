@@ -178,14 +178,14 @@
   {
     "id": "dreydrin",
     "name": "Dreydrin",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_dreydrin_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
     "element": "Physical",
     "weapon_types": []
   },
   {
     "id": "dreydrin",
     "name": "Dreydrin",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_dreydrin_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
     "element": "Physical",
     "weapon_types": []
   },
@@ -280,14 +280,14 @@
   {
     "id": "gil-thunder",
     "name": "Gil Thunder",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_gil_thunder_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_gil_thunder_001.png",
     "element": "Thunder",
     "weapon_types": []
   },
   {
     "id": "gil-thunder",
     "name": "Gil Thunder",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_gil_thunder_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_gil_thunder_001.png",
     "element": "Thunder",
     "weapon_types": []
   },
@@ -470,14 +470,14 @@
   {
     "id": "klotho",
     "name": "Klotho",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_klotho_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_klotho_001.png",
     "element": null,
     "weapon_types": []
   },
   {
     "id": "klotho",
     "name": "Klotho",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_klotho_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_klotho_001.png",
     "element": null,
     "weapon_types": []
   },
@@ -520,14 +520,14 @@
   {
     "id": "manny",
     "name": "Manny",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_manny_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
     "element": "Holy",
     "weapon_types": []
   },
   {
     "id": "manny",
     "name": "Manny",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_manny_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
     "element": "Holy",
     "weapon_types": []
   },
@@ -578,14 +578,14 @@
   {
     "id": "slader",
     "name": "Slader",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_slader_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
     "element": "Fire",
     "weapon_types": []
   },
   {
     "id": "slader",
     "name": "Slader",
-    "image": "https://sunderarmor.com/7DSO/portrait_hero/slot_slader_001.png",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
     "element": "Fire",
     "weapon_types": []
   },
