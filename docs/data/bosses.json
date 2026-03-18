@@ -20,20 +20,5 @@
         "name": "Boss Guide | Seven Deadly Sins: Origin | Hideout Guides"
       }
     ]
-  },
-  {
-    "id": "red-demon",
-    "name": "Red Demon",
-    "description": "Normal Missions",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fbosses%2Fred-demon.png&w=1920",
-    "sources": [
-      {
-        "site": "7dsorigin.gg",
-        "source_url": "https://7dsorigin.gg/boss/red-demon",
-        "entity_type": "boss",
-        "name": "Red Demon"
-      }
-    ],
-    "url": "https://7dsorigin.gg/boss/red-demon"
   }
 ]

@@ -2,470 +2,282 @@
   {
     "id": "ban",
     "name": "Ban",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_ban_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Ban_001.png",
     "element": null,
-    "weapon_types": [
-      "Greatsword",
-      "cudgel",
-      "Gauntlets"
-    ]
+    "weapon_types": []
   },
   {
     "id": "ban",
     "name": "Ban",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_ban_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Ban_001.png",
     "element": null,
-    "weapon_types": [
-      "Greatsword",
-      "cudgel",
-      "Gauntlets"
-    ]
+    "weapon_types": []
   },
   {
     "id": "bug",
     "name": "Bug",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_bug_001.png&w=1920",
-    "element": "Dark",
-    "weapon_types": [
-      "Dual Swords",
-      "book",
-      "Axe"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_bug_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "bug",
     "name": "Bug",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_bug_001.png&w=1920",
-    "element": "Dark",
-    "weapon_types": [
-      "Dual Swords",
-      "book",
-      "Axe"
-    ]
-  },
-  {
-    "id": "clotho",
-    "name": "Clotho",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_klotho_001.png&w=1920",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_bug_001.png",
     "element": null,
-    "weapon_types": [
-      "Rapier",
-      "book",
-      "Staff"
-    ]
-  },
-  {
-    "id": "clotho",
-    "name": "Clotho",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_klotho_001.png&w=1920",
-    "element": null,
-    "weapon_types": [
-      "Rapier",
-      "book",
-      "Staff"
-    ]
+    "weapon_types": []
   },
   {
     "id": "daisy",
     "name": "Daisy",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_daisy_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "shield",
-      "book",
-      "Wand"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_daisy_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "daisy",
     "name": "Daisy",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_daisy_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "shield",
-      "book",
-      "Wand"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_daisy_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "derieri",
     "name": "Derieri",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_derieri_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Derieri_001.png",
     "element": null,
-    "weapon_types": [
-      "Greatsword",
-      "Gauntlets",
-      "Axe"
-    ]
+    "weapon_types": []
   },
   {
     "id": "derieri",
     "name": "Derieri",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_derieri_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Derieri_001.png",
     "element": null,
-    "weapon_types": [
-      "Greatsword",
-      "Gauntlets",
-      "Axe"
-    ]
+    "weapon_types": []
   },
   {
     "id": "diane",
     "name": "Diane",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_diane_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "cudgel",
-      "Gauntlets",
-      "Axe"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_diane_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "diane",
     "name": "Diane",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_diane_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "cudgel",
-      "Gauntlets",
-      "Axe"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_diane_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "drake",
     "name": "Drake",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Drake_001.png&w=1920",
-    "element": "Thunder",
-    "weapon_types": [
-      "Longsword",
-      "Greatsword",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_drake_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "drake",
     "name": "Drake",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_Drake_001.png&w=1920",
-    "element": "Thunder",
-    "weapon_types": [
-      "Longsword",
-      "Greatsword",
-      "Staff"
-    ]
-  },
-  {
-    "id": "dredrin",
-    "name": "Dredrin",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreydrin_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "shield",
-      "Rapier",
-      "Axe"
-    ]
-  },
-  {
-    "id": "dredrin",
-    "name": "Dredrin",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreydrin_001.png&w=1920",
-    "element": "Earth",
-    "weapon_types": [
-      "shield",
-      "Rapier",
-      "Axe"
-    ]
-  },
-  {
-    "id": "dreydrin",
-    "name": "Dreydrin",
-    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
-    "element": "Physical",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_drake_001.png",
+    "element": null,
     "weapon_types": []
   },
   {
     "id": "dreydrin",
     "name": "Dreydrin",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
-    "element": "Physical",
+    "element": null,
+    "weapon_types": []
+  },
+  {
+    "id": "dreydrin",
+    "name": "Dreydrin",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
+    "element": null,
     "weapon_types": []
   },
   {
     "id": "dreyfus",
     "name": "Dreyfus",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreyfus_001.png&w=1920",
-    "element": "Physical",
-    "weapon_types": [
-      "Longsword",
-      "Rapier",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreyfus_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "dreyfus",
     "name": "Dreyfus",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_dreyfus_001.png&w=1920",
-    "element": "Physical",
-    "weapon_types": [
-      "Longsword",
-      "Rapier",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreyfus_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "elaine",
     "name": "Elaine",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_elaine_001.png&w=1920",
-    "element": "Wind",
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_elaine_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "elaine",
     "name": "Elaine",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_elaine_001.png&w=1920",
-    "element": "Wind",
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_elaine_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "elizabeth",
     "name": "Elizabeth",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_elizabeth_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_elizabeth_001.png",
     "element": null,
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "weapon_types": []
   },
   {
     "id": "elizabeth",
     "name": "Elizabeth",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_elizabeth_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_elizabeth_001.png",
     "element": null,
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "weapon_types": []
   },
   {
     "id": "escanor",
     "name": "Escanor",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_escanor_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Escanor_001.png",
     "element": null,
-    "weapon_types": [
-      "Greatsword",
-      "shield",
-      "Axe"
-    ]
+    "weapon_types": []
   },
   {
     "id": "escanor",
     "name": "Escanor",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_escanor_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Escanor_001.png",
     "element": null,
-    "weapon_types": [
-      "Greatsword",
-      "shield",
-      "Axe"
-    ]
-  },
-  {
-    "id": "gil-thunder",
-    "name": "Gil Thunder",
-    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_gil_thunder_001.png",
-    "element": "Thunder",
     "weapon_types": []
   },
   {
     "id": "gil-thunder",
     "name": "Gil Thunder",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_gil_thunder_001.png",
-    "element": "Thunder",
+    "element": null,
+    "weapon_types": []
+  },
+  {
+    "id": "gil-thunder",
+    "name": "Gil Thunder",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_gil_thunder_001.png",
+    "element": null,
     "weapon_types": []
   },
   {
     "id": "gilthunder",
     "name": "Gilthunder",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gilthunder_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
     "element": null,
-    "weapon_types": [
-      "Longsword",
-      "shield",
-      "Lance"
-    ]
+    "weapon_types": []
   },
   {
     "id": "gilthunder",
     "name": "Gilthunder",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gilthunder_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
     "element": null,
-    "weapon_types": [
-      "Longsword",
-      "shield",
-      "Lance"
-    ]
+    "weapon_types": []
   },
   {
     "id": "gowther",
     "name": "Gowther",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gowther_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gowther_001.png",
     "element": null,
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "weapon_types": []
   },
   {
     "id": "gowther",
     "name": "Gowther",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_gowther_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gowther_001.png",
     "element": null,
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "weapon_types": []
   },
   {
     "id": "griamore",
     "name": "Griamore",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_griamore_001.png&w=1920",
-    "element": "Physical",
-    "weapon_types": [
-      "shield",
-      "cudgel",
-      "Gauntlets"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_griamore_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "griamore",
     "name": "Griamore",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_griamore_001.png&w=1920",
-    "element": "Physical",
-    "weapon_types": [
-      "shield",
-      "cudgel",
-      "Gauntlets"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_griamore_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "guila",
     "name": "Guila",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_guila_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "shield",
-      "Rapier",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_guila_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "guila",
     "name": "Guila",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_guila_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "shield",
-      "Rapier",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_guila_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "hendrickson",
     "name": "Hendrickson",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_hendrickson_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "Longsword",
-      "Dual Swords",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_hendrickson_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "hendrickson",
     "name": "Hendrickson",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_hendrickson_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "Longsword",
-      "Dual Swords",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_hendrickson_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "howzer",
     "name": "Howzer",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_howzer_001.png&w=1920",
-    "element": "Wind",
-    "weapon_types": [
-      "cudgel",
-      "Gauntlets",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_howzer_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "howzer",
     "name": "Howzer",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_howzer_001.png&w=1920",
-    "element": "Wind",
-    "weapon_types": [
-      "cudgel",
-      "Gauntlets",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_howzer_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "jericho",
     "name": "Jericho",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_jericho_001.png&w=1920",
-    "element": "Ice",
-    "weapon_types": [
-      "Dual Swords",
-      "Rapier",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_jericho_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "jericho",
     "name": "Jericho",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_jericho_001.png&w=1920",
-    "element": "Ice",
-    "weapon_types": [
-      "Dual Swords",
-      "Rapier",
-      "Lance"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_jericho_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "king",
     "name": "King",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_king_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_king_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "king",
     "name": "King",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_king_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_king_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "klotho",
@@ -496,163 +308,101 @@
     "weapon_types": []
   },
   {
-    "id": "mannie",
-    "name": "Mannie",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_manny_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "Longsword",
-      "Dual Swords",
-      "Staff"
-    ]
-  },
-  {
-    "id": "mannie",
-    "name": "Mannie",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_manny_001.png&w=1920",
-    "element": "Holy",
-    "weapon_types": [
-      "Longsword",
-      "Dual Swords",
-      "Staff"
-    ]
-  },
-  {
     "id": "manny",
     "name": "Manny",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
-    "element": "Holy",
+    "element": null,
     "weapon_types": []
   },
   {
     "id": "manny",
     "name": "Manny",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
-    "element": "Holy",
+    "element": null,
     "weapon_types": []
   },
   {
     "id": "meliodas",
     "name": "Meliodas",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_meliodas_001.png&w=1920",
-    "element": "Dark",
-    "weapon_types": [
-      "Longsword",
-      "Dual Swords",
-      "Axe"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_meliodas_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "meliodas",
     "name": "Meliodas",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_meliodas_001.png&w=1920",
-    "element": "Dark",
-    "weapon_types": [
-      "Longsword",
-      "Dual Swords",
-      "Axe"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_meliodas_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "merlin",
     "name": "Merlin",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_merlin_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_merlin_001.png",
     "element": null,
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "weapon_types": []
   },
   {
     "id": "merlin",
     "name": "Merlin",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_merlin_001.png&w=1920",
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_merlin_001.png",
     "element": null,
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
-  },
-  {
-    "id": "slader",
-    "name": "Slader",
-    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
-    "element": "Fire",
     "weapon_types": []
   },
   {
     "id": "slader",
     "name": "Slader",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
-    "element": "Fire",
+    "element": null,
+    "weapon_types": []
+  },
+  {
+    "id": "slader",
+    "name": "Slader",
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
+    "element": null,
     "weapon_types": []
   },
   {
     "id": "slater",
     "name": "Slater",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_slader_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "Greatsword",
-      "cudgel",
-      "Axe"
-    ]
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "slater",
     "name": "Slater",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_slader_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "Greatsword",
-      "cudgel",
-      "Axe"
-    ]
+    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "tioreh",
     "name": "Tioreh",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_tioreh_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tioreh_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "tioreh",
     "name": "Tioreh",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_tioreh_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "book",
-      "Wand",
-      "Staff"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tioreh_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "tristan",
     "name": "Tristan",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_tristan_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "Longsword",
-      "Greatsword",
-      "Dual Swords"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tristan_001.png",
+    "element": null,
+    "weapon_types": []
   },
   {
     "id": "tristan",
     "name": "Tristan",
-    "image": "https://7dsorigin.gg/_next/image?q=75&url=%2Fimages%2Fcharacters%2Fbig%2FBig_tristan_001.png&w=1920",
-    "element": "Fire",
-    "weapon_types": [
-      "Longsword",
-      "Greatsword",
-      "Dual Swords"
-    ]
+    "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tristan_001.png",
+    "element": null,
+    "weapon_types": []
   }
 ]
