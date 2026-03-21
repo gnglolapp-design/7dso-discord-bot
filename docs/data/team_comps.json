@@ -1,1 +1,922 @@
-[]
+[
+  {
+    "id": "bug-axe",
+    "name": "Bug Axe",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Bug Axe"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Bug Axe"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "bug-axe",
+    "name": "Bug Axe",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Bug Axe"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Bug Axe"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "daisy-book",
+    "name": "Daisy Book",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Daisy Book"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "daisy-book",
+    "name": "Daisy Book",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Daisy Book"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "diane-axe",
+    "name": "Diane Axe",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Diane Axe"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "diane-axe",
+    "name": "Diane Axe",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Diane Axe"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "drake-longsword",
+    "name": "Drake Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Drake Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "drake-longsword",
+    "name": "Drake Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Drake Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "dreydrin-axe",
+    "name": "Dreydrin Axe",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreydrin Axe"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreydrin Axe"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "dreydrin-axe",
+    "name": "Dreydrin Axe",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreydrin Axe"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreydrin Axe"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "dreyfus-longsword",
+    "name": "Dreyfus Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreyfus Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "dreyfus-longsword",
+    "name": "Dreyfus Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreyfus Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "dreyfus-rapier",
+    "name": "Dreyfus Rapier",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreyfus Rapier"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "dreyfus-rapier",
+    "name": "Dreyfus Rapier",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Dreyfus Rapier"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "elaine-book",
+    "name": "Elaine Book",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Elaine Book"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "elaine-book",
+    "name": "Elaine Book",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Elaine Book"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "elaine-staff",
+    "name": "Elaine Staff",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Elaine Staff"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "elaine-staff",
+    "name": "Elaine Staff",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Elaine Staff"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "elaine-wand",
+    "name": "Elaine Wand",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Elaine Wand"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "elaine-wand",
+    "name": "Elaine Wand",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Elaine Wand"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "gilthunder-sword-shield",
+    "name": "Gilthunder Sword & Shield",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Gilthunder Sword & Shield"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "gilthunder-sword-shield",
+    "name": "Gilthunder Sword & Shield",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Gilthunder Sword & Shield"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "guila-rapier",
+    "name": "Guila Rapier",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Guila Rapier"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "guila-rapier",
+    "name": "Guila Rapier",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Guila Rapier"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "guila-sword-shield",
+    "name": "Guila Sword & Shield",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Guila Sword & Shield"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "guila-sword-shield",
+    "name": "Guila Sword & Shield",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Guila Sword & Shield"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "hendrickson-lance",
+    "name": "Hendrickson Lance",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Lance"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Lance"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "hendrickson-lance",
+    "name": "Hendrickson Lance",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Lance"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Lance"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "hendrickson-longsword",
+    "name": "Hendrickson Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Longsword"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "hendrickson-longsword",
+    "name": "Hendrickson Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Longsword"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Hendrickson Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "howzer-gauntlets",
+    "name": "Howzer Gauntlets",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Howzer Gauntlets"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "howzer-gauntlets",
+    "name": "Howzer Gauntlets",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Howzer Gauntlets"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "howzer-nunchaku",
+    "name": "Howzer Nunchaku",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Howzer Nunchaku"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "howzer-nunchaku",
+    "name": "Howzer Nunchaku",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Howzer Nunchaku"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "jericho-dual-swords",
+    "name": "Jericho Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Jericho Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "jericho-dual-swords",
+    "name": "Jericho Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Jericho Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "jericho-rapier",
+    "name": "Jericho Rapier",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Jericho Rapier"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "jericho-rapier",
+    "name": "Jericho Rapier",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Jericho Rapier"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "manny-dual-swords",
+    "name": "Manny Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Manny Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "manny-dual-swords",
+    "name": "Manny Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Manny Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "manny-longsword",
+    "name": "Manny Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Manny Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "manny-longsword",
+    "name": "Manny Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Manny Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "manny-staff",
+    "name": "Manny Staff",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Manny Staff"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "manny-staff",
+    "name": "Manny Staff",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Manny Staff"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "meliodas-dual-swords",
+    "name": "Meliodas Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Meliodas Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "meliodas-dual-swords",
+    "name": "Meliodas Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Meliodas Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "meliodas-longsword",
+    "name": "Meliodas Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Meliodas Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "meliodas-longsword",
+    "name": "Meliodas Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Meliodas Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "slader-greatsword",
+    "name": "Slader Greatsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Slader Greatsword"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Slader Greatsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "slader-greatsword",
+    "name": "Slader Greatsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Slader Greatsword"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Slader Greatsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tioreh-wand",
+    "name": "Tioreh Wand",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tioreh-wand",
+    "name": "Tioreh Wand",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tioreh Wand"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tristan-dual-swords",
+    "name": "Tristan Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Dual Swords"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tristan-dual-swords",
+    "name": "Tristan Dual Swords",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Dual Swords"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Dual Swords"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tristan-longsword",
+    "name": "Tristan Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Longsword"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  },
+  {
+    "id": "tristan-longsword",
+    "name": "Tristan Longsword",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Longsword"
+      },
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions",
+        "entity_type": "team_comp",
+        "name": "Tristan Longsword"
+      }
+    ],
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/team-compositions"
+  }
+]

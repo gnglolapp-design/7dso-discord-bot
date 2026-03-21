@@ -3,7 +3,26 @@
     "id": "bug",
     "name": "Bug",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/bug",
+        "entity_type": "character",
+        "name": "Bug"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/bug/",
@@ -12,14 +31,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_bug_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/bug/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/bug"
   },
   {
     "id": "bug",
     "name": "Bug",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/bug",
+        "entity_type": "character",
+        "name": "Bug"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/bug/",
@@ -28,14 +66,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_bug_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/bug/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/bug"
   },
   {
     "id": "daisy",
     "name": "Daisy",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/daisy",
+        "entity_type": "character",
+        "name": "Daisy"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/daisy/",
@@ -44,14 +103,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_daisy_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/daisy/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/daisy"
   },
   {
     "id": "daisy",
     "name": "Daisy",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/daisy",
+        "entity_type": "character",
+        "name": "Daisy"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/daisy/",
@@ -60,14 +140,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_daisy_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/daisy/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/daisy"
   },
   {
     "id": "diane",
     "name": "Diane",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/diane",
+        "entity_type": "character",
+        "name": "Diane"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/diane/",
@@ -76,14 +177,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_diane_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/diane/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/diane"
   },
   {
     "id": "diane",
     "name": "Diane",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/diane",
+        "entity_type": "character",
+        "name": "Diane"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/diane/",
@@ -92,14 +214,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_diane_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/diane/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/diane"
   },
   {
     "id": "drake",
     "name": "Drake",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/drake",
+        "entity_type": "character",
+        "name": "Drake"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/drake/",
@@ -108,14 +251,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_drake_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/drake/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/drake"
   },
   {
     "id": "drake",
     "name": "Drake",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/drake",
+        "entity_type": "character",
+        "name": "Drake"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/drake/",
@@ -124,14 +288,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_drake_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/drake/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/drake"
   },
   {
     "id": "dreydrin",
     "name": "Dreydrin",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreydrin",
+        "entity_type": "character",
+        "name": "Dreydrin"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/dreydrin/",
@@ -140,14 +323,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/dreydrin/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreydrin"
   },
   {
     "id": "dreydrin",
     "name": "Dreydrin",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreydrin",
+        "entity_type": "character",
+        "name": "Dreydrin"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/dreydrin/",
@@ -156,14 +358,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreydrin_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/dreydrin/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreydrin"
   },
   {
     "id": "dreyfus",
     "name": "Dreyfus",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreyfus",
+        "entity_type": "character",
+        "name": "Dreyfus"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/dreyfus/",
@@ -172,14 +393,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreyfus_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/dreyfus/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreyfus"
   },
   {
     "id": "dreyfus",
     "name": "Dreyfus",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreyfus",
+        "entity_type": "character",
+        "name": "Dreyfus"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/dreyfus/",
@@ -188,14 +428,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_dreyfus_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/dreyfus/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/dreyfus"
   },
   {
     "id": "elaine",
     "name": "Elaine",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/elaine",
+        "entity_type": "character",
+        "name": "Elaine"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/elaine/",
@@ -204,14 +465,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_elaine_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/elaine/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/elaine"
   },
   {
     "id": "elaine",
     "name": "Elaine",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/elaine",
+        "entity_type": "character",
+        "name": "Elaine"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/elaine/",
@@ -220,8 +502,8 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_elaine_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/elaine/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/elaine"
   },
   {
     "id": "gil-thunder",
@@ -256,10 +538,87 @@
     "url": "https://genshin.gg/7dso/characters/gilthunder/"
   },
   {
+    "id": "gilthunder",
+    "name": "Gilthunder",
+    "description": "All-Lightning SR character. Essential for the Mines mission where his Lightning Spear adventure skill is required to redirect mine carts. Lance applies Paralysis via Shock combo for powerful damage windows; Sword & Shield provides a reflective Lightning Barrier; Longsword spreads Shock to multiple enemies.",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/gil-thunder",
+        "entity_type": "character",
+        "name": "Gilthunder"
+      }
+    ],
+    "character_image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
+    "source_count": 1,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/gil-thunder"
+  },
+  {
+    "id": "gilthunder",
+    "name": "Gilthunder",
+    "description": "All-Lightning SR character. Essential for the Mines mission where his Lightning Spear adventure skill is required to redirect mine carts. Lance applies Paralysis via Shock combo for powerful damage windows; Sword & Shield provides a reflective Lightning Barrier; Longsword spreads Shock to multiple enemies.",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/gil-thunder",
+        "entity_type": "character",
+        "name": "Gilthunder"
+      }
+    ],
+    "character_image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
+    "source_count": 1,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/gil-thunder"
+  },
+  {
     "id": "griamore",
     "name": "Griamore",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/griamore",
+        "entity_type": "character",
+        "name": "Griamore"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/griamore/",
@@ -268,14 +627,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_griamore_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/griamore/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/griamore"
   },
   {
     "id": "griamore",
     "name": "Griamore",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/griamore",
+        "entity_type": "character",
+        "name": "Griamore"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/griamore/",
@@ -284,14 +662,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_griamore_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/griamore/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/griamore"
   },
   {
     "id": "guila",
     "name": "Guila",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/guila",
+        "entity_type": "character",
+        "name": "Guila"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/guila/",
@@ -300,14 +699,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_guila_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/guila/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/guila"
   },
   {
     "id": "guila",
     "name": "Guila",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/guila",
+        "entity_type": "character",
+        "name": "Guila"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/guila/",
@@ -316,14 +736,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_guila_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/guila/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/guila"
   },
   {
     "id": "hendrickson",
     "name": "Hendrickson",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/hendrickson",
+        "entity_type": "character",
+        "name": "Hendrickson"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/hendrickson/",
@@ -332,14 +771,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_hendrickson_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/hendrickson/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/hendrickson"
   },
   {
     "id": "hendrickson",
     "name": "Hendrickson",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/hendrickson",
+        "entity_type": "character",
+        "name": "Hendrickson"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/hendrickson/",
@@ -348,14 +806,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_hendrickson_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/hendrickson/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/hendrickson"
   },
   {
     "id": "howzer",
     "name": "Howzer",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/howzer",
+        "entity_type": "character",
+        "name": "Howzer"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/howzer/",
@@ -364,14 +841,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_howzer_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/howzer/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/howzer"
   },
   {
     "id": "howzer",
     "name": "Howzer",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/howzer",
+        "entity_type": "character",
+        "name": "Howzer"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/howzer/",
@@ -380,14 +876,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_howzer_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/howzer/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/howzer"
   },
   {
     "id": "jericho",
     "name": "Jericho",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/jericho",
+        "entity_type": "character",
+        "name": "Jericho"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/jericho/",
@@ -396,14 +913,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_jericho_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/jericho/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/jericho"
   },
   {
     "id": "jericho",
     "name": "Jericho",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/jericho",
+        "entity_type": "character",
+        "name": "Jericho"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/jericho/",
@@ -412,14 +950,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_jericho_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/jericho/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/jericho"
   },
   {
     "id": "king",
     "name": "King",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/king",
+        "entity_type": "character",
+        "name": "King"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/king/",
@@ -428,14 +987,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_king_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/king/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/king"
   },
   {
     "id": "king",
     "name": "King",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/king",
+        "entity_type": "character",
+        "name": "King"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/king/",
@@ -444,8 +1024,8 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_king_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/king/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/king"
   },
   {
     "id": "klotho",
@@ -483,7 +1063,28 @@
     "id": "manny",
     "name": "Manny",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/manny",
+        "entity_type": "character",
+        "name": "Manny"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/manny/",
@@ -492,14 +1093,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/manny/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/manny"
   },
   {
     "id": "manny",
     "name": "Manny",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/manny",
+        "entity_type": "character",
+        "name": "Manny"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/manny/",
@@ -508,14 +1130,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/manny/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/manny"
   },
   {
     "id": "meliodas",
     "name": "Meliodas",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/meliodas",
+        "entity_type": "character",
+        "name": "Meliodas"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/meliodas/",
@@ -524,14 +1167,35 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_meliodas_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/meliodas/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/meliodas"
   },
   {
     "id": "meliodas",
     "name": "Meliodas",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/meliodas",
+        "entity_type": "character",
+        "name": "Meliodas"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/meliodas/",
@@ -540,8 +1204,8 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_meliodas_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/meliodas/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/meliodas"
   },
   {
     "id": "slader",
@@ -576,10 +1240,91 @@
     "url": "https://genshin.gg/7dso/characters/slader/"
   },
   {
+    "id": "slater",
+    "name": "Slater",
+    "description": "An original character with stylish, badass animations. Greatsword leverages Fire Burst for Enhanced Special Attack bursts; Axe builds Bleed stacks for sustained DOT and guaranteed Crits on the Ultimate; Nunchucks is a unique tag-rotation specialist that restores Tag Points on Burst activation and boosts Tag Skill team damage.",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/slader",
+        "entity_type": "character",
+        "name": "Slater"
+      }
+    ],
+    "character_image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
+    "source_count": 1,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/slader"
+  },
+  {
+    "id": "slater",
+    "name": "Slater",
+    "description": "An original character with stylish, badass animations. Greatsword leverages Fire Burst for Enhanced Special Attack bursts; Axe builds Bleed stacks for sustained DOT and guaranteed Crits on the Ultimate; Nunchucks is a unique tag-rotation specialist that restores Tag Points on Burst activation and boosts Tag Skill team damage.",
+    "base_stats": {
+      "attack": "250",
+      "defense": "200",
+      "max_hp": "2,000",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "80",
+      "block": "50",
+      "crit_rate": "10.0%",
+      "crit_damage": "25.0%",
+      "crit_res": "3.0%",
+      "crit_dmg_res": "10.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/slader",
+        "entity_type": "character",
+        "name": "Slater"
+      }
+    ],
+    "character_image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
+    "source_count": 1,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/slader"
+  },
+  {
     "id": "tioreh",
     "name": "Tioreh",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tioreh",
+        "entity_type": "character",
+        "name": "Tioreh"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/tioreh/",
@@ -588,14 +1333,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tioreh_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/tioreh/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tioreh"
   },
   {
     "id": "tioreh",
     "name": "Tioreh",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tioreh",
+        "entity_type": "character",
+        "name": "Tioreh"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/tioreh/",
@@ -604,14 +1368,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tioreh_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/tioreh/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tioreh"
   },
   {
     "id": "tristan",
     "name": "Tristan",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tristan",
+        "entity_type": "character",
+        "name": "Tristan"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/tristan/",
@@ -620,14 +1403,33 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tristan_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/tristan/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tristan"
   },
   {
     "id": "tristan",
     "name": "Tristan",
     "description": "Tier List",
+    "base_stats": {
+      "attack": "200",
+      "defense": "160",
+      "max_hp": "1,200",
+      "pvp_dmg_inc": "150",
+      "pvp_dmg_dec": "125",
+      "accuracy": "50",
+      "block": "30",
+      "crit_rate": "5.0%",
+      "crit_damage": "15.0%",
+      "block_dmg_res": "20.0%",
+      "move_speed": "5.0%"
+    },
     "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tristan",
+        "entity_type": "character",
+        "name": "Tristan"
+      },
       {
         "site": "genshin.gg",
         "source_url": "https://genshin.gg/7dso/characters/tristan/",
@@ -636,7 +1438,7 @@
       }
     ],
     "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_tristan_001.png",
-    "source_count": 1,
-    "url": "https://genshin.gg/7dso/characters/tristan/"
+    "source_count": 2,
+    "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/tristan"
   }
 ]
