@@ -112,20 +112,6 @@
     "weapon_types": []
   },
   {
-    "id": "gilthunder",
-    "name": "Gilthunder",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "gilthunder",
-    "name": "Gilthunder",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
     "id": "griamore",
     "name": "Griamore",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_griamore_001.png",
@@ -262,20 +248,6 @@
     "id": "slader",
     "name": "Slader",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "slater",
-    "name": "Slater",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "slater",
-    "name": "Slater",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
     "element": null,
     "weapon_types": []
   },
