@@ -604,33 +604,45 @@
   {
     "id": "escanor",
     "name": "Escanor",
-    "description": "Escanor",
+    "description": "Tier List",
     "sources": [
       {
         "site": "hideoutgacha.com",
         "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/escanor",
         "entity_type": "character",
         "name": "Escanor"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/escanor/",
+        "entity_type": "character",
+        "name": "Escanor"
       }
     ],
-    "character_image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Escanor_001.png",
-    "source_count": 1,
+    "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_escanor_001.png",
+    "source_count": 2,
     "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/escanor"
   },
   {
     "id": "escanor",
     "name": "Escanor",
-    "description": "Escanor",
+    "description": "Tier List",
     "sources": [
       {
         "site": "hideoutgacha.com",
         "source_url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/escanor",
         "entity_type": "character",
         "name": "Escanor"
+      },
+      {
+        "site": "genshin.gg",
+        "source_url": "https://genshin.gg/7dso/characters/escanor/",
+        "entity_type": "character",
+        "name": "Escanor"
       }
     ],
-    "character_image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Escanor_001.png",
-    "source_count": 1,
+    "character_image": "https://sunderarmor.com/7DSO/Live/portraits/slot_escanor_001.png",
+    "source_count": 2,
     "url": "https://www.hideoutgacha.com/games/seven-deadly-sins-origin/characters/escanor"
   },
   {
