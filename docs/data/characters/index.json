@@ -1,19 +1,5 @@
 [
   {
-    "id": "ban",
-    "name": "Ban",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Ban_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "ban",
-    "name": "Ban",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Ban_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
     "id": "bug",
     "name": "Bug",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_bug_001.png",
@@ -38,20 +24,6 @@
     "id": "daisy",
     "name": "Daisy",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_daisy_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "derieri",
-    "name": "Derieri",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Derieri_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "derieri",
-    "name": "Derieri",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Derieri_001.png",
     "element": null,
     "weapon_types": []
   },
@@ -126,20 +98,6 @@
     "weapon_types": []
   },
   {
-    "id": "elizabeth",
-    "name": "Elizabeth",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_elizabeth_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "elizabeth",
-    "name": "Elizabeth",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_elizabeth_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
     "id": "escanor",
     "name": "Escanor",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_escanor_001.png",
@@ -164,34 +122,6 @@
     "id": "gil-thunder",
     "name": "Gil Thunder",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_gil_thunder_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "gilthunder",
-    "name": "Gilthunder",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "gilthunder",
-    "name": "Gilthunder",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gil_thunder_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "gowther",
-    "name": "Gowther",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gowther_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "gowther",
-    "name": "Gowther",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_gowther_001.png",
     "element": null,
     "weapon_types": []
   },
@@ -294,20 +224,6 @@
     "weapon_types": []
   },
   {
-    "id": "liz",
-    "name": "Liz",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Liz_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "liz",
-    "name": "Liz",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_Liz_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
     "id": "manny",
     "name": "Manny",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_manny_001.png",
@@ -336,20 +252,6 @@
     "weapon_types": []
   },
   {
-    "id": "merlin",
-    "name": "Merlin",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_merlin_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "merlin",
-    "name": "Merlin",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_merlin_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
     "id": "slader",
     "name": "Slader",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
@@ -360,20 +262,6 @@
     "id": "slader",
     "name": "Slader",
     "image": "https://sunderarmor.com/7DSO/Live/portraits/slot_slader_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "slater",
-    "name": "Slater",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
-    "element": null,
-    "weapon_types": []
-  },
-  {
-    "id": "slater",
-    "name": "Slater",
-    "image": "https://www.hideoutgacha.com/images/7ds/Portrait_hero/Portrait_hero_slot_slader_001.png",
     "element": null,
     "weapon_types": []
   },
