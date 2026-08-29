@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": "guider-aither-epic-seven-hero-hideout-guides",
+    "name": "Guider Aither - Epic Seven Hero | Hideout Guides",
+    "description": "Epic Seven",
+    "image": null,
+    "site": "hideoutgacha.com",
+    "url": "https://www.hideoutgacha.com/games/epic-seven/characters/guider-aither",
+    "sections": [],
+    "images": [],
+    "page_title": "Guider Aither - Epic Seven Hero | Hideout Guides",
+    "page_summary": "Epic Seven",
+    "page_text": "",
+    "page_type": "page",
+    "sources": [
+      {
+        "site": "hideoutgacha.com",
+        "source_url": "https://www.hideoutgacha.com/games/epic-seven/characters/guider-aither",
+        "entity_type": "guide",
+        "name": "Guider Aither - Epic Seven Hero | Hideout Guides"
+      }
+    ]
+  }
+]
